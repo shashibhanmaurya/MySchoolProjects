@@ -61,7 +61,7 @@ namespace MySchoolSolution
                             }
                         }
                         else
-                        { NewAdmission =true; }
+                        { NewAdmission = true; }
 
                         if (DateTime.Now.Month >= 4)
                         {
@@ -196,6 +196,23 @@ namespace MySchoolSolution
                 MessageBox.Show(ex.Message);
             }
         }
+        private void CheckSibling()
+        {
+
+            if (txtSiblingNo.Text != "" && txtSiblingNo.Text != "0")
+            {
+                SqlParameter[] m = new SqlParameter[2];
+                m[0] = new SqlParameter("@Session", lblSession.Text);
+                m[1] = new SqlParameter("@Sibling", txtSiblingNo.Text);
+                DataSet ds = SqlHelper.ExecuteDataset(Connection.Connection_string, "GetSiblingNumberBySession", m);
+                if (ds.Tables[0].Rows.Count-1 > 0)
+                {
+                    btnSibling.Text = (ds.Tables[0].Rows.Count-1).ToString() + " Sibling Found";
+                    btnSibling.Visible = true;
+                }
+            }
+
+        }
         private void CalculateTotal()
         {
             txtTotalAmount.Text = (Convert.ToDouble(txtRegistrationFeeAct.Text) + Convert.ToDouble(txtAdmissionFeeAct.Text) + Convert.ToDouble(txtAnnualChargesAct.Text)
@@ -207,7 +224,7 @@ namespace MySchoolSolution
         private void FeeDeposit_Load(object sender, EventArgs e)
         {
             lblSession.Text = CommonFunctions.GetCurrentSession;
-           
+
 
             Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             AppSettingsSection appSettings = configuration.AppSettings;
@@ -235,9 +252,6 @@ namespace MySchoolSolution
         {
             if (txtAdmissionNo.Text != string.Empty)
             {
-
-
-
                 try
                 {
                     if (txtAdmissionNo.Text != string.Empty)
@@ -253,6 +267,8 @@ namespace MySchoolSolution
                             txtName.Text = dr["Name"].ToString();
                             txtClass.Text = dr["Class"].ToString();
                             txtAccountNo.Text = txtAdmissionNo.Text;
+                            txtSiblingNo.Text = dr["SiblingSchool"].ToString();
+                            CheckSibling();
                         }
 
                     }

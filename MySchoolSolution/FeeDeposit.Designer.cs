@@ -90,6 +90,8 @@
             this.ddlPaymentType = new System.Windows.Forms.ComboBox();
             this.lblReceiptNo = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.btnSibling = new System.Windows.Forms.Button();
+            this.txtSiblingNo = new System.Windows.Forms.TextBox();
             button9 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gvPaidMonths)).BeginInit();
             this.SuspendLayout();
@@ -789,11 +791,36 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // btnSibling
+            // 
+            this.btnSibling.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
+            this.btnSibling.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSibling.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSibling.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnSibling.Location = new System.Drawing.Point(226, 73);
+            this.btnSibling.Name = "btnSibling";
+            this.btnSibling.Size = new System.Drawing.Size(136, 24);
+            this.btnSibling.TabIndex = 220;
+            this.btnSibling.Text = "Sibling Found";
+            this.btnSibling.UseCompatibleTextRendering = true;
+            this.btnSibling.UseVisualStyleBackColor = true;
+            this.btnSibling.Visible = false;
+            // 
+            // txtSiblingNo
+            // 
+            this.txtSiblingNo.Location = new System.Drawing.Point(590, 77);
+            this.txtSiblingNo.Name = "txtSiblingNo";
+            this.txtSiblingNo.Size = new System.Drawing.Size(100, 20);
+            this.txtSiblingNo.TabIndex = 221;
+            this.txtSiblingNo.Visible = false;
+            // 
             // FeeDeposit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(802, 463);
+            this.Controls.Add(this.txtSiblingNo);
+            this.Controls.Add(this.btnSibling);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.lblReceiptNo);
             this.Controls.Add(this.ddlPaymentType);
@@ -928,5 +955,7 @@
         private System.Windows.Forms.ComboBox ddlPaymentType;
         private System.Windows.Forms.Label lblReceiptNo;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnSibling;
+        private System.Windows.Forms.TextBox txtSiblingNo;
     }
 }

@@ -19,7 +19,7 @@ namespace MySchoolSolution
         {
 
             InitializeComponent();
-           
+
 
 
         }
@@ -62,18 +62,19 @@ namespace MySchoolSolution
             }
             try
             {
+
                 if (txtName.Text == "")
                 {
                     MessageBox.Show("Name  can not be blank");
                     txtName.Focus();
                 }
-               
+
                 else if (txtFatherName.Text == "")
                 {
                     MessageBox.Show("Please fill Father name ");
                     txtFatherName.Focus();
                 }
-                
+
                 else if (txtMotherName.Text == "")
                 {
                     MessageBox.Show("Please fill Mother name ");
@@ -108,10 +109,15 @@ namespace MySchoolSolution
                 {
                     MessageBox.Show(" Please select Gender ");
                 }
-              
+
                 else if (Category == "")
                 {
                     MessageBox.Show("Please select  Category ");
+                }
+               else if (GetSiblingNumber() == true)
+                {
+                    MessageBox.Show("Two siblings already added!");
+                    txtSibling.Text = string.Empty;
                 }
                 else
                 {
@@ -219,6 +225,39 @@ namespace MySchoolSolution
             //ddlClass.ValueMember = "Classes";
 
         }
+        private void GetRollNoByClass()
+        {
+            SqlParameter[] m = new SqlParameter[2];
+            m[0] = new SqlParameter("@Session", lblSession.Text);
+            m[1] = new SqlParameter("@Class", ddlClass.Text);
+            DataSet ds = new DataSet();
+            ds = SqlHelper.ExecuteDataset(Connection.Connection_string, CommandType.StoredProcedure, "GetRollNumberByClass", m);
+            if (ds.Tables[0].Rows[0]["RollNo"] != null && Convert.ToString(ds.Tables[0].Rows[0]["RollNo"]) != string.Empty)
+            {
+                txtRollNo.Text = ds.Tables[0].Rows[0]["RollNo"].ToString();
+            }
+            else
+            {
+                txtRollNo.Text = "1";
+            }
+
+        }
+        private bool GetSiblingNumber()
+        {
+            bool b = false;
+            if (txtSibling.Text != "" && txtSibling.Text != "0")
+            {
+                SqlParameter[] m = new SqlParameter[2];
+                m[0] = new SqlParameter("@Session", lblSession.Text);
+                m[1] = new SqlParameter("@Sibling", txtSibling.Text);
+                DataSet ds = SqlHelper.ExecuteDataset(Connection.Connection_string, "GetSiblingNumberBySession", m);
+                if (ds.Tables[0].Rows.Count >= 2)
+                    b = true;
+                else
+                    b = false;
+            }
+            return b;
+        }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
@@ -226,7 +265,9 @@ namespace MySchoolSolution
             txtDOB.Text = dt.ToString("dd-MMM-yy");
         }
 
-
-
+        private void ddlClass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GetRollNoByClass();
+        }
     }
 }

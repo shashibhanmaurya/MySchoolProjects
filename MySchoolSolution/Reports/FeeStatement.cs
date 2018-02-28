@@ -21,6 +21,7 @@ namespace MySchoolSolution.Reports
             Reports.ReportSudentFeeStatementByClassAndSession mr = new Reports.ReportSudentFeeStatementByClassAndSession();
             mr.SetParameterValue("@Session","2017-2018");
             mr.SetParameterValue("@Class", "Lkg");
+           // mr.PrintToPrinter();
             // mr.SetDataSource(ds1);
             mr.SetDatabaseLogon("sa", "abc123");
             rvFeeStatement.ReportSource = mr;

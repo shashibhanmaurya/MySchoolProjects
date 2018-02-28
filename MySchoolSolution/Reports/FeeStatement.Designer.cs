@@ -49,7 +49,9 @@
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.Controls.Add(this.rvFeeStatement);
             this.Name = "FeeStatement";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FeeStatement";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FeeStatement_Load);
             this.ResumeLayout(false);
 

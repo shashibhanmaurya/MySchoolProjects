@@ -17,9 +17,9 @@ namespace MySchoolSolution
             Application.SetCompatibleTextRenderingDefault(false);
            // Application.Run(new Form1());
           //  Application.Run(new Students());
-            //Application.Run(new HomeMenu());
+            Application.Run(new HomeMenu());
             //Application.Run(new FeeDeposit());
-            Application.Run(new Reports.FeeStatement());
+            //Application.Run(new Reports.FeeStatement());
         }
     }
 }

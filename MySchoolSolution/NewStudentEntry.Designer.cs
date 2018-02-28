@@ -278,8 +278,9 @@
             // 
             // txtAdm1
             // 
-            this.txtAdm1.Location = new System.Drawing.Point(143, 37);
+            this.txtAdm1.Location = new System.Drawing.Point(146, 37);
             this.txtAdm1.Name = "txtAdm1";
+            this.txtAdm1.ReadOnly = true;
             this.txtAdm1.Size = new System.Drawing.Size(44, 20);
             this.txtAdm1.TabIndex = 200;
             // 
@@ -287,6 +288,7 @@
             // 
             this.txtAdmissionNo.Location = new System.Drawing.Point(188, 37);
             this.txtAdmissionNo.Name = "txtAdmissionNo";
+            this.txtAdmissionNo.ReadOnly = true;
             this.txtAdmissionNo.Size = new System.Drawing.Size(74, 20);
             this.txtAdmissionNo.TabIndex = 201;
             // 
@@ -294,7 +296,7 @@
             // 
             this.TxtAdmissionDate.Location = new System.Drawing.Point(404, 37);
             this.TxtAdmissionDate.Name = "TxtAdmissionDate";
-            this.TxtAdmissionDate.Size = new System.Drawing.Size(92, 20);
+            this.TxtAdmissionDate.Size = new System.Drawing.Size(128, 20);
             this.TxtAdmissionDate.TabIndex = 202;
             // 
             // label2
@@ -309,7 +311,7 @@
             // 
             // txtAccNo
             // 
-            this.txtAccNo.Location = new System.Drawing.Point(558, 37);
+            this.txtAccNo.Location = new System.Drawing.Point(588, 37);
             this.txtAccNo.Name = "txtAccNo";
             this.txtAccNo.Size = new System.Drawing.Size(71, 20);
             this.txtAccNo.TabIndex = 203;
@@ -318,7 +320,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(508, 39);
+            this.label6.Location = new System.Drawing.Point(538, 39);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 18);
             this.label6.TabIndex = 40;
@@ -646,6 +648,7 @@
             // 
             this.txtRollNo.Location = new System.Drawing.Point(488, 134);
             this.txtRollNo.Name = "txtRollNo";
+            this.txtRollNo.ReadOnly = true;
             this.txtRollNo.Size = new System.Drawing.Size(73, 20);
             this.txtRollNo.TabIndex = 77;
             // 
@@ -1304,6 +1307,7 @@
             this.ddlClass.Name = "ddlClass";
             this.ddlClass.Size = new System.Drawing.Size(121, 21);
             this.ddlClass.TabIndex = 147;
+            this.ddlClass.SelectedIndexChanged += new System.EventHandler(this.ddlClass_SelectedIndexChanged);
             // 
             // label19
             // 

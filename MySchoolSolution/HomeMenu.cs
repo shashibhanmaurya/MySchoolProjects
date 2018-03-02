@@ -26,8 +26,8 @@ namespace MySchoolSolution
 
         private void studentListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Students ne = new Students();
-            ne.Show();
+            //Students ne = new Students();
+            //ne.Show();
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -81,6 +81,88 @@ namespace MySchoolSolution
             Inventory inv = new Inventory();
             inv.Show();
             //this.Hide();
+        }
+
+        private void byNameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Search ss = new Search();
+            Control[] ctrl = ss.Controls.Find("grpSearchByName", true);
+            GroupBox grpSearchByName = ctrl.FirstOrDefault() as GroupBox;
+            grpSearchByName.Visible = true;
+            ss.Show();
+
+        }
+
+        private void byFatherNameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Search ss = new Search();
+            Control[] ctrl = ss.Controls.Find("grpSearchByFather", true);
+            GroupBox grpSearchByFather = ctrl.FirstOrDefault() as GroupBox;
+            grpSearchByFather.Visible = true;
+            ss.Show();
+        }
+
+        private void byRollNumberToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Search ss = new Search();
+            Control[] ctrl = ss.Controls.Find("grpRollNo", true);
+            GroupBox grpRollNo = ctrl.FirstOrDefault() as GroupBox;
+            grpRollNo.Visible = true;
+            ss.Show();
+        }
+
+        private void admissionBetweenTwoDatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Search ss = new Search();
+            Control[] ctrl = ss.Controls.Find("grpBetweenDates", true);
+            GroupBox grpBetweenDates = ctrl.FirstOrDefault() as GroupBox;
+            grpBetweenDates.Visible = true;
+            ss.Show();
+        }
+
+        private void betweenTwoDatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FeeSearch ss = new FeeSearch();
+            Control[] ctrl = ss.Controls.Find("grpBetweenDates", true);
+            GroupBox grpBetweenDates = ctrl.FirstOrDefault() as GroupBox;
+            grpBetweenDates.Visible = true;
+            ss.Show();
+            
+        }
+
+        private void byClassAndSessionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FeeSearch ss = new FeeSearch();
+            Control[] ctrl = ss.Controls.Find("groupSessionAndClass", true);
+            GroupBox groupSessionAndClass = ctrl.FirstOrDefault() as GroupBox;
+            groupSessionAndClass.Visible = true;
+            ss.Show();
+            
+        }
+
+        private void forASeesionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FeeSearch ss = new FeeSearch();
+            Control[] ctrl = ss.Controls.Find("groupSearchBySession", true);
+            GroupBox groupSearchBySession = ctrl.FirstOrDefault() as GroupBox;
+            groupSearchBySession.Visible = true;
+            ss.Show();
+            
+        }
+
+        private void overAllCollectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FeeSearch ss = new FeeSearch();
+            Control[] ctrl = ss.Controls.Find("groupSelectAll", true);
+            GroupBox groupSelectAll = ctrl.FirstOrDefault() as GroupBox;
+            groupSelectAll.Visible = true;
+            ss.Show();
+            
+        }
+
+        private void studentWiseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

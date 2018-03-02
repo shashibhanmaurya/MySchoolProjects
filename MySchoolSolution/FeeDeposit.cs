@@ -427,5 +427,13 @@ namespace MySchoolSolution
             ss.Show();
             this.Close();
         }
+
+        private void btnSibling_Click(object sender, EventArgs e)
+        {
+            CheckSiblingDetails ss = new CheckSiblingDetails();
+            ss.siblingNo = Convert.ToInt32(txtSiblingNo.Text);
+            ss.Show();
+            this.Close();
+        }
     }
 }

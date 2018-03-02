@@ -29,15 +29,6 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Button button9;
-            this.button10 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.buttonPrint = new System.Windows.Forms.Button();
-            this.btn_Save = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.txtTotalAmount = new System.Windows.Forms.RichTextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -89,9 +80,18 @@
             this.label19 = new System.Windows.Forms.Label();
             this.ddlPaymentType = new System.Windows.Forms.ComboBox();
             this.lblReceiptNo = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnSibling = new System.Windows.Forms.Button();
             this.txtSiblingNo = new System.Windows.Forms.TextBox();
+            this.btnSibling = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.buttonPrint = new System.Windows.Forms.Button();
+            this.btn_Save = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             button9 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gvPaidMonths)).BeginInit();
             this.SuspendLayout();
@@ -111,135 +111,6 @@
             button9.Text = "Delete";
             button9.UseCompatibleTextRendering = true;
             button9.UseVisualStyleBackColor = true;
-            // 
-            // button10
-            // 
-            this.button10.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button10.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button10.Location = new System.Drawing.Point(664, 390);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 33);
-            this.button10.TabIndex = 203;
-            this.button10.Text = "Exit";
-            this.button10.UseCompatibleTextRendering = true;
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // button8
-            // 
-            this.button8.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button8.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button8.Location = new System.Drawing.Point(517, 390);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 33);
-            this.button8.TabIndex = 201;
-            this.button8.Text = "Edit";
-            this.button8.UseCompatibleTextRendering = true;
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // buttonPrint
-            // 
-            this.buttonPrint.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            this.buttonPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonPrint.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPrint.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonPrint.Location = new System.Drawing.Point(444, 390);
-            this.buttonPrint.Name = "buttonPrint";
-            this.buttonPrint.Size = new System.Drawing.Size(75, 33);
-            this.buttonPrint.TabIndex = 200;
-            this.buttonPrint.Text = "Print";
-            this.buttonPrint.UseCompatibleTextRendering = true;
-            this.buttonPrint.UseVisualStyleBackColor = true;
-            this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
-            // 
-            // btn_Save
-            // 
-            this.btn_Save.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            this.btn_Save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Save.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Save.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Save.Location = new System.Drawing.Point(370, 390);
-            this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(75, 33);
-            this.btn_Save.TabIndex = 199;
-            this.btn_Save.Text = "Save";
-            this.btn_Save.UseCompatibleTextRendering = true;
-            this.btn_Save.UseVisualStyleBackColor = true;
-            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
-            // 
-            // button5
-            // 
-            this.button5.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button5.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button5.Location = new System.Drawing.Point(223, 390);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 33);
-            this.button5.TabIndex = 198;
-            this.button5.Text = "Top";
-            this.button5.UseCompatibleTextRendering = true;
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button4.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Location = new System.Drawing.Point(295, 390);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 33);
-            this.button4.TabIndex = 197;
-            this.button4.Text = "Bottom";
-            this.button4.UseCompatibleTextRendering = true;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(150, 390);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 33);
-            this.button3.TabIndex = 196;
-            this.button3.Text = "Prev";
-            this.button3.UseCompatibleTextRendering = true;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(77, 390);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 33);
-            this.button2.TabIndex = 195;
-            this.button2.Text = "Next";
-            this.button2.UseCompatibleTextRendering = true;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(5, 390);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 33);
-            this.button1.TabIndex = 194;
-            this.button1.Text = "Add";
-            this.button1.UseCompatibleTextRendering = true;
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // txtTotalAmount
             // 
@@ -776,20 +647,13 @@
             this.lblReceiptNo.Size = new System.Drawing.Size(0, 18);
             this.lblReceiptNo.TabIndex = 218;
             // 
-            // btnSearch
+            // txtSiblingNo
             // 
-            this.btnSearch.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSearch.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSearch.Location = new System.Drawing.Point(103, 73);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(86, 24);
-            this.btnSearch.TabIndex = 219;
-            this.btnSearch.Text = "Search?";
-            this.btnSearch.UseCompatibleTextRendering = true;
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.txtSiblingNo.Location = new System.Drawing.Point(590, 77);
+            this.txtSiblingNo.Name = "txtSiblingNo";
+            this.txtSiblingNo.Size = new System.Drawing.Size(100, 20);
+            this.txtSiblingNo.TabIndex = 221;
+            this.txtSiblingNo.Visible = false;
             // 
             // btnSibling
             // 
@@ -805,14 +669,151 @@
             this.btnSibling.UseCompatibleTextRendering = true;
             this.btnSibling.UseVisualStyleBackColor = true;
             this.btnSibling.Visible = false;
+            this.btnSibling.Click += new System.EventHandler(this.btnSibling_Click);
             // 
-            // txtSiblingNo
+            // btnSearch
             // 
-            this.txtSiblingNo.Location = new System.Drawing.Point(590, 77);
-            this.txtSiblingNo.Name = "txtSiblingNo";
-            this.txtSiblingNo.Size = new System.Drawing.Size(100, 20);
-            this.txtSiblingNo.TabIndex = 221;
-            this.txtSiblingNo.Visible = false;
+            this.btnSearch.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
+            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSearch.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSearch.Location = new System.Drawing.Point(103, 73);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(86, 24);
+            this.btnSearch.TabIndex = 219;
+            this.btnSearch.Text = "Search?";
+            this.btnSearch.UseCompatibleTextRendering = true;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // button10
+            // 
+            this.button10.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
+            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button10.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button10.Location = new System.Drawing.Point(664, 390);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(75, 33);
+            this.button10.TabIndex = 203;
+            this.button10.Text = "Exit";
+            this.button10.UseCompatibleTextRendering = true;
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // button8
+            // 
+            this.button8.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
+            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button8.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button8.Location = new System.Drawing.Point(517, 390);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 33);
+            this.button8.TabIndex = 201;
+            this.button8.Text = "Edit";
+            this.button8.UseCompatibleTextRendering = true;
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // buttonPrint
+            // 
+            this.buttonPrint.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
+            this.buttonPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonPrint.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPrint.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonPrint.Location = new System.Drawing.Point(444, 390);
+            this.buttonPrint.Name = "buttonPrint";
+            this.buttonPrint.Size = new System.Drawing.Size(75, 33);
+            this.buttonPrint.TabIndex = 200;
+            this.buttonPrint.Text = "Print";
+            this.buttonPrint.UseCompatibleTextRendering = true;
+            this.buttonPrint.UseVisualStyleBackColor = true;
+            this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
+            // 
+            // btn_Save
+            // 
+            this.btn_Save.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
+            this.btn_Save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Save.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Save.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Save.Location = new System.Drawing.Point(370, 390);
+            this.btn_Save.Name = "btn_Save";
+            this.btn_Save.Size = new System.Drawing.Size(75, 33);
+            this.btn_Save.TabIndex = 199;
+            this.btn_Save.Text = "Save";
+            this.btn_Save.UseCompatibleTextRendering = true;
+            this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button5.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button5.Location = new System.Drawing.Point(223, 390);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 33);
+            this.button5.TabIndex = 198;
+            this.button5.Text = "Top";
+            this.button5.UseCompatibleTextRendering = true;
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button4.Location = new System.Drawing.Point(295, 390);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 33);
+            this.button4.TabIndex = 197;
+            this.button4.Text = "Bottom";
+            this.button4.UseCompatibleTextRendering = true;
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button3.Location = new System.Drawing.Point(150, 390);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 33);
+            this.button3.TabIndex = 196;
+            this.button3.Text = "Prev";
+            this.button3.UseCompatibleTextRendering = true;
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.Location = new System.Drawing.Point(77, 390);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 33);
+            this.button2.TabIndex = 195;
+            this.button2.Text = "Next";
+            this.button2.UseCompatibleTextRendering = true;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Location = new System.Drawing.Point(5, 390);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 33);
+            this.button1.TabIndex = 194;
+            this.button1.Text = "Add";
+            this.button1.UseCompatibleTextRendering = true;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // FeeDeposit
             // 

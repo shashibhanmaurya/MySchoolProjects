@@ -44,8 +44,6 @@ namespace MySchoolSolution
             m[1] = new SqlParameter("@Class", comboClass.Text);
             m[2] = new SqlParameter("@Session", lblSession.Text);
 
-
-
             DataSet ds = SqlHelper.ExecuteDataset(Connection.Connection_string, "StudentInfo_SearchForFeeDeposit", m);
             gvStudents.DataSource = ds.Tables[0];
 
@@ -62,6 +60,11 @@ namespace MySchoolSolution
                 fd.Show();
                 this.Close();
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

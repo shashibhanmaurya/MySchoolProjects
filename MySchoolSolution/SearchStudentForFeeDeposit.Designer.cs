@@ -34,14 +34,16 @@
             this.gvStudents = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtStudentName = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.gvStudents)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblSession
             // 
             this.lblSession.AutoSize = true;
             this.lblSession.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSession.Location = new System.Drawing.Point(307, 8);
+            this.lblSession.Location = new System.Drawing.Point(107, 13);
             this.lblSession.Name = "lblSession";
             this.lblSession.Size = new System.Drawing.Size(49, 13);
             this.lblSession.TabIndex = 0;
@@ -51,17 +53,18 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(237, 43);
+            this.label2.Location = new System.Drawing.Point(37, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Class";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // comboClass
             // 
             this.comboClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboClass.FormattingEnabled = true;
-            this.comboClass.Location = new System.Drawing.Point(336, 40);
+            this.comboClass.Location = new System.Drawing.Point(136, 45);
             this.comboClass.Name = "comboClass";
             this.comboClass.Size = new System.Drawing.Size(121, 21);
             this.comboClass.TabIndex = 3;
@@ -72,7 +75,7 @@
             this.gvStudents.AllowUserToAddRows = false;
             this.gvStudents.AllowUserToDeleteRows = false;
             this.gvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvStudents.Location = new System.Drawing.Point(3, 104);
+            this.gvStudents.Location = new System.Drawing.Point(3, 143);
             this.gvStudents.Name = "gvStudents";
             this.gvStudents.ReadOnly = true;
             this.gvStudents.Size = new System.Drawing.Size(712, 336);
@@ -83,7 +86,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(237, 70);
+            this.label1.Location = new System.Drawing.Point(37, 75);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 13);
             this.label1.TabIndex = 5;
@@ -92,30 +95,40 @@
             // txtStudentName
             // 
             this.txtStudentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStudentName.Location = new System.Drawing.Point(336, 67);
+            this.txtStudentName.Location = new System.Drawing.Point(136, 72);
             this.txtStudentName.Name = "txtStudentName";
             this.txtStudentName.Size = new System.Drawing.Size(121, 20);
             this.txtStudentName.TabIndex = 6;
             this.txtStudentName.TextChanged += new System.EventHandler(this.txtStudentName_TextChanged);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtStudentName);
+            this.groupBox1.Controls.Add(this.lblSession);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.comboClass);
+            this.groupBox1.Location = new System.Drawing.Point(235, 9);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(290, 124);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            // 
             // SearchStudentForFeeDeposit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(716, 452);
-            this.Controls.Add(this.txtStudentName);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(716, 495);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gvStudents);
-            this.Controls.Add(this.comboClass);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.lblSession);
             this.Name = "SearchStudentForFeeDeposit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SearchStudentForFeeDeposit";
             this.Load += new System.EventHandler(this.SearchStudentForFeeDeposit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvStudents)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -127,5 +140,6 @@
         private System.Windows.Forms.DataGridView gvStudents;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtStudentName;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

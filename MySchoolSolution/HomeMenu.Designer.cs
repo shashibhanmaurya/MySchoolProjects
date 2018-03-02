@@ -37,7 +37,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.masterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.studentEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,10 +62,18 @@
             this.addToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.feeStructureListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutUsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.byNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.byFatherNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.byRollNumberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.admissionBetweenTwoDatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.feeCollectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.betweenTwoDatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.byClassAndSessionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.forASeesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.overAllCollectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.studentWiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -174,28 +181,18 @@
             this.menuStrip1.BackgroundImage = global::MySchoolSolution.Properties.Resources.bottonav_midbg;
             this.menuStrip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.windowToolStripMenuItem,
             this.masterToolStripMenuItem,
             this.dailyTransactionsToolStripMenuItem,
             this.reportToolStripMenuItem,
-            this.sMSToolStripMenuItem,
-            this.changePasswordToolStripMenuItem,
-            this.exitToolStripMenuItem,
-            this.aboutUsToolStripMenuItem});
+            this.exitToolStripMenuItem});
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.menuStrip1.ShowItemToolTips = true;
-            this.menuStrip1.Size = new System.Drawing.Size(699, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(429, 25);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // windowToolStripMenuItem
-            // 
-            this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
-            this.windowToolStripMenuItem.Size = new System.Drawing.Size(75, 21);
-            this.windowToolStripMenuItem.Text = "Window";
             // 
             // masterToolStripMenuItem
             // 
@@ -238,9 +235,15 @@
             // 
             // studentListToolStripMenuItem
             // 
+            this.studentListToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.byNameToolStripMenuItem,
+            this.byFatherNameToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.byRollNumberToolStripMenuItem,
+            this.admissionBetweenTwoDatesToolStripMenuItem});
             this.studentListToolStripMenuItem.Name = "studentListToolStripMenuItem";
-            this.studentListToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            this.studentListToolStripMenuItem.Text = "Students List";
+            this.studentListToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.studentListToolStripMenuItem.Text = "Search Student";
             this.studentListToolStripMenuItem.Click += new System.EventHandler(this.studentListToolStripMenuItem_Click);
             // 
             // employeeToolStripMenuItem
@@ -333,20 +336,20 @@
             // addToolStripMenuItem2
             // 
             this.addToolStripMenuItem2.Name = "addToolStripMenuItem2";
-            this.addToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.addToolStripMenuItem2.Size = new System.Drawing.Size(123, 22);
             this.addToolStripMenuItem2.Text = "Add";
             this.addToolStripMenuItem2.Click += new System.EventHandler(this.addToolStripMenuItem2_Click);
             // 
             // editToolStripMenuItem3
             // 
             this.editToolStripMenuItem3.Name = "editToolStripMenuItem3";
-            this.editToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.editToolStripMenuItem3.Size = new System.Drawing.Size(123, 22);
             this.editToolStripMenuItem3.Text = "Edit";
             // 
             // deleteToolStripMenuItem2
             // 
             this.deleteToolStripMenuItem2.Name = "deleteToolStripMenuItem2";
-            this.deleteToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.deleteToolStripMenuItem2.Size = new System.Drawing.Size(123, 22);
             this.deleteToolStripMenuItem2.Text = "Delete";
             // 
             // otherExpensesToolStripMenuItem
@@ -367,14 +370,15 @@
             // addToolStripMenuItem4
             // 
             this.addToolStripMenuItem4.Name = "addToolStripMenuItem4";
-            this.addToolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
+            this.addToolStripMenuItem4.Size = new System.Drawing.Size(104, 22);
             this.addToolStripMenuItem4.Text = "Add";
             this.addToolStripMenuItem4.Click += new System.EventHandler(this.addToolStripMenuItem4_Click);
             // 
             // reportToolStripMenuItem
             // 
             this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.feeStructureListToolStripMenuItem});
+            this.feeStructureListToolStripMenuItem,
+            this.feeCollectionToolStripMenuItem});
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
             this.reportToolStripMenuItem.Size = new System.Drawing.Size(69, 21);
             this.reportToolStripMenuItem.Text = "Report";
@@ -386,18 +390,6 @@
             this.feeStructureListToolStripMenuItem.Text = "FeeStructureList";
             this.feeStructureListToolStripMenuItem.Click += new System.EventHandler(this.feeStructureListToolStripMenuItem_Click);
             // 
-            // sMSToolStripMenuItem
-            // 
-            this.sMSToolStripMenuItem.Name = "sMSToolStripMenuItem";
-            this.sMSToolStripMenuItem.Size = new System.Drawing.Size(52, 21);
-            this.sMSToolStripMenuItem.Text = "SMS";
-            // 
-            // changePasswordToolStripMenuItem
-            // 
-            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(149, 21);
-            this.changePasswordToolStripMenuItem.Text = "Change Password";
-            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
@@ -405,11 +397,86 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // aboutUsToolStripMenuItem
+            // byNameToolStripMenuItem
             // 
-            this.aboutUsToolStripMenuItem.Name = "aboutUsToolStripMenuItem";
-            this.aboutUsToolStripMenuItem.Size = new System.Drawing.Size(86, 21);
-            this.aboutUsToolStripMenuItem.Text = "About Us";
+            this.byNameToolStripMenuItem.Name = "byNameToolStripMenuItem";
+            this.byNameToolStripMenuItem.Size = new System.Drawing.Size(296, 22);
+            this.byNameToolStripMenuItem.Text = "By Name";
+            this.byNameToolStripMenuItem.Click += new System.EventHandler(this.byNameToolStripMenuItem_Click);
+            // 
+            // byFatherNameToolStripMenuItem
+            // 
+            this.byFatherNameToolStripMenuItem.Name = "byFatherNameToolStripMenuItem";
+            this.byFatherNameToolStripMenuItem.Size = new System.Drawing.Size(296, 22);
+            this.byFatherNameToolStripMenuItem.Text = "By Father Name";
+            this.byFatherNameToolStripMenuItem.Click += new System.EventHandler(this.byFatherNameToolStripMenuItem_Click);
+            // 
+            // byRollNumberToolStripMenuItem
+            // 
+            this.byRollNumberToolStripMenuItem.Name = "byRollNumberToolStripMenuItem";
+            this.byRollNumberToolStripMenuItem.Size = new System.Drawing.Size(296, 22);
+            this.byRollNumberToolStripMenuItem.Text = "By Roll Number";
+            this.byRollNumberToolStripMenuItem.Click += new System.EventHandler(this.byRollNumberToolStripMenuItem_Click);
+            // 
+            // admissionBetweenTwoDatesToolStripMenuItem
+            // 
+            this.admissionBetweenTwoDatesToolStripMenuItem.Name = "admissionBetweenTwoDatesToolStripMenuItem";
+            this.admissionBetweenTwoDatesToolStripMenuItem.Size = new System.Drawing.Size(296, 22);
+            this.admissionBetweenTwoDatesToolStripMenuItem.Text = "Admission Between Two Dates";
+            this.admissionBetweenTwoDatesToolStripMenuItem.Click += new System.EventHandler(this.admissionBetweenTwoDatesToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(296, 22);
+            this.toolStripMenuItem1.Text = "By Admission Number";
+            // 
+            // feeCollectionToolStripMenuItem
+            // 
+            this.feeCollectionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.betweenTwoDatesToolStripMenuItem,
+            this.byClassAndSessionToolStripMenuItem,
+            this.forASeesionToolStripMenuItem,
+            this.overAllCollectionToolStripMenuItem,
+            this.studentWiseToolStripMenuItem});
+            this.feeCollectionToolStripMenuItem.Name = "feeCollectionToolStripMenuItem";
+            this.feeCollectionToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.feeCollectionToolStripMenuItem.Text = "Fee Collection";
+            // 
+            // betweenTwoDatesToolStripMenuItem
+            // 
+            this.betweenTwoDatesToolStripMenuItem.Name = "betweenTwoDatesToolStripMenuItem";
+            this.betweenTwoDatesToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.betweenTwoDatesToolStripMenuItem.Text = "Between Two Dates";
+            this.betweenTwoDatesToolStripMenuItem.Click += new System.EventHandler(this.betweenTwoDatesToolStripMenuItem_Click);
+            // 
+            // byClassAndSessionToolStripMenuItem
+            // 
+            this.byClassAndSessionToolStripMenuItem.Name = "byClassAndSessionToolStripMenuItem";
+            this.byClassAndSessionToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.byClassAndSessionToolStripMenuItem.Text = "By Class and Session";
+            this.byClassAndSessionToolStripMenuItem.Click += new System.EventHandler(this.byClassAndSessionToolStripMenuItem_Click);
+            // 
+            // forASeesionToolStripMenuItem
+            // 
+            this.forASeesionToolStripMenuItem.Name = "forASeesionToolStripMenuItem";
+            this.forASeesionToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.forASeesionToolStripMenuItem.Text = "For A Seesion";
+            this.forASeesionToolStripMenuItem.Click += new System.EventHandler(this.forASeesionToolStripMenuItem_Click);
+            // 
+            // overAllCollectionToolStripMenuItem
+            // 
+            this.overAllCollectionToolStripMenuItem.Name = "overAllCollectionToolStripMenuItem";
+            this.overAllCollectionToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.overAllCollectionToolStripMenuItem.Text = "OverAll Collection";
+            this.overAllCollectionToolStripMenuItem.Click += new System.EventHandler(this.overAllCollectionToolStripMenuItem_Click);
+            // 
+            // studentWiseToolStripMenuItem
+            // 
+            this.studentWiseToolStripMenuItem.Name = "studentWiseToolStripMenuItem";
+            this.studentWiseToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.studentWiseToolStripMenuItem.Text = "Student Wise";
+            this.studentWiseToolStripMenuItem.Click += new System.EventHandler(this.studentWiseToolStripMenuItem_Click);
             // 
             // HomeMenu
             // 
@@ -446,7 +513,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem windowToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem masterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem studentEntryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
@@ -465,10 +531,7 @@
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem feeStructureListToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sMSToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutUsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem otherExpensesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem employeeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem3;
@@ -476,5 +539,16 @@
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem inventoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem byNameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem byFatherNameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem byRollNumberToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem admissionBetweenTwoDatesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem feeCollectionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem betweenTwoDatesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem byClassAndSessionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem forASeesionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem overAllCollectionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem studentWiseToolStripMenuItem;
     }
 }

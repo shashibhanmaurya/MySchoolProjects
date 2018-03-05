@@ -95,6 +95,11 @@ namespace MySchoolSolution
                     MessageBox.Show("Please fill City  ");
                     txtCity.Focus();
                 }
+                else if (txtPhone.Text == "")
+                {
+                    MessageBox.Show("Please Enter Phone Number! ");
+                    txtPhone.Focus();
+                }
                 else if (txtAadharNo.Text == "")
                 {
                     MessageBox.Show("Please fill your Adhar Card number ");

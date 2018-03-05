@@ -201,6 +201,7 @@
             this.txtTransportFee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTransportFee.Location = new System.Drawing.Point(144, 221);
             this.txtTransportFee.Name = "txtTransportFee";
+            this.txtTransportFee.ReadOnly = true;
             this.txtTransportFee.Size = new System.Drawing.Size(94, 21);
             this.txtTransportFee.TabIndex = 34;
             this.txtTransportFee.Text = "0.00";
@@ -211,6 +212,7 @@
             this.txtQuarterlyFee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuarterlyFee.Location = new System.Drawing.Point(144, 197);
             this.txtQuarterlyFee.Name = "txtQuarterlyFee";
+            this.txtQuarterlyFee.ReadOnly = true;
             this.txtQuarterlyFee.Size = new System.Drawing.Size(94, 21);
             this.txtQuarterlyFee.TabIndex = 33;
             this.txtQuarterlyFee.Text = "0.00";
@@ -221,6 +223,7 @@
             this.txtTutionFee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTutionFee.Location = new System.Drawing.Point(144, 173);
             this.txtTutionFee.Name = "txtTutionFee";
+            this.txtTutionFee.ReadOnly = true;
             this.txtTutionFee.Size = new System.Drawing.Size(94, 21);
             this.txtTutionFee.TabIndex = 32;
             this.txtTutionFee.Text = "0.00";
@@ -231,6 +234,7 @@
             this.txtAnnualCharges.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAnnualCharges.Location = new System.Drawing.Point(144, 149);
             this.txtAnnualCharges.Name = "txtAnnualCharges";
+            this.txtAnnualCharges.ReadOnly = true;
             this.txtAnnualCharges.Size = new System.Drawing.Size(94, 21);
             this.txtAnnualCharges.TabIndex = 31;
             this.txtAnnualCharges.Text = "0.00";
@@ -243,6 +247,7 @@
             this.txtAdmissionFee.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.txtAdmissionFee.Location = new System.Drawing.Point(144, 125);
             this.txtAdmissionFee.Name = "txtAdmissionFee";
+            this.txtAdmissionFee.ReadOnly = true;
             this.txtAdmissionFee.Size = new System.Drawing.Size(94, 21);
             this.txtAdmissionFee.TabIndex = 30;
             this.txtAdmissionFee.Text = "0.00";
@@ -253,6 +258,7 @@
             this.txtRegistrationFee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRegistrationFee.Location = new System.Drawing.Point(144, 101);
             this.txtRegistrationFee.Name = "txtRegistrationFee";
+            this.txtRegistrationFee.ReadOnly = true;
             this.txtRegistrationFee.Size = new System.Drawing.Size(94, 21);
             this.txtRegistrationFee.TabIndex = 29;
             this.txtRegistrationFee.Text = "0.00";
@@ -391,6 +397,7 @@
             this.txtTransportFeeAct.ForeColor = System.Drawing.SystemColors.Window;
             this.txtTransportFeeAct.Location = new System.Drawing.Point(387, 221);
             this.txtTransportFeeAct.Name = "txtTransportFeeAct";
+            this.txtTransportFeeAct.ReadOnly = true;
             this.txtTransportFeeAct.Size = new System.Drawing.Size(111, 21);
             this.txtTransportFeeAct.TabIndex = 59;
             this.txtTransportFeeAct.Text = "0.00";
@@ -403,6 +410,7 @@
             this.txtQuarterlyFeeAct.ForeColor = System.Drawing.SystemColors.Window;
             this.txtQuarterlyFeeAct.Location = new System.Drawing.Point(387, 197);
             this.txtQuarterlyFeeAct.Name = "txtQuarterlyFeeAct";
+            this.txtQuarterlyFeeAct.ReadOnly = true;
             this.txtQuarterlyFeeAct.Size = new System.Drawing.Size(111, 21);
             this.txtQuarterlyFeeAct.TabIndex = 58;
             this.txtQuarterlyFeeAct.Text = "0.00";
@@ -415,6 +423,7 @@
             this.txtTutionFeeAct.ForeColor = System.Drawing.SystemColors.Window;
             this.txtTutionFeeAct.Location = new System.Drawing.Point(387, 173);
             this.txtTutionFeeAct.Name = "txtTutionFeeAct";
+            this.txtTutionFeeAct.ReadOnly = true;
             this.txtTutionFeeAct.Size = new System.Drawing.Size(111, 21);
             this.txtTutionFeeAct.TabIndex = 57;
             this.txtTutionFeeAct.Text = "0.00";
@@ -427,6 +436,7 @@
             this.txtAnnualChargesAct.ForeColor = System.Drawing.SystemColors.Window;
             this.txtAnnualChargesAct.Location = new System.Drawing.Point(387, 149);
             this.txtAnnualChargesAct.Name = "txtAnnualChargesAct";
+            this.txtAnnualChargesAct.ReadOnly = true;
             this.txtAnnualChargesAct.Size = new System.Drawing.Size(111, 21);
             this.txtAnnualChargesAct.TabIndex = 56;
             this.txtAnnualChargesAct.Text = "0.00";
@@ -439,6 +449,7 @@
             this.txtAdmissionFeeAct.ForeColor = System.Drawing.SystemColors.Window;
             this.txtAdmissionFeeAct.Location = new System.Drawing.Point(387, 125);
             this.txtAdmissionFeeAct.Name = "txtAdmissionFeeAct";
+            this.txtAdmissionFeeAct.ReadOnly = true;
             this.txtAdmissionFeeAct.Size = new System.Drawing.Size(111, 21);
             this.txtAdmissionFeeAct.TabIndex = 55;
             this.txtAdmissionFeeAct.Text = "0.00";
@@ -451,6 +462,7 @@
             this.txtRegistrationFeeAct.ForeColor = System.Drawing.SystemColors.Window;
             this.txtRegistrationFeeAct.Location = new System.Drawing.Point(387, 101);
             this.txtRegistrationFeeAct.Name = "txtRegistrationFeeAct";
+            this.txtRegistrationFeeAct.ReadOnly = true;
             this.txtRegistrationFeeAct.Size = new System.Drawing.Size(111, 21);
             this.txtRegistrationFeeAct.TabIndex = 54;
             this.txtRegistrationFeeAct.Text = "0.00";
@@ -502,6 +514,7 @@
             this.txtTotalAmount.ForeColor = System.Drawing.Color.Blue;
             this.txtTotalAmount.Location = new System.Drawing.Point(387, 259);
             this.txtTotalAmount.Name = "txtTotalAmount";
+            this.txtTotalAmount.ReadOnly = true;
             this.txtTotalAmount.Size = new System.Drawing.Size(111, 27);
             this.txtTotalAmount.TabIndex = 64;
             this.txtTotalAmount.Text = "0.00";

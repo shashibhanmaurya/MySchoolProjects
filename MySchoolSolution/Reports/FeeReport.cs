@@ -16,14 +16,14 @@ namespace MySchoolSolution.Reports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class MonthlyFeeReceipt : ReportClass {
+    public class FeeReport : ReportClass {
         
-        public MonthlyFeeReceipt() {
+        public FeeReport() {
         }
         
         public override string ResourceName {
             get {
-                return "MonthlyFeeReceipt.rpt";
+                return "FeeReport.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace MySchoolSolution.Reports {
         
         public override string FullResourceName {
             get {
-                return "MySchoolSolution.Reports.MonthlyFeeReceipt.rpt";
+                return "MySchoolSolution.Reports.FeeReport.rpt";
             }
             set {
                 // Do nothing
@@ -87,20 +87,12 @@ namespace MySchoolSolution.Reports {
                 return this.ReportDefinition.Sections[4];
             }
         }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_ReceiptNo {
-            get {
-                return this.DataDefinition.ParameterFields[0];
-            }
-        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedMonthlyFeeReceipt : Component, ICachedReport {
+    public class CachedFeeReport : Component, ICachedReport {
         
-        public CachedMonthlyFeeReceipt() {
+        public CachedFeeReport() {
         }
         
         [Browsable(false)]
@@ -137,7 +129,7 @@ namespace MySchoolSolution.Reports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            MonthlyFeeReceipt rpt = new MonthlyFeeReceipt();
+            FeeReport rpt = new FeeReport();
             rpt.Site = this.Site;
             return rpt;
         }

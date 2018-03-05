@@ -72,5 +72,18 @@ namespace MySchoolSolution
         {
 
         }
+
+        private void txtAdmissionNo_TextChanged(object sender, EventArgs e)
+        {
+            if (txtRollNo.Text != string.Empty)
+            {
+                gvSearchResult.DataSource = null;
+                SqlParameter[] m = new SqlParameter[1];
+                m[0] = new SqlParameter("@AdmissionNo", txtAdmissionNo.Text);
+
+                DataSet ds = SqlHelper.ExecuteDataset(Connection.Connection_string, "StudentInfo_SearchByAdmissionNo", m);
+                gvSearchResult.DataSource = ds.Tables[0];
+            }
+        }
     }
 }

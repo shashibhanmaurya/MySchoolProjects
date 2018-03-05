@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Collections;
+using System.Globalization;
 
 namespace MySchoolSolution
 {
@@ -24,7 +25,18 @@ namespace MySchoolSolution
 
         }
 
+        private void GetBalance()
+        {
+            SqlParameter[] m = new SqlParameter[2];
 
+            m[0] = new SqlParameter("@Admission_Number", Convert.ToInt32(txtAdmissionNo.Text.Trim()));
+            m[1] = new SqlParameter("@Session", lblSession.Text);
+            SqlDataReader dr = SqlHelper.ExecuteReader(Connection.Connection_string, "SelectBalanceForStudent", m);
+            while (dr.Read())
+            {
+                txtPreviousBal.Text = dr["Balance"].ToString();
+            }
+        }
         private void GetYearlyFeeForStudent()
         {
             try
@@ -56,9 +68,12 @@ namespace MySchoolSolution
                                     DataGridViewCheckBoxCell cbCell = (DataGridViewCheckBoxCell)(gvPaidMonths.Rows[i].Cells[0]);
                                     cbCell.Value = true;
                                     cbCell.ReadOnly = true;
+                                    cbCell.Style.BackColor = Color.Green;
+                                    cbCell.Style.ForeColor = Color.Gray;
 
                                 }
                             }
+                            GetBalance();
                         }
                         else
                         { NewAdmission = true; }
@@ -71,7 +86,10 @@ namespace MySchoolSolution
                         {
                             multiplier = (9 + DateTime.Now.Month) - numberOfTotalMonthsPaid;
                         }
-
+                        if (multiplier < 0)
+                        {
+                            multiplier = 0;
+                        }
                         int k = multiplier;
                         for (int i = 0; i < gvPaidMonths.Rows.Count; i++)
                         {
@@ -205,9 +223,9 @@ namespace MySchoolSolution
                 m[0] = new SqlParameter("@Session", lblSession.Text);
                 m[1] = new SqlParameter("@Sibling", txtSiblingNo.Text);
                 DataSet ds = SqlHelper.ExecuteDataset(Connection.Connection_string, "GetSiblingNumberBySession", m);
-                if (ds.Tables[0].Rows.Count-1 > 0)
+                if (ds.Tables[0].Rows.Count - 1 > 0)
                 {
-                    btnSibling.Text = (ds.Tables[0].Rows.Count-1).ToString() + " Sibling Found";
+                    btnSibling.Text = (ds.Tables[0].Rows.Count - 1).ToString() + " Sibling Found";
                     btnSibling.Visible = true;
                 }
             }
@@ -223,7 +241,9 @@ namespace MySchoolSolution
         }
         private void FeeDeposit_Load(object sender, EventArgs e)
         {
+           
             lblSession.Text = CommonFunctions.GetCurrentSession;
+            DateTime dt = new DateTime();
 
 
             Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
@@ -246,6 +266,8 @@ namespace MySchoolSolution
             {
                 txtAdmissionNo.Text = AdmissionNo.ToString();
             }
+
+            LoadBanksForCheque();
         }
 
         private void txtAdmissionNo_TextChanged(object sender, EventArgs e)
@@ -309,13 +331,16 @@ namespace MySchoolSolution
             {
                 if ((bool)this.gvPaidMonths.CurrentCell.Value == true && gvPaidMonths.CurrentCell.ReadOnly == false)
                 {
-                    txtTutionFeeAct.Text = (Convert.ToDouble(txtTutionFeeAct.Text) + Convert.ToDouble(txtTutionFee.Text)).ToString();
+                    txtTutionFeeAct.Text = (Convert.ToDouble(txtTutionFeeAct.Text) + Convert.ToDouble(txtTutionFee.Text) - Convert.ToDouble(txtTutionFeeDisc.Text)).ToString();
+                    txtTransportFeeAct.Text = (Convert.ToDouble(txtTransportFeeAct.Text) + Convert.ToDouble(txtTransportFee.Text) - Convert.ToDouble(txtTransportFeeDisc.Text)).ToString();
                 }
                 else
                 {
                     if (gvPaidMonths.CurrentCell.ReadOnly == false)
                     {
-                        txtTutionFeeAct.Text = (Convert.ToDouble(txtTutionFeeAct.Text) - Convert.ToDouble(txtTutionFee.Text)).ToString();
+                        txtTutionFeeAct.Text = (Convert.ToDouble(txtTutionFeeAct.Text) - Convert.ToDouble(txtTutionFee.Text) + Convert.ToDouble(txtTutionFeeDisc.Text)).ToString();
+                        txtTransportFeeAct.Text = (Convert.ToDouble(txtTransportFeeAct.Text) - Convert.ToDouble(txtTransportFee.Text) + Convert.ToDouble(txtTransportFeeDisc.Text)).ToString();
+
                     }
 
                 }
@@ -345,55 +370,78 @@ namespace MySchoolSolution
                     if (Convert.ToBoolean(gvPaidMonths.Rows[i].Cells[0].Value) == true && Convert.ToBoolean(gvPaidMonths.Rows[i].Cells[0].ReadOnly == false))
                     {
                         PayingMonths = PayingMonths + "," + Convert.ToString(gvPaidMonths.Rows[i].Cells[1].Value);
-                        PayingMonthsCount = i + 1;
+                        PayingMonthsCount = PayingMonthsCount + 1;
                     }
                 }
                 //  MessageBox.Show(PayingMonthsCount.ToString());
                 //  MessageBox.Show(PayingMonths.Substring(1, PayingMonths.Length - 1));
-                PayingMonths = PayingMonths.Substring(1, PayingMonths.Length - 1);
-                SqlParameter[] m = new SqlParameter[34];
-                m[0] = new SqlParameter("@FeeId", SqlDbType.Int);
-                m[1] = new SqlParameter("@RegistrationFee", txtRegistrationFee.Text);
-                m[2] = new SqlParameter("@AddmissionFee", txtAdmissionFee.Text);
-                m[3] = new SqlParameter("@AnnualCharges", txtAnnualCharges.Text);
-                m[4] = new SqlParameter("@TutionFee", txtTutionFee.Text);
-                m[5] = new SqlParameter("@QuaterlyFee", txtQuarterlyFee.Text);
-                m[6] = new SqlParameter("@TransportFee", txtTransportFee.Text);
-                m[7] = new SqlParameter("@RegistrationFee_Disc", txtRegistrationFeeDisc.Text);
-                m[8] = new SqlParameter("@AddmissionFee_Disc", txtAdmissionFeeDisc.Text);
-                m[9] = new SqlParameter("@AnnualCharges_Disc", txtAnnualChargesDisc.Text);
-                m[10] = new SqlParameter("@TutionFee_Disc", txtTutionFeeDisc.Text);
-                m[11] = new SqlParameter("@QuaterlyFee_Disc", txtQuarterlyFeeDisc.Text);
-                m[12] = new SqlParameter("@TransportFee_Disc", txtTransportFeeDisc.Text);
-                m[13] = new SqlParameter("@Act_RegistrationFee", txtRegistrationFeeAct.Text);
-                m[14] = new SqlParameter("@Act_AddmissionFee", txtAdmissionFeeAct.Text);
-                m[15] = new SqlParameter("@Act_AnnualCharges", txtAnnualChargesAct.Text);
-                m[16] = new SqlParameter("@Act_TutionFee", txtTutionFeeAct.Text);
-                m[17] = new SqlParameter("@Act_QuaterlyFee", txtQuarterlyFeeAct.Text);
-                m[18] = new SqlParameter("@Act_TransportFee", txtTransportFeeAct.Text);
-                m[19] = new SqlParameter("@Addmission_Number", txtAdmissionNo.Text);
-                m[20] = new SqlParameter("@Name", txtName.Text);
-                m[21] = new SqlParameter("@Class", txtClass.Text);
-                m[22] = new SqlParameter("@Acc_Number", txtAccountNo.Text);
-                m[23] = new SqlParameter("@TotalAmount", txtTotalAmount.Text);
-                m[24] = new SqlParameter("@UDF1", SqlDbType.Text);
-                m[25] = new SqlParameter("@UDF2", SqlDbType.Text);
-                m[26] = new SqlParameter("@UDF3", SqlDbType.Text);
-                m[27] = new SqlParameter("@Session", lblSession.Text);
-                m[28] = new SqlParameter("@MonthCount", PayingMonthsCount);
-                m[29] = new SqlParameter("@PaidForMonths", PayingMonths);
-                m[30] = new SqlParameter("@PaidAmount", txtPaidAmount.Text);
-                m[31] = new SqlParameter("@PaymentType", ddlPaymentType.Text);
-                m[32] = new SqlParameter("@Balance", txtBalance.Text);
-                m[33] = new SqlParameter("@MiscCharges", txtMisc.Text);
-                m[0].Direction = ParameterDirection.Output;
-                SqlHelper.ExecuteNonQuery(Connection.Connection_string, CommandType.StoredProcedure, "Student_MonthlyFee_Insert", m);
-                object ivalue = m[0].Value;
-                int receiptNo = (int)ivalue;
-                if (receiptNo > 0)
-                    lblReceiptNo.Text = receiptNo.ToString();
-                MessageBox.Show("Fee Deposited Successfully");
-                AdmissionNo = 0;
+                if (PayingMonths != string.Empty)
+                {
+                    PayingMonths = PayingMonths.Substring(1, PayingMonths.Length - 1);
+                }
+                if (Convert.ToDouble(txtPaidAmount.Text) > 0)
+                {
+                    SqlParameter[] m = new SqlParameter[39];
+                    m[0] = new SqlParameter("@FeeId", SqlDbType.Int);
+                    m[1] = new SqlParameter("@RegistrationFee", txtRegistrationFee.Text);
+                    m[2] = new SqlParameter("@AddmissionFee", txtAdmissionFee.Text);
+                    m[3] = new SqlParameter("@AnnualCharges", txtAnnualCharges.Text);
+                    m[4] = new SqlParameter("@TutionFee", txtTutionFee.Text);
+                    m[5] = new SqlParameter("@QuaterlyFee", txtQuarterlyFee.Text);
+                    m[6] = new SqlParameter("@TransportFee", txtTransportFee.Text);
+                    m[7] = new SqlParameter("@RegistrationFee_Disc", txtRegistrationFeeDisc.Text);
+                    m[8] = new SqlParameter("@AddmissionFee_Disc", txtAdmissionFeeDisc.Text);
+                    m[9] = new SqlParameter("@AnnualCharges_Disc", txtAnnualChargesDisc.Text);
+                    m[10] = new SqlParameter("@TutionFee_Disc", txtTutionFeeDisc.Text);
+                    m[11] = new SqlParameter("@QuaterlyFee_Disc", txtQuarterlyFeeDisc.Text);
+                    m[12] = new SqlParameter("@TransportFee_Disc", txtTransportFeeDisc.Text);
+                    m[13] = new SqlParameter("@Act_RegistrationFee", txtRegistrationFeeAct.Text);
+                    m[14] = new SqlParameter("@Act_AddmissionFee", txtAdmissionFeeAct.Text);
+                    m[15] = new SqlParameter("@Act_AnnualCharges", txtAnnualChargesAct.Text);
+                    m[16] = new SqlParameter("@Act_TutionFee", txtTutionFeeAct.Text);
+                    m[17] = new SqlParameter("@Act_QuaterlyFee", txtQuarterlyFeeAct.Text);
+                    m[18] = new SqlParameter("@Act_TransportFee", txtTransportFeeAct.Text);
+                    m[19] = new SqlParameter("@Addmission_Number", txtAdmissionNo.Text);
+                    m[20] = new SqlParameter("@Name", txtName.Text);
+                    m[21] = new SqlParameter("@Class", txtClass.Text);
+                    m[22] = new SqlParameter("@Acc_Number", txtAccountNo.Text);
+                    m[23] = new SqlParameter("@TotalAmount", txtTotalAmount.Text);
+                    m[24] = new SqlParameter("@UDF1", SqlDbType.Text);
+                    m[25] = new SqlParameter("@UDF2", SqlDbType.Text);
+                    m[26] = new SqlParameter("@UDF3", SqlDbType.Text);
+                    m[27] = new SqlParameter("@Session", lblSession.Text);
+                    m[28] = new SqlParameter("@MonthCount", PayingMonthsCount);
+                    m[29] = new SqlParameter("@PaidForMonths", PayingMonths);
+                    m[30] = new SqlParameter("@PaidAmount", txtPaidAmount.Text);
+                    m[31] = new SqlParameter("@PaymentType", ddlPaymentType.Text);
+                    m[32] = new SqlParameter("@Balance", txtBalance.Text);
+                    m[33] = new SqlParameter("@MiscCharges", txtMisc.Text);
+                    m[34] = new SqlParameter("@ChequeNumber", string.Empty);
+                    m[35] = new SqlParameter("@BankName", string.Empty);
+                    m[36] = new SqlParameter("@ChequeDate", string.Empty);
+                    m[37] = new SqlParameter("@ChequeStatus", string.Empty);
+                    string monthName = (CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(DateTime.Now.Month)).Substring(0,3);
+                    m[38] = new SqlParameter("@PaidinMonth", monthName);
+                    if (ddlPaymentType.Text == "Cheque")
+                    {
+                        m[34] = new SqlParameter("@ChequeNumber", txtChequeNumber);
+                        m[35] = new SqlParameter("@BankName", txtBankName);
+                        m[36] = new SqlParameter("@ChequeDate", Convert.ToDateTime(dtChequeDate.Text));
+                        m[37] = new SqlParameter("@ChequeStatus", "Pending");
+                    }
+                    m[0].Direction = ParameterDirection.Output;
+                    SqlHelper.ExecuteNonQuery(Connection.Connection_string, CommandType.StoredProcedure, "Student_MonthlyFee_Insert", m);
+                    object ivalue = m[0].Value;
+                    int receiptNo = (int)ivalue;
+                    if (receiptNo > 0)
+                        lblReceiptNo.Text = receiptNo.ToString();
+                    MessageBox.Show("Fee Deposited Successfully");
+                    AdmissionNo = 0;
+                }
+                else
+                {
+                    MessageBox.Show("Please enter paid amount!");
+                }
 
             }
             catch (Exception ex)
@@ -434,6 +482,39 @@ namespace MySchoolSolution
             ss.siblingNo = Convert.ToInt32(txtSiblingNo.Text);
             ss.Show();
             this.Close();
+        }
+
+        private void ddlPaymentType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            grpChequeDetail.Visible = false;
+
+
+            if (ddlPaymentType.Text == "Cheque")
+            {
+                grpChequeDetail.Visible = true;
+
+                LoadBanksForCheque();
+
+            }
+        }
+
+        private void LoadBanksForCheque()
+        {
+            //  string ConString = ConfigurationManager.ConnectionStrings["ConString"].ConnectionString;
+
+            using (SqlConnection con = Connection.Connection_string)
+            {
+                SqlCommand cmd = new SqlCommand("SELECT BankName FROM tbl_Student_MonthlyFeeDeposit where BankName is not NULL", con);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                AutoCompleteStringCollection MyCollection = new AutoCompleteStringCollection();
+                while (reader.Read())
+                {
+                    MyCollection.Add(reader.GetString(0));
+                }
+                txtBankName.AutoCompleteCustomSource = MyCollection;
+                con.Close();
+            }
         }
     }
 }

@@ -11,6 +11,8 @@ namespace MySchoolSolution.Reports
 {
     public partial class FeeStatement : Form
     {
+        public string Session { get; set; }
+        public string Class { get; set; }
         public FeeStatement()
         {
             InitializeComponent();
@@ -19,8 +21,8 @@ namespace MySchoolSolution.Reports
         private void FeeStatement_Load(object sender, EventArgs e)
         {
             Reports.ReportSudentFeeStatementByClassAndSession mr = new Reports.ReportSudentFeeStatementByClassAndSession();
-            mr.SetParameterValue("@Session","2017-2018");
-            mr.SetParameterValue("@Class", "Lkg");
+            mr.SetParameterValue("@Session",Session);
+            mr.SetParameterValue("@Class", Class);
            // mr.PrintToPrinter();
             // mr.SetDataSource(ds1);
             mr.SetDatabaseLogon("sa", "abc123");

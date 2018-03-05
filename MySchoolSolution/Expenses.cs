@@ -25,20 +25,31 @@ namespace MySchoolSolution
         {
             try
             {
-                SqlParameter[] m = new SqlParameter[9];
-                m[0] = new SqlParameter("@Id", SqlDbType.Int);
-                m[2] = new SqlParameter("@Purpose", ddlPurpose.Text);
-                m[3] = new SqlParameter("@Quantity", txtQuantity.Text);
-                m[4] = new SqlParameter("@Amount", txtAmount.Text);
-                m[5] = new SqlParameter("@Date", txtDate.Text);
-                m[6] = new SqlParameter("@UDF1", SqlDbType.Text);
-                m[7] = new SqlParameter("@UDF2", SqlDbType.Text);
-                m[8] = new SqlParameter("@UDF3", SqlDbType.Text);
-                SqlHelper.ExecuteNonQuery(Connection.Connection_string, CommandType.StoredProcedure, "InvestmentForOtherPurposes_Insert", m);
-                MessageBox.Show("Request Submitted Successfully");
-                //InvestmentForOtherPurposes su = new InvestmentForOtherPurposes();
-                //su.Show();
-                //this.Hide();
+                if (ddlPurpose.Text == "--Select--")
+                {
+                    MessageBox.Show("Select Purpose!");
+                }
+                else if (txtQuantity.Text == "")
+                {
+                    MessageBox.Show("Select Quantity!");
+                }
+                else
+                {
+                    SqlParameter[] m = new SqlParameter[9];
+                    m[0] = new SqlParameter("@Id", SqlDbType.Int);
+                    m[2] = new SqlParameter("@Purpose", ddlPurpose.Text);
+                    m[3] = new SqlParameter("@Quantity", txtQuantity.Text);
+                    m[4] = new SqlParameter("@Amount", txtAmount.Text);
+                    m[5] = new SqlParameter("@Date", txtDate.Text);
+                    m[6] = new SqlParameter("@UDF1", SqlDbType.Text);
+                    m[7] = new SqlParameter("@UDF2", SqlDbType.Text);
+                    m[8] = new SqlParameter("@UDF3", SqlDbType.Text);
+                    SqlHelper.ExecuteNonQuery(Connection.Connection_string, CommandType.StoredProcedure, "InvestmentForOtherPurposes_Insert", m);
+                    MessageBox.Show("Request Submitted Successfully");
+                    //InvestmentForOtherPurposes su = new InvestmentForOtherPurposes();
+                    //su.Show();
+                    //this.Hide();
+                }
             }
             catch (Exception ex)
             {
@@ -53,7 +64,7 @@ namespace MySchoolSolution
             //DataTable dt = new DataTable();
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalSqlServer1"].ConnectionString);
             con.Open();
-            SqlCommand cmd = new SqlCommand("select * from tbl_OtherExpenses",con);
+            SqlCommand cmd = new SqlCommand("select * from tbl_OtherExpenses", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
             DataTable dt = new DataTable();

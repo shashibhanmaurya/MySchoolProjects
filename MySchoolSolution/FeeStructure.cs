@@ -27,7 +27,19 @@ namespace MySchoolSolution
             //if(CommonFunctions.GetCurrentSession>)
             try
             {
-                if (GetClassForNewEntry() == true)
+                if (txtRegistrationFee.Text == "")
+                {
+                    MessageBox.Show("Please Enter Registration Fee!");
+                }
+                else if (txtAdmissionFee.Text == "")
+                {
+                    MessageBox.Show("Please Enter Admission Fee!");
+                }
+                else if (txtTutionFee.Text == "")
+                {
+                    MessageBox.Show("Please Enter Tution Fee!");
+                }
+                else if (GetClassForNewEntry() == true)
                 {
                     MessageBox.Show("The Fee structure is already saved for this class and session !");
                 }

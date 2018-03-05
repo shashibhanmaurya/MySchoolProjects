@@ -19,15 +19,13 @@ namespace MySchoolSolution
         }
         private void bindFeeStructure()
         {
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalSqlServer1"].ConnectionString);
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "ClasswiseAnnualFeeStructure_SelectAll";
-            cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
+            
+              SqlParameter[] m = new SqlParameter[1];
+
+           
+            m[0] = new SqlParameter("@Session", CommonFunctions.GetCurrentSession);
+            DataSet ds = SqlHelper.ExecuteDataset(Connection.Connection_string, "ClasswiseAnnualFeeStructure_SelectAllBySession", m);
+            dataGridView1.DataSource = ds;
         }
     }
 }

@@ -36,7 +36,11 @@ namespace MySchoolSolution
             {
                 if (InventoryType == "")
                 {
-                    MessageBox.Show("Please Cheak Inventory Type");
+                    MessageBox.Show("Please Cheak Inventory Type!");
+                }
+                else if (ddlInventoryList.Text == "--Select--")
+                {
+                    MessageBox.Show("Please Select Inventory Name!");
                 }
                 else
                 {

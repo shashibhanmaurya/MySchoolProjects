@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.grpBetweenDates = new System.Windows.Forms.GroupBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.dtTo = new System.Windows.Forms.DateTimePicker();
             this.dtFrom = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,12 +44,15 @@
             this.grpRollNo = new System.Windows.Forms.GroupBox();
             this.txtRollNo = new System.Windows.Forms.TextBox();
             this.RollNo = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.grpAdmissionNo = new System.Windows.Forms.GroupBox();
+            this.txtAdmissionNo = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.grpBetweenDates.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvSearchResult)).BeginInit();
             this.grpSearchByName.SuspendLayout();
             this.grpSearchByFather.SuspendLayout();
             this.grpRollNo.SuspendLayout();
+            this.grpAdmissionNo.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpBetweenDates
@@ -67,6 +71,21 @@
             this.grpBetweenDates.TabStop = false;
             this.grpBetweenDates.Text = "Search Between Dates";
             this.grpBetweenDates.Visible = false;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
+            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSearch.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSearch.Location = new System.Drawing.Point(143, 136);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 33);
+            this.btnSearch.TabIndex = 155;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseCompatibleTextRendering = true;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // dtTo
             // 
@@ -104,9 +123,12 @@
             // 
             // gvSearchResult
             // 
+            this.gvSearchResult.AllowUserToAddRows = false;
+            this.gvSearchResult.AllowUserToDeleteRows = false;
             this.gvSearchResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvSearchResult.Location = new System.Drawing.Point(12, 223);
             this.gvSearchResult.Name = "gvSearchResult";
+            this.gvSearchResult.ReadOnly = true;
             this.gvSearchResult.Size = new System.Drawing.Size(851, 275);
             this.gvSearchResult.TabIndex = 1;
             // 
@@ -203,26 +225,43 @@
             this.RollNo.TabIndex = 1;
             this.RollNo.Text = "Roll Number";
             // 
-            // btnSearch
+            // grpAdmissionNo
             // 
-            this.btnSearch.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSearch.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSearch.Location = new System.Drawing.Point(143, 136);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 33);
-            this.btnSearch.TabIndex = 155;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseCompatibleTextRendering = true;
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.grpAdmissionNo.BackColor = System.Drawing.SystemColors.Control;
+            this.grpAdmissionNo.Controls.Add(this.txtAdmissionNo);
+            this.grpAdmissionNo.Controls.Add(this.label5);
+            this.grpAdmissionNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpAdmissionNo.Location = new System.Drawing.Point(228, 52);
+            this.grpAdmissionNo.Name = "grpAdmissionNo";
+            this.grpAdmissionNo.Size = new System.Drawing.Size(368, 187);
+            this.grpAdmissionNo.TabIndex = 5;
+            this.grpAdmissionNo.TabStop = false;
+            this.grpAdmissionNo.Text = "Search by Roll Number";
+            this.grpAdmissionNo.Visible = false;
+            // 
+            // txtAdmissionNo
+            // 
+            this.txtAdmissionNo.Location = new System.Drawing.Point(186, 77);
+            this.txtAdmissionNo.Name = "txtAdmissionNo";
+            this.txtAdmissionNo.Size = new System.Drawing.Size(149, 23);
+            this.txtAdmissionNo.TabIndex = 2;
+            this.txtAdmissionNo.TextChanged += new System.EventHandler(this.txtAdmissionNo_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(29, 80);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(126, 17);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Admission Number";
             // 
             // Search
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(875, 510);
+            this.Controls.Add(this.grpAdmissionNo);
             this.Controls.Add(this.grpRollNo);
             this.Controls.Add(this.grpSearchByFather);
             this.Controls.Add(this.grpSearchByName);
@@ -241,6 +280,8 @@
             this.grpSearchByFather.PerformLayout();
             this.grpRollNo.ResumeLayout(false);
             this.grpRollNo.PerformLayout();
+            this.grpAdmissionNo.ResumeLayout(false);
+            this.grpAdmissionNo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -263,5 +304,8 @@
         private System.Windows.Forms.GroupBox grpRollNo;
         private System.Windows.Forms.TextBox txtRollNo;
         private System.Windows.Forms.Label RollNo;
+        private System.Windows.Forms.GroupBox grpAdmissionNo;
+        private System.Windows.Forms.TextBox txtAdmissionNo;
+        private System.Windows.Forms.Label label5;
     }
 }

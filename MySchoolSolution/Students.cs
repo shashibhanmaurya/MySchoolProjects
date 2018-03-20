@@ -13,18 +13,12 @@ namespace MySchoolSolution
 {
     public partial class Students : Form
     {
-        SqlConnection con;
-        SqlCommandBuilder bui;
+        public int stdId;
         public Students()
         {
             InitializeComponent();
 
             bindgrid();
-        }
-        class GlobalClass
-        {
-            public static SqlDataAdapter adap;
-            public static DataTable dt;
         }
         private void bindgrid()
         {
@@ -38,7 +32,7 @@ namespace MySchoolSolution
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.ColumnCount = 14;
+            dataGridView1.ColumnCount = 15;
             dataGridView1.Columns[0].Name = "RollNumber";
             dataGridView1.Columns[0].HeaderText = "RollNumber";
             dataGridView1.Columns[0].DataPropertyName = "RollNumber";
@@ -81,6 +75,9 @@ namespace MySchoolSolution
             dataGridView1.Columns[13].Name = "AadharCardNo";
             dataGridView1.Columns[13].HeaderText = "AadharCardNo";
             dataGridView1.Columns[13].DataPropertyName = "AadharCardNo";
+            dataGridView1.Columns[14].Name = "Addmission_Number";
+            dataGridView1.Columns[14].HeaderText = "Addmission_Number";
+            dataGridView1.Columns[14].DataPropertyName = "Addmission_Number";
             dataGridView1.DataSource = dt;
             dataGridView1.ReadOnly = true;
             this.dataGridView1.DefaultCellStyle.BackColor = Color.Green;
@@ -93,7 +90,7 @@ namespace MySchoolSolution
         private void btn_Search_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalSqlServer1"].ConnectionString);
-            SqlCommand cmd = new SqlCommand("select RollNumber, Name,FatherName,Stud_In_Class,DOB,Gender,Category,Admission_Date,Address1,Address2,PhoneRes, Route_No,Stopage,AadharCardNo from tbl_StudentInfo  WHERE Name LIKE '%' + @Name + '%'");
+            SqlCommand cmd = new SqlCommand("select Addmission_Number,RollNumber, Name,FatherName,Stud_In_Class,DOB,Gender,Category,Admission_Date,Address1,Address2,PhoneRes, Route_No,Stopage,AadharCardNo from tbl_StudentInfo  WHERE Name LIKE '%' + @Name + '%'");
             cmd.Parameters.AddWithValue("@Name", txtSearch.Text.Trim());
             cmd.Connection = con;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -103,6 +100,25 @@ namespace MySchoolSolution
             dataGridView1.ReadOnly = true;
 
 
+        }
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                int admissionNo = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Addmission_Number"].Value);
+                NewStudentEntry st = new NewStudentEntry();
+                st.AdmissionNo = admissionNo;
+                st.Operation = "Update";
+                st.Show();
+                this.Close();
+            }
+        }
+
+        private void Students_Load(object sender, EventArgs e)
+        {
+            lblSession.Text = CommonFunctions.GetCurrentSession;
+
+            
         }
     }
 }

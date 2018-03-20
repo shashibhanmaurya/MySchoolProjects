@@ -167,6 +167,8 @@
             this.label60 = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
             this.label62 = new System.Windows.Forms.Label();
+            this.lblUname = new System.Windows.Forms.Label();
+            this.lblOperation = new System.Windows.Forms.Label();
             button9 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -301,6 +303,7 @@
             this.txtAdmissionNo.ReadOnly = true;
             this.txtAdmissionNo.Size = new System.Drawing.Size(74, 20);
             this.txtAdmissionNo.TabIndex = 201;
+            this.txtAdmissionNo.TextChanged += new System.EventHandler(this.txtAdmissionNo_TextChanged);
             // 
             // TxtAdmissionDate
             // 
@@ -1210,6 +1213,7 @@
             this.button8.Text = "Edit";
             this.button8.UseCompatibleTextRendering = true;
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
@@ -1461,12 +1465,33 @@
             this.label62.TabIndex = 217;
             this.label62.Text = "*";
             // 
+            // lblUname
+            // 
+            this.lblUname.AutoSize = true;
+            this.lblUname.Location = new System.Drawing.Point(933, 16);
+            this.lblUname.Name = "lblUname";
+            this.lblUname.Size = new System.Drawing.Size(0, 13);
+            this.lblUname.TabIndex = 219;
+            this.lblUname.Visible = false;
+            // 
+            // lblOperation
+            // 
+            this.lblOperation.AutoSize = true;
+            this.lblOperation.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOperation.Location = new System.Drawing.Point(811, 12);
+            this.lblOperation.Name = "lblOperation";
+            this.lblOperation.Size = new System.Drawing.Size(64, 18);
+            this.lblOperation.TabIndex = 220;
+            this.lblOperation.Text = "Operation";
+            // 
             // NewStudentEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(986, 514);
+            this.Controls.Add(this.lblOperation);
+            this.Controls.Add(this.lblUname);
             this.Controls.Add(this.label62);
             this.Controls.Add(this.label61);
             this.Controls.Add(this.label60);
@@ -1749,5 +1774,7 @@
         private System.Windows.Forms.Label label62;
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Label lblUname;
+        private System.Windows.Forms.Label lblOperation;
     }
 }

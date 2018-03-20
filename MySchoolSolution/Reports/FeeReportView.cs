@@ -12,6 +12,8 @@ namespace MySchoolSolution.Reports
 {
     public partial class FeeReportView : Form
     {
+        public DataSet dataSet { get; set; }
+        public string purpose { get; set; }
         public FeeReportView()
         {
             InitializeComponent();
@@ -19,14 +21,12 @@ namespace MySchoolSolution.Reports
 
         private void FeeReportView_Load(object sender, EventArgs e)
         {
-            SqlParameter[] m = new SqlParameter[1];
-
-            m[0] = new SqlParameter("@Date", Convert.ToDateTime(DateTime.Now).ToShortDateString());
-
-            DataSet ds = SqlHelper.ExecuteDataset(Connection.Connection_string, "DailyFeeCollection", m);
+            
             Reports.FeeReport mr = new Reports.FeeReport();
 
-            mr.SetDataSource(ds.Tables[0]);
+            CrystalDecisions.CrystalReports.Engine.TextObject Purpose = mr.ReportDefinition.ReportObjects["Purpose"] as CrystalDecisions.CrystalReports.Engine.TextObject;
+            Purpose.Text = purpose;
+            mr.SetDataSource(dataSet.Tables[0]);
             mr.SetDatabaseLogon("sa", "abc123");
             crystalReportViewer1.ReportSource = mr;
         }

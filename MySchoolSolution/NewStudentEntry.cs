@@ -13,7 +13,8 @@ namespace MySchoolSolution
 
     public partial class NewStudentEntry : Form
     {
-
+        public string Operation { get; set; }
+        public int AdmissionNo { get; set; }
         //  SqlConnection con = new SqlConnection("data source=LAPTOP-66UUD7RS\\SARTHAK;database=SchoolManagement;uid=sa;pwd=abc123;integrated security=true");
         public NewStudentEntry()
         {
@@ -27,7 +28,6 @@ namespace MySchoolSolution
 
         private void button6_Click(object sender, EventArgs e)
         {
-
             //---Gender--
             string gender = string.Empty;
             if (RBMale.Checked)
@@ -119,14 +119,14 @@ namespace MySchoolSolution
                 {
                     MessageBox.Show("Please select  Category ");
                 }
-               else if (GetSiblingNumber() == true)
+                else if (GetSiblingNumber() == true && Operation != "Update")
                 {
                     MessageBox.Show("Two siblings already added!");
                     txtSibling.Text = string.Empty;
                 }
                 else
                 {
-                    SqlParameter[] m = new SqlParameter[57];
+                    SqlParameter[] m = new SqlParameter[58];
                     m[0] = new SqlParameter("@Name", txtName.Text);
                     m[1] = new SqlParameter("@Stud_In_Class", txtStudyingClass.Text);
                     m[2] = new SqlParameter("@Class", ddlClass.Text);
@@ -184,15 +184,31 @@ namespace MySchoolSolution
                     m[54] = new SqlParameter("@UDF1", SqlDbType.Text);
                     m[55] = new SqlParameter("@UDF2", SqlDbType.Text);
                     m[56] = new SqlParameter("@UDF3", SqlDbType.Text);
+                    m[57] = new SqlParameter("@UserName", lblUname.Text);
                     m[53].Direction = ParameterDirection.Output;
-                    SqlHelper.ExecuteNonQuery(Connection.Connection_string, CommandType.StoredProcedure, "StudentInfo_Insert", m);
-                    object o = m[53].Value;
-                    int admissionNo = Convert.ToInt32(o);
-                    MessageBox.Show("Admission Successfull");
-                    YearlyFeeEntry su = new YearlyFeeEntry();
-                    su.admissionNo = admissionNo;
-                    su.Show();
-                    this.Hide();
+                    if (Operation == "Update")
+                    {
+                        m[53] = new SqlParameter("@StdId", Convert.ToInt32(txtAdmissionNo.Text));
+                        SqlHelper.ExecuteNonQuery(Connection.Connection_string, CommandType.StoredProcedure, "StudentInfo_Update", m);
+                        object o = m[53].Value;
+                        int admissionNo = Convert.ToInt32(o);
+                        MessageBox.Show("Information update Successfull");
+                        Students st = new Students();
+                        st.Show();
+                    }
+                    else
+                    {
+                        SqlHelper.ExecuteNonQuery(Connection.Connection_string, CommandType.StoredProcedure, "StudentInfo_Insert", m);
+                        object o = m[53].Value;
+                        int admissionNo = Convert.ToInt32(o);
+                        MessageBox.Show("Admission Successfull");
+                        YearlyFeeEntry su = new YearlyFeeEntry();
+                        su.admissionNo = admissionNo;
+                        su.Show();
+                        this.Hide();
+
+                    }
+
                 }
             }
             catch (Exception ex)
@@ -210,24 +226,39 @@ namespace MySchoolSolution
         private void NewStudentEntry_Load(object sender, EventArgs e)
         {
             lblSession.Text = CommonFunctions.GetCurrentSession;
-            TxtAdmissionDate.Text = DateTime.Now.ToString();
-            SqlParameter[] m = new SqlParameter[1];
-            m[0] = new SqlParameter("@Session", lblSession.Text);
-
-            DataSet ds = new DataSet();
-            ds = SqlHelper.ExecuteDataset(Connection.Connection_string, CommandType.StoredProcedure, "GetRegistrationNumber", m);
-            if (ds.Tables[0].Rows[0]["RegNo"] != null && Convert.ToString(ds.Tables[0].Rows[0]["RegNo"]) != string.Empty)
+            if (Operation == "Update")
             {
-                txtAdmissionNo.Text = ds.Tables[0].Rows[0]["RegNo"].ToString();
+                txtAdmissionNo.Enabled = true;
+                if (AdmissionNo > 0)
+                {
+                    txtAdmissionNo.Text = AdmissionNo.ToString();
+                }
             }
             else
             {
-                txtAdmissionNo.Text = "1";
-            }
 
-            ddlClass.DataSource = CommonFunctions.GetClasses;
-            //ddlClass.DisplayMember = "Classes";
-            //ddlClass.ValueMember = "Classes";
+
+
+                TxtAdmissionDate.Text = DateTime.Now.ToString();
+                SqlParameter[] m = new SqlParameter[1];
+                m[0] = new SqlParameter("@Session", lblSession.Text);
+
+                DataSet ds = new DataSet();
+                ds = SqlHelper.ExecuteDataset(Connection.Connection_string, CommandType.StoredProcedure, "GetRegistrationNumber", m);
+                if (ds.Tables[0].Rows[0]["RegNo"] != null && Convert.ToString(ds.Tables[0].Rows[0]["RegNo"]) != string.Empty)
+                {
+                    txtAdmissionNo.Text = ds.Tables[0].Rows[0]["RegNo"].ToString();
+                }
+                else
+                {
+                    txtAdmissionNo.Text = "1";
+                }
+
+                ddlClass.DataSource = CommonFunctions.GetClasses;
+                //ddlClass.DisplayMember = "Classes";
+                //ddlClass.ValueMember = "Classes";
+
+            }
 
         }
         private void GetRollNoByClass()
@@ -246,6 +277,113 @@ namespace MySchoolSolution
                 txtRollNo.Text = "1";
             }
 
+        }
+        private void GetStudentDetailstoUpdate()
+        {
+            if (txtAdmissionNo.Text != string.Empty)
+            {
+                try
+                {
+                    if (txtAdmissionNo.Text != string.Empty)
+                    {
+                        SqlParameter[] m = new SqlParameter[2];
+
+                        m[0] = new SqlParameter("@Addmission_Number", Convert.ToInt32(txtAdmissionNo.Text.Trim()));
+                        m[1] = new SqlParameter("@Session", lblSession.Text);
+                        SqlDataReader dr = SqlHelper.ExecuteReader(Connection.Connection_string, "StudentInfo_SelectOneBySession", m);
+                        while (dr.Read())
+                        {
+                            txtName.Text = dr["Name"].ToString();
+                            ddlClass.Text = dr["Class"].ToString();
+                            txtRollNo.Text = dr["RollNumber"].ToString();
+                            txtStudyingClass.Text = dr["Stud_In_Class"].ToString();
+                            txtAccNo.Text = dr["Acc_Number"].ToString();
+                            txtFatherName.Text = dr["FatherName"].ToString();
+                            txtMotherName.Text = dr["MotherName"].ToString();
+                            if (dr["Gender"].ToString() == "M")
+                            {
+                                RBMale.Checked = true;
+                            }
+                            else if (dr["Gender"].ToString() == "F")
+                            {
+                                rbFemale.Checked = true;
+                            }
+                            txtDOB.Text = dr["DOB"].ToString();
+                            if (dr["Category"].ToString() == "General")
+                            {
+                                rbGeneral.Checked = true;
+                            }
+                            else if (dr["Category"].ToString() == "OBC")
+                            {
+                                rbOBC.Checked = true;
+                            }
+                            else if (dr["Category"].ToString() == "SC")
+                            {
+                                rbSC.Checked = true;
+                            }
+                            else if (dr["Category"].ToString() == "BC")
+                            {
+                                rbBC.Checked = true;
+                            }
+                            else if (dr["Category"].ToString() == "EWS")
+                            {
+                                rbEWS.Checked = true;
+                            }
+                            txtSibling.Text = dr["SiblingClass"].ToString();
+                            txtEmail.Text = dr["EmailId"].ToString();
+                            txtAddress1.Text = dr["Address1"].ToString();
+                            txtAddress2.Text = dr["Address2"].ToString();
+                            txtCity.Text = dr["City"].ToString();
+                            txtPhone.Text = dr["PhoneRes"].ToString();
+                            txtEmergencyPhone.Text = dr["PhoneOff"].ToString();
+                            txtAadharNo.Text = dr["AadharCardNo"].ToString();
+                            txtSRNo.Text = dr["SRN_No"].ToString();
+                            txtCBSCNo.Text = dr["CBSC_REG_No"].ToString();
+                            txtBankAccountNo.Text = dr["BankAccount_No"].ToString();
+                            txtIFSC.Text = dr["IFSC"].ToString();
+                            txtDiscountType.Text = dr["DiscountType"].ToString();
+                            txtBloodGroup.Text = dr["BloodGroup"].ToString();
+                            txtBoarder.Text = dr["BoarderRequired"].ToString();
+                            txtRouteNo.Text = dr["Route_No"].ToString();
+                            txtOrgAdmNo.Text = dr["ORG_Adm_no"].ToString();
+                            MobileForSMS.Text = dr["MobileSms"].ToString();
+                            txtStoppage.Text = dr["Stopage"].ToString();
+                            txtIncome.Text = dr["Income"].ToString();
+                            txtDND.Text = dr["DND"].ToString();
+                            txtBPL.Text = dr["BPL"].ToString();
+                            txtDisabilityType.Text = dr["DisabilityType"].ToString();
+                            txtFascilty.Text = dr["CWSN"].ToString();
+                            txtHomeLess.Text = dr["HomeLessChild"].ToString();
+                            txtExtraExam.Text = dr["Extra_Exam"].ToString();
+                            txtLastExamAppear.Text = dr["Last_Exam_Appear"].ToString();
+                            txtLastExamPassed.Text = dr["Last_Exam_Passed"].ToString();
+                            txtLastPercentage.Text = dr["Last_Exam_Percent"].ToString();
+                            txtStream11.Text = dr["Stream_11"].ToString();
+                            txtFreeEducation.Text = dr["Free_Edu"].ToString();
+                            txtTradeSkill.Text = dr["Trade_Skill"].ToString();
+                            txtDisadvantage.Text = dr["DisAdvantages"].ToString();
+                            txtMothertongue.Text = dr["MotherToung"].ToString();
+                            txtMediumFoInfra.Text = dr["Medium_of_Instruction"].ToString();
+                            txtPreviousYearAttendance.Text = dr["Previous_year_Att"].ToString();
+                            txtLastYearStatus.Text = dr["Previous_Year_Status"].ToString();
+                            txtOtherInformation.Text = dr["Other_Info"].ToString();
+                            TxtAdmissionDate.Text = dr["Admission_Date"].ToString();
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    txtName.Text = string.Empty;
+
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                txtName.Text = string.Empty;
+
+            }
         }
         private bool GetSiblingNumber()
         {
@@ -273,6 +411,21 @@ namespace MySchoolSolution
         private void ddlClass_SelectedIndexChanged(object sender, EventArgs e)
         {
             GetRollNoByClass();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            NewStudentEntry ne = new NewStudentEntry();
+            ne.Operation = "Update";
+            ne.Show();
+        }
+
+        private void txtAdmissionNo_TextChanged(object sender, EventArgs e)
+        {
+            if (Operation == "Update" && txtAdmissionNo.Text != string.Empty)
+            {
+                GetStudentDetailstoUpdate();
+            }
         }
     }
 }

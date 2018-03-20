@@ -141,7 +141,7 @@ namespace MySchoolSolution
                         txtTotalAmount.Text = (Convert.ToDouble(txtRegistrationFeeAct.Text) + Convert.ToDouble(txtAdmissionFeeAct.Text) +
                             Convert.ToDouble(txtAnnualChargesAct.Text) + Convert.ToDouble(txtQuarterlyFeeAct.Text) + Convert.ToDouble(txtTransportFeeAct.Text) +
                             Convert.ToDouble(txtTutionFeeAct.Text) + Convert.ToDouble(txtMisc.Text) + Convert.ToDouble(txtPreviousBal.Text)).ToString();
-
+                        btn_Save.Enabled = true;
                         chk = 1;
 
                     }
@@ -241,7 +241,7 @@ namespace MySchoolSolution
         }
         private void FeeDeposit_Load(object sender, EventArgs e)
         {
-           
+
             lblSession.Text = CommonFunctions.GetCurrentSession;
             DateTime dt = new DateTime();
 
@@ -360,8 +360,6 @@ namespace MySchoolSolution
         {
             try
             {
-
-
                 string PayingMonths = string.Empty;
                 int PayingMonthsCount = 0;
                 for (int i = 0; i < gvPaidMonths.Rows.Count; i++)
@@ -373,15 +371,16 @@ namespace MySchoolSolution
                         PayingMonthsCount = PayingMonthsCount + 1;
                     }
                 }
-                //  MessageBox.Show(PayingMonthsCount.ToString());
-                //  MessageBox.Show(PayingMonths.Substring(1, PayingMonths.Length - 1));
+
                 if (PayingMonths != string.Empty)
                 {
                     PayingMonths = PayingMonths.Substring(1, PayingMonths.Length - 1);
                 }
+
+
                 if (Convert.ToDouble(txtPaidAmount.Text) > 0)
                 {
-                    SqlParameter[] m = new SqlParameter[39];
+                    SqlParameter[] m = new SqlParameter[40];
                     m[0] = new SqlParameter("@FeeId", SqlDbType.Int);
                     m[1] = new SqlParameter("@RegistrationFee", txtRegistrationFee.Text);
                     m[2] = new SqlParameter("@AddmissionFee", txtAdmissionFee.Text);
@@ -420,23 +419,50 @@ namespace MySchoolSolution
                     m[35] = new SqlParameter("@BankName", string.Empty);
                     m[36] = new SqlParameter("@ChequeDate", string.Empty);
                     m[37] = new SqlParameter("@ChequeStatus", string.Empty);
-                    string monthName = (CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(DateTime.Now.Month)).Substring(0,3);
+                    string monthName = (CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(DateTime.Now.Month)).Substring(0, 3);
                     m[38] = new SqlParameter("@PaidinMonth", monthName);
+                    m[39] = new SqlParameter("@UserName", lblUname.Text);
                     if (ddlPaymentType.Text == "Cheque")
                     {
-                        m[34] = new SqlParameter("@ChequeNumber", txtChequeNumber);
-                        m[35] = new SqlParameter("@BankName", txtBankName);
-                        m[36] = new SqlParameter("@ChequeDate", Convert.ToDateTime(dtChequeDate.Text));
-                        m[37] = new SqlParameter("@ChequeStatus", "Pending");
+                        if (txtChequeNumber.Text == "")
+                        {
+                            MessageBox.Show("Enter Check Number");
+                        }
+                        else if (txtBankName.Text == "")
+                        {
+                            MessageBox.Show("Enter Bank Name");
+                        }
+
+                        else
+                        {
+                            m[34] = new SqlParameter("@ChequeNumber", txtChequeNumber.Text);
+                            m[35] = new SqlParameter("@BankName", txtBankName.Text);
+                            m[36] = new SqlParameter("@ChequeDate", Convert.ToDateTime(dtChequeDate.Text));
+                            m[37] = new SqlParameter("@ChequeStatus", "Pending");
+                            m[0].Direction = ParameterDirection.Output;
+                            SqlHelper.ExecuteNonQuery(Connection.Connection_string, CommandType.StoredProcedure, "Student_MonthlyFee_Insert", m);
+                            object ivalue = m[0].Value;
+                            int receiptNo = (int)ivalue;
+                            if (receiptNo > 0)
+                                lblReceiptNo.Text = receiptNo.ToString();
+                            MessageBox.Show("Fee Deposited Successfully");
+                            AdmissionNo = 0;
+                            btn_Save.Enabled = false;
+                        }
                     }
-                    m[0].Direction = ParameterDirection.Output;
-                    SqlHelper.ExecuteNonQuery(Connection.Connection_string, CommandType.StoredProcedure, "Student_MonthlyFee_Insert", m);
-                    object ivalue = m[0].Value;
-                    int receiptNo = (int)ivalue;
-                    if (receiptNo > 0)
-                        lblReceiptNo.Text = receiptNo.ToString();
-                    MessageBox.Show("Fee Deposited Successfully");
-                    AdmissionNo = 0;
+                    else
+                    {
+                        m[0].Direction = ParameterDirection.Output;
+                        SqlHelper.ExecuteNonQuery(Connection.Connection_string, CommandType.StoredProcedure, "Student_MonthlyFee_Insert", m);
+
+                        object ivalue = m[0].Value;
+                        int receiptNo = (int)ivalue;
+                        if (receiptNo > 0)
+                            lblReceiptNo.Text = receiptNo.ToString();
+                        MessageBox.Show("Fee Deposited Successfully");
+                        AdmissionNo = 0;
+                        btn_Save.Enabled = false;
+                    }
                 }
                 else
                 {
@@ -446,7 +472,6 @@ namespace MySchoolSolution
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
 

@@ -74,6 +74,7 @@
             this.lblSession = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.lblUname = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label3
@@ -514,11 +515,21 @@
             this.shapeContainer1.TabIndex = 2;
             this.shapeContainer1.TabStop = false;
             // 
+            // lblUname
+            // 
+            this.lblUname.AutoSize = true;
+            this.lblUname.Location = new System.Drawing.Point(636, 14);
+            this.lblUname.Name = "lblUname";
+            this.lblUname.Size = new System.Drawing.Size(0, 13);
+            this.lblUname.TabIndex = 225;
+            this.lblUname.Visible = false;
+            // 
             // Fee_Structure
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(657, 328);
+            this.Controls.Add(this.lblUname);
             this.Controls.Add(this.lblSession);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label8);
@@ -620,5 +631,6 @@
         private System.Windows.Forms.Label lblSession;
         private System.Windows.Forms.Label label1;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
+        private System.Windows.Forms.Label lblUname;
     }
 }

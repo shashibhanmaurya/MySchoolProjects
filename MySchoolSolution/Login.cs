@@ -13,13 +13,15 @@ namespace MySchoolSolution
     public partial class Login : Form
     {
         public string AllowedMenu { get; set; }
+        public string username { get; set; }
         public Login()
         {
             InitializeComponent();
+            
         }
 
         private void btn_Login_Click(object sender, EventArgs e)
-        {
+        {           
             SqlParameter[] m = new SqlParameter[2];
 
             m[0] = new SqlParameter("@Username", txtUserName.Text);
@@ -28,10 +30,12 @@ namespace MySchoolSolution
             if (ds.Tables[0].Rows.Count > 0)
             {
                 AllowedMenu = ds.Tables[0].Rows[0]["MenuAccess"].ToString();
+                username = txtUserName.Text;
                 DialogResult = DialogResult.OK;
+              
             }
             else { MessageBox.Show("Invalid Username or Password","Error",MessageBoxButtons.OK,MessageBoxIcon.Error); }
-           
+            
             //Form ff= this.ParentForm;
             //HomeMenu hm = new HomeMenu();
 
@@ -48,7 +52,7 @@ namespace MySchoolSolution
           //  this.Close();
             
         }
-
+      
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();

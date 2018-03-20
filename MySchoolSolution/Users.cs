@@ -34,8 +34,7 @@ namespace MySchoolSolution
 
                         if (Convert.ToBoolean(gvMenu.Rows[i].Cells[0].Value) == true)
                         {
-                            sbMenu = sbMenu + "," + Convert.ToString(gvMenu.Rows[i].Cells[2].Value);
-                            
+                            sbMenu = sbMenu + "," + Convert.ToString(gvMenu.Rows[i].Cells[2].Value);                           
                         }
                     }
                     if (sbMenu != string.Empty)

@@ -80,6 +80,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.lblSession = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.lblUname = new System.Windows.Forms.Label();
             button9 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -667,11 +668,21 @@
             this.label14.TabIndex = 206;
             this.label14.Text = "Fee Structure Entry For Session";
             // 
+            // lblUname
+            // 
+            this.lblUname.AutoSize = true;
+            this.lblUname.Location = new System.Drawing.Point(723, 10);
+            this.lblUname.Name = "lblUname";
+            this.lblUname.Size = new System.Drawing.Size(0, 13);
+            this.lblUname.TabIndex = 225;
+            this.lblUname.Visible = false;
+            // 
             // YearlyFeeEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(744, 375);
+            this.Controls.Add(this.lblUname);
             this.Controls.Add(this.lblSession);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.button10);
@@ -783,5 +794,6 @@
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;
         private System.Windows.Forms.Label lblSession;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblUname;
     }
 }

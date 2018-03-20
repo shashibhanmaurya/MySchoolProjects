@@ -13,17 +13,23 @@ namespace MySchoolSolution
 {
     public partial class HomeMenu : Form
     {
+      
         public HomeMenu()
         {
             InitializeComponent();
-            DateTime dt = new DateTime();
-            label4.Text = DateTime.Now.ToString();
+            
+           
         }
-
+      
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NewStudentEntry ne = new NewStudentEntry();
-            ne.Show();
+            NewStudentEntry pr = new NewStudentEntry();
+            string userName = lblUserName.Text.Replace("Welcome ", "");
+            Control[] ctrl = pr.Controls.Find("lblUname", true);
+            Label lblUname = (Label)ctrl.FirstOrDefault();
+            lblUname.Text = userName;
+
+            pr.Show();
         }
 
         private void studentListToolStripMenuItem_Click(object sender, EventArgs e)
@@ -35,19 +41,34 @@ namespace MySchoolSolution
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             FeeDeposit fd = new FeeDeposit();
+            string userName = lblUserName.Text.Replace("Welcome ", "");
+            Control[] ctrl = fd.Controls.Find("lblUname", true);
+            Label lblUname = (Label)ctrl.FirstOrDefault();
+            lblUname.Text = userName;
+
             fd.Show();
         }
 
         private void addToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Fee_Structure ne = new Fee_Structure();
-            ne.Show();
+            Fee_Structure fs = new Fee_Structure();
+            string userName = lblUserName.Text.Replace("Welcome ", "");
+            Control[] ctrl = fs.Controls.Find("lblUname", true);
+            Label lblUname = (Label)ctrl.FirstOrDefault();
+            lblUname.Text = userName;
+
+            fs.Show();
         }
 
         private void addToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             YearlyFeeEntry ne = new YearlyFeeEntry();
-            ne.Show();
+            string userName = lblUserName.Text.Replace("Welcome ", "");
+            Control[] ctrl = ne.Controls.Find("lblUname", true);
+            Label lblUname = (Label)ctrl.FirstOrDefault();
+            lblUname.Text = userName;
+
+            ne.Show(); ;
         }
 
         private void feeStructureListToolStripMenuItem_Click(object sender, EventArgs e)
@@ -71,11 +92,13 @@ namespace MySchoolSolution
         private void HomeMenu_Load(object sender, EventArgs e)
         {
             lblSession.Text = CommonFunctions.GetCurrentSession;
+            
             Login l = new Login();
             DialogResult dr = l.ShowDialog();
             if (dr == DialogResult.OK)
             {
                 string AllowedMenu = l.AllowedMenu;
+                lblUserName.Text = "Welcome " + l.username;
                 string[] allowedMenuItems = AllowedMenu.Split(',');
                 foreach (string allowedMenuItem in allowedMenuItems)
                 {
@@ -91,6 +114,7 @@ namespace MySchoolSolution
 
 
                 //}
+
                 l.Dispose();
             }
 
@@ -161,6 +185,7 @@ namespace MySchoolSolution
             Control[] ctrl = ss.Controls.Find("groupSessionAndClass", true);
             GroupBox groupSessionAndClass = ctrl.FirstOrDefault() as GroupBox;
             groupSessionAndClass.Visible = true;
+            ss.SearchFor = "SessionAndClass";
             ss.Show();
 
         }
@@ -171,6 +196,7 @@ namespace MySchoolSolution
             Control[] ctrl = ss.Controls.Find("groupSearchBySession", true);
             GroupBox groupSearchBySession = ctrl.FirstOrDefault() as GroupBox;
             groupSearchBySession.Visible = true;
+            ss.SearchFor = "ForSession";
             ss.Show();
 
         }
@@ -187,7 +213,12 @@ namespace MySchoolSolution
 
         private void studentWiseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FeeSearch ss = new FeeSearch();
+            Control[] ctrl = ss.Controls.Find("GrpStudentWiseFee", true);
+            GroupBox GrpStudentWiseFee = ctrl.FirstOrDefault() as GroupBox;
+            ss.SearchFor = "StudentWiseSearch";
+            GrpStudentWiseFee.Visible = true;
+            ss.Show();
         }
 
         private void addToolStripMenuItem5_Click(object sender, EventArgs e)
@@ -202,6 +233,7 @@ namespace MySchoolSolution
             Control[] ctrl = ss.Controls.Find("GrpFeeStatementByClass", true);
             GroupBox GrpFeeStatementByClass = ctrl.FirstOrDefault() as GroupBox;
             GrpFeeStatementByClass.Visible = true;
+            ss.SearchFor = "Statement";
             ss.Show();
         }
 
@@ -229,6 +261,34 @@ namespace MySchoolSolution
             Reports.Reprint_Reciept pr = new Reports.Reprint_Reciept();
             pr.Show();
 
+        }
+
+        private void ChangePasswordMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangePassword pr = new ChangePassword();
+           string userName = lblUserName.Text.Replace("Welcome ","");
+            Control[] ctrl = pr.Controls.Find("txtUserName",true);
+            TextBox txtUserName = (TextBox)ctrl.FirstOrDefault();
+            txtUserName.Text = userName;
+
+            pr.Show();
+        }
+
+        private void PendingChequeMenuItem_Click(object sender, EventArgs e)
+        {
+            Cheques cq = new Cheques();
+            cq.Show();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblClock.Text = DateTime.Now.ToString();
+        }
+
+        private void editToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Students st = new Students();
+            st.Show();
         }
     }
 }

@@ -87,13 +87,13 @@
             this.btn_Save = new System.Windows.Forms.Button();
             this.txtChequeNumber = new System.Windows.Forms.TextBox();
             this.grpChequeDetail = new System.Windows.Forms.GroupBox();
-            this.txtBankName = new System.Windows.Forms.TextBox();
-            this.txtAmount = new System.Windows.Forms.TextBox();
-            this.ChqNumber = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.dtChequeDate = new System.Windows.Forms.DateTimePicker();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.ChqNumber = new System.Windows.Forms.Label();
+            this.txtBankName = new System.Windows.Forms.TextBox();
+            this.lblUname = new System.Windows.Forms.Label();
+            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             ((System.ComponentModel.ISupportInitialize)(this.gvPaidMonths)).BeginInit();
             this.grpChequeDetail.SuspendLayout();
             this.SuspendLayout();
@@ -607,7 +607,7 @@
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(122, 20);
             this.label19.TabIndex = 211;
-            this.label19.Text = "Payment Time :";
+            this.label19.Text = "Payment Type :";
             // 
             // ddlPaymentType
             // 
@@ -637,7 +637,7 @@
             // 
             // txtSiblingNo
             // 
-            this.txtSiblingNo.Location = new System.Drawing.Point(590, 77);
+            this.txtSiblingNo.Location = new System.Drawing.Point(690, 9);
             this.txtSiblingNo.Name = "txtSiblingNo";
             this.txtSiblingNo.Size = new System.Drawing.Size(100, 20);
             this.txtSiblingNo.TabIndex = 221;
@@ -730,10 +730,8 @@
             // 
             this.grpChequeDetail.Controls.Add(this.dtChequeDate);
             this.grpChequeDetail.Controls.Add(this.label23);
-            this.grpChequeDetail.Controls.Add(this.label22);
             this.grpChequeDetail.Controls.Add(this.label21);
             this.grpChequeDetail.Controls.Add(this.ChqNumber);
-            this.grpChequeDetail.Controls.Add(this.txtAmount);
             this.grpChequeDetail.Controls.Add(this.txtBankName);
             this.grpChequeDetail.Controls.Add(this.txtChequeNumber);
             this.grpChequeDetail.Location = new System.Drawing.Point(490, 355);
@@ -744,31 +742,23 @@
             this.grpChequeDetail.Text = "Cheque Details";
             this.grpChequeDetail.Visible = false;
             // 
-            // txtBankName
+            // dtChequeDate
             // 
-            this.txtBankName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.txtBankName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtBankName.Location = new System.Drawing.Point(108, 39);
-            this.txtBankName.Name = "txtBankName";
-            this.txtBankName.Size = new System.Drawing.Size(171, 20);
-            this.txtBankName.TabIndex = 223;
+            this.dtChequeDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtChequeDate.Location = new System.Drawing.Point(108, 68);
+            this.dtChequeDate.Name = "dtChequeDate";
+            this.dtChequeDate.Size = new System.Drawing.Size(124, 20);
+            this.dtChequeDate.TabIndex = 230;
             // 
-            // txtAmount
+            // label23
             // 
-            this.txtAmount.Location = new System.Drawing.Point(108, 64);
-            this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(124, 20);
-            this.txtAmount.TabIndex = 224;
-            // 
-            // ChqNumber
-            // 
-            this.ChqNumber.AutoSize = true;
-            this.ChqNumber.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChqNumber.Location = new System.Drawing.Point(3, 15);
-            this.ChqNumber.Name = "ChqNumber";
-            this.ChqNumber.Size = new System.Drawing.Size(105, 18);
-            this.ChqNumber.TabIndex = 226;
-            this.ChqNumber.Text = "Cheque Number :";
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(3, 69);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(41, 18);
+            this.label23.TabIndex = 229;
+            this.label23.Text = "Date :";
             // 
             // label21
             // 
@@ -780,39 +770,49 @@
             this.label21.TabIndex = 227;
             this.label21.Text = "Bank Name :";
             // 
-            // label22
+            // ChqNumber
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(3, 64);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(58, 18);
-            this.label22.TabIndex = 228;
-            this.label22.Text = "Amount :";
+            this.ChqNumber.AutoSize = true;
+            this.ChqNumber.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChqNumber.Location = new System.Drawing.Point(3, 15);
+            this.ChqNumber.Name = "ChqNumber";
+            this.ChqNumber.Size = new System.Drawing.Size(105, 18);
+            this.ChqNumber.TabIndex = 226;
+            this.ChqNumber.Text = "Cheque Number :";
             // 
-            // label23
+            // txtBankName
             // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(3, 90);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(41, 18);
-            this.label23.TabIndex = 229;
-            this.label23.Text = "Date :";
+            this.txtBankName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtBankName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtBankName.Location = new System.Drawing.Point(108, 39);
+            this.txtBankName.Name = "txtBankName";
+            this.txtBankName.Size = new System.Drawing.Size(171, 20);
+            this.txtBankName.TabIndex = 223;
             // 
-            // dtChequeDate
+            // lblUname
             // 
-            this.dtChequeDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtChequeDate.Location = new System.Drawing.Point(108, 89);
-            this.dtChequeDate.Name = "dtChequeDate";
-            this.dtChequeDate.Size = new System.Drawing.Size(124, 20);
-            this.dtChequeDate.TabIndex = 230;
+            this.lblUname.AutoSize = true;
+            this.lblUname.Location = new System.Drawing.Point(790, 45);
+            this.lblUname.Name = "lblUname";
+            this.lblUname.Size = new System.Drawing.Size(0, 13);
+            this.lblUname.TabIndex = 224;
+            this.lblUname.Visible = false;
+            // 
+            // shapeContainer1
+            // 
+            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer1.Name = "shapeContainer1";
+            this.shapeContainer1.Size = new System.Drawing.Size(986, 514);
+            this.shapeContainer1.TabIndex = 2;
+            this.shapeContainer1.TabStop = false;
             // 
             // FeeDeposit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(802, 495);
+            this.Controls.Add(this.lblUname);
             this.Controls.Add(this.grpChequeDetail);
             this.Controls.Add(this.txtSiblingNo);
             this.Controls.Add(this.btnSibling);
@@ -944,11 +944,11 @@
         private System.Windows.Forms.TextBox txtChequeNumber;
         private System.Windows.Forms.GroupBox grpChequeDetail;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label ChqNumber;
-        private System.Windows.Forms.TextBox txtAmount;
         private System.Windows.Forms.TextBox txtBankName;
         private System.Windows.Forms.DateTimePicker dtChequeDate;
+        private System.Windows.Forms.Label lblUname;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
     }
 }

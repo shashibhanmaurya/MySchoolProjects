@@ -15,6 +15,7 @@ namespace MySchoolSolution
             //
             // TODO: Add constructor logic here
             //
+           
         }
 
         public static string [] GetClasses
@@ -57,5 +58,11 @@ namespace MySchoolSolution
                 return System.Convert.ToString(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             }
         }
+        public static class LoginInfo
+        {
+            public static string UserID;
+
+        }
+        
     }
 }

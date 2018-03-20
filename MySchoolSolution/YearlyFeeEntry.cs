@@ -39,7 +39,7 @@ namespace MySchoolSolution
                 }
                 else
                 {
-                    SqlParameter[] m = new SqlParameter[28];
+                    SqlParameter[] m = new SqlParameter[29];
                     m[0] = new SqlParameter("@FeeId", SqlDbType.Int);
                     m[1] = new SqlParameter("@RegistrationFee", txtRegistrationFee.Text);
                     m[2] = new SqlParameter("@AddmissionFee", txtAdmissionFee.Text);
@@ -69,6 +69,7 @@ namespace MySchoolSolution
                     m[25] = new SqlParameter("@UDF3", SqlDbType.Text);
                     m[26] = new SqlParameter("@Session", lblSession.Text);
                     m[27] = new SqlParameter("@Name", txtName.Text);
+                    m[28] = new SqlParameter("@UserName", lblUname.Text);
 
                     SqlHelper.ExecuteNonQuery(Connection.Connection_string, CommandType.StoredProcedure, "StudentAnnualFeeStructure_Insert", m);
                     MessageBox.Show("Fee Structure Saved Successfully");

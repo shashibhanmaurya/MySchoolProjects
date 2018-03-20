@@ -52,7 +52,7 @@
             this.button1.Location = new System.Drawing.Point(212, 122);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(99, 33);
-            this.button1.TabIndex = 258;
+            this.button1.TabIndex = 3;
             this.button1.Text = "Save";
             this.button1.UseCompatibleTextRendering = true;
             this.button1.UseVisualStyleBackColor = true;
@@ -63,7 +63,7 @@
             this.txtDescription.Location = new System.Drawing.Point(141, 84);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(275, 20);
-            this.txtDescription.TabIndex = 259;
+            this.txtDescription.TabIndex = 2;
             // 
             // label3
             // 

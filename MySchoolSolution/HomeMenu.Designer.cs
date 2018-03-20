@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.masterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,7 +85,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblSession = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblClock = new System.Windows.Forms.Label();
+            this.lblUserName = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.flowLayoutPanel3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -119,7 +122,7 @@
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.menuStrip1.ShowItemToolTips = true;
-            this.menuStrip1.Size = new System.Drawing.Size(781, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(873, 25);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -147,20 +150,21 @@
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addToolStripMenuItem.Text = "Add";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem1
             // 
             this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
-            this.editToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
+            this.editToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.editToolStripMenuItem1.Text = "Edit";
+            this.editToolStripMenuItem1.Click += new System.EventHandler(this.editToolStripMenuItem1_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             // 
             // studentListToolStripMenuItem
@@ -470,6 +474,7 @@
             this.PendingChequeMenuItem.Name = "PendingChequeMenuItem";
             this.PendingChequeMenuItem.Size = new System.Drawing.Size(139, 21);
             this.PendingChequeMenuItem.Text = "Pending Cheque";
+            this.PendingChequeMenuItem.Click += new System.EventHandler(this.PendingChequeMenuItem_Click);
             // 
             // HomeworkMenuItem
             // 
@@ -484,6 +489,7 @@
             this.ChangePasswordMenuItem.Name = "ChangePasswordMenuItem";
             this.ChangePasswordMenuItem.Size = new System.Drawing.Size(149, 21);
             this.ChangePasswordMenuItem.Text = "Change Password";
+            this.ChangePasswordMenuItem.Click += new System.EventHandler(this.ChangePasswordMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -521,7 +527,8 @@
             this.flowLayoutPanel1.Controls.Add(this.label1);
             this.flowLayoutPanel1.Controls.Add(this.lblSession);
             this.flowLayoutPanel1.Controls.Add(this.label5);
-            this.flowLayoutPanel1.Controls.Add(this.label4);
+            this.flowLayoutPanel1.Controls.Add(this.lblClock);
+            this.flowLayoutPanel1.Controls.Add(this.lblUserName);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(-1, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1373, 33);
@@ -566,18 +573,35 @@
             this.label5.TabIndex = 13;
             this.label5.Text = "Today is :";
             // 
-            // label4
+            // lblClock
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label4.Font = new System.Drawing.Font("Lucida Fax", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.label4.Location = new System.Drawing.Point(756, 11);
-            this.label4.Margin = new System.Windows.Forms.Padding(0, 11, 3, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 15);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "label4";
+            this.lblClock.AutoSize = true;
+            this.lblClock.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.lblClock.Font = new System.Drawing.Font("Lucida Fax", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClock.ForeColor = System.Drawing.Color.DarkMagenta;
+            this.lblClock.Location = new System.Drawing.Point(756, 11);
+            this.lblClock.Margin = new System.Windows.Forms.Padding(0, 11, 3, 0);
+            this.lblClock.Name = "lblClock";
+            this.lblClock.Size = new System.Drawing.Size(0, 15);
+            this.lblClock.TabIndex = 14;
+            // 
+            // lblUserName
+            // 
+            this.lblUserName.AutoSize = true;
+            this.lblUserName.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserName.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblUserName.Location = new System.Drawing.Point(859, 8);
+            this.lblUserName.Margin = new System.Windows.Forms.Padding(100, 8, 2, 0);
+            this.lblUserName.Name = "lblUserName";
+            this.lblUserName.Size = new System.Drawing.Size(0, 17);
+            this.lblUserName.TabIndex = 15;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // HomeMenu
             // 
@@ -610,7 +634,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblSession;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblClock;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
@@ -663,5 +687,7 @@
         private System.Windows.Forms.ToolStripMenuItem ChangePasswordMenuItem;
         private System.Windows.Forms.ToolStripMenuItem studentFeeStatementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dailyReportToolStripMenuItem1;
+        private System.Windows.Forms.Label lblUserName;
+        private System.Windows.Forms.Timer timer1;
     }
 }

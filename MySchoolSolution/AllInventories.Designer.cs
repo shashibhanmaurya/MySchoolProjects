@@ -41,14 +41,14 @@
             this.txtDescription.Location = new System.Drawing.Point(166, 120);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(275, 20);
-            this.txtDescription.TabIndex = 262;
+            this.txtDescription.TabIndex = 2;
             // 
             // txtPurpose
             // 
             this.txtPurpose.Location = new System.Drawing.Point(166, 71);
             this.txtPurpose.Name = "txtPurpose";
             this.txtPurpose.Size = new System.Drawing.Size(275, 20);
-            this.txtPurpose.TabIndex = 260;
+            this.txtPurpose.TabIndex = 1;
             // 
             // btn_Save
             // 
@@ -59,7 +59,7 @@
             this.btn_Save.Location = new System.Drawing.Point(237, 158);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(99, 33);
-            this.btn_Save.TabIndex = 261;
+            this.btn_Save.TabIndex = 3;
             this.btn_Save.Text = "Save";
             this.btn_Save.UseCompatibleTextRendering = true;
             this.btn_Save.UseVisualStyleBackColor = true;

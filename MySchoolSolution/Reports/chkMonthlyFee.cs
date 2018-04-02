@@ -16,14 +16,14 @@ namespace MySchoolSolution.Reports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class ReportSudentFeeStatementByClassAndSession : ReportClass {
+    public class chkMonthlyFee : ReportClass {
         
-        public ReportSudentFeeStatementByClassAndSession() {
+        public chkMonthlyFee() {
         }
         
         public override string ResourceName {
             get {
-                return "ReportSudentFeeStatementByClassAndSession.rpt";
+                return "chkMonthlyFee.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace MySchoolSolution.Reports {
         
         public override string FullResourceName {
             get {
-                return "MySchoolSolution.Reports.ReportSudentFeeStatementByClassAndSession.rpt";
+                return "MySchoolSolution.Reports.chkMonthlyFee.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace MySchoolSolution.Reports {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedReportSudentFeeStatementByClassAndSession : Component, ICachedReport {
+    public class CachedchkMonthlyFee : Component, ICachedReport {
         
-        public CachedReportSudentFeeStatementByClassAndSession() {
+        public CachedchkMonthlyFee() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace MySchoolSolution.Reports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            ReportSudentFeeStatementByClassAndSession rpt = new ReportSudentFeeStatementByClassAndSession();
+            chkMonthlyFee rpt = new chkMonthlyFee();
             rpt.Site = this.Site;
             return rpt;
         }

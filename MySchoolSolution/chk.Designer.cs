@@ -32,19 +32,23 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtStudent = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.GrpStudentWiseFee.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // GrpStudentWiseFee
             // 
             this.GrpStudentWiseFee.BackColor = System.Drawing.SystemColors.Control;
+            this.GrpStudentWiseFee.Controls.Add(this.textBox1);
             this.GrpStudentWiseFee.Controls.Add(this.label7);
             this.GrpStudentWiseFee.Controls.Add(this.txtStudent);
             this.GrpStudentWiseFee.Controls.Add(this.button3);
             this.GrpStudentWiseFee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GrpStudentWiseFee.Location = new System.Drawing.Point(96, 38);
+            this.GrpStudentWiseFee.Location = new System.Drawing.Point(12, 34);
             this.GrpStudentWiseFee.Name = "GrpStudentWiseFee";
-            this.GrpStudentWiseFee.Size = new System.Drawing.Size(368, 187);
+            this.GrpStudentWiseFee.Size = new System.Drawing.Size(291, 218);
             this.GrpStudentWiseFee.TabIndex = 157;
             this.GrpStudentWiseFee.TabStop = false;
             this.GrpStudentWiseFee.Text = "Student Fee Search";
@@ -78,18 +82,36 @@
             this.button3.Text = "Print";
             this.button3.UseCompatibleTextRendering = true;
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(393, 87);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(257, 258);
+            this.pictureBox1.TabIndex = 158;
+            this.pictureBox1.TabStop = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(104, 61);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(130, 23);
+            this.textBox1.TabIndex = 158;
             // 
             // chk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(653, 386);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.GrpStudentWiseFee);
             this.Name = "chk";
             this.Text = "chk";
             this.Load += new System.EventHandler(this.chk_Load);
             this.GrpStudentWiseFee.ResumeLayout(false);
             this.GrpStudentWiseFee.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -100,5 +122,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtStudent;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

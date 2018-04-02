@@ -13,7 +13,7 @@ namespace MySchoolSolution
 {
     public partial class HomeMenu : Form
     {
-      
+       
         public HomeMenu()
         {
             InitializeComponent();
@@ -91,6 +91,7 @@ namespace MySchoolSolution
 
         private void HomeMenu_Load(object sender, EventArgs e)
         {
+            
             lblSession.Text = CommonFunctions.GetCurrentSession;
             
             Login l = new Login();
@@ -114,7 +115,8 @@ namespace MySchoolSolution
 
 
                 //}
-
+                CommonFunctions.UserName = l.username;
+                CommonFunctions.SendSMS("919811579129","User "+ l.username + " logged in at "+DateTime.Now.ToString());
                 l.Dispose();
             }
 
@@ -276,8 +278,7 @@ namespace MySchoolSolution
 
         private void PendingChequeMenuItem_Click(object sender, EventArgs e)
         {
-            Cheques cq = new Cheques();
-            cq.Show();
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -289,6 +290,63 @@ namespace MySchoolSolution
         {
             Students st = new Students();
             st.Show();
+        }
+
+        private void studentAttendanceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Attendance at = new Attendance();
+            at.Show();
+        }
+
+        private void editToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            Employees at = new Employees();
+            at.Show();
+        }
+
+        private void studentPromotionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StudentPromotion sp = new StudentPromotion();
+            sp.Show();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StudentDelete sd = new StudentDelete();
+            sd.Show();
+        }
+
+        private void deleteToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            EmployeeDelete ed = new EmployeeDelete();
+            ed.Show();
+        }
+
+        private void pendingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cheques cq = new Cheques();
+            cq.ChequeStatus = "Pending";
+            cq.Show();
+        }
+
+        private void approvedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cheques cq = new Cheques();
+            cq.ChequeStatus = "Clear";
+            cq.Show();
+        }
+
+        private void bouncedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cheques cq = new Cheques();
+            cq.ChequeStatus = "Bounced";
+            cq.Show();
+        }
+
+        private void HomeworkMenuItem_Click(object sender, EventArgs e)
+        {
+            HomeWork hw = new HomeWork();
+            hw.Show();
         }
     }
 }

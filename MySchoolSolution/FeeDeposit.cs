@@ -40,7 +40,7 @@ namespace MySchoolSolution
         private void GetYearlyFeeForStudent()
         {
             try
-            {
+           {
                 if (txtAdmissionNo.Text != string.Empty)
                 {
 

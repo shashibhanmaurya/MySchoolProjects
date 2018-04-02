@@ -12,6 +12,7 @@ namespace MySchoolSolution
 {
     public partial class Cheques : Form
     {
+        public string ChequeStatus { get; set; }
         public Cheques()
         {
             InitializeComponent();
@@ -60,10 +61,12 @@ namespace MySchoolSolution
             }
         }
 
+       
         private void Cheques_Load(object sender, EventArgs e)
         {
-            SqlParameter[] m = new SqlParameter[1];
+            SqlParameter[] m = new SqlParameter[2];
             m[0] = new SqlParameter("@Session", CommonFunctions.GetCurrentSession);
+            m[1] = new SqlParameter("@ChequeStatus", ChequeStatus);
 
 
 

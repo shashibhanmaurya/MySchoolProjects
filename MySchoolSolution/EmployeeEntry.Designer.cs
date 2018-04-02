@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Button button9;
             this.label19 = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.txtAddress = new System.Windows.Forms.RichTextBox();
@@ -54,7 +53,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtphoneno = new System.Windows.Forms.TextBox();
             this.button10 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.EmployeeInfo_Insert = new System.Windows.Forms.Button();
             this.shapeContainer3 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -79,25 +77,10 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.Age = new System.Windows.Forms.Label();
             this.ddlMaritalStatus = new System.Windows.Forms.ComboBox();
-            button9 = new System.Windows.Forms.Button();
+            this.lblEmpId = new System.Windows.Forms.Label();
+            this.lblSession = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button9
-            // 
-            button9.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            button9.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            button9.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            button9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            button9.Location = new System.Drawing.Point(431, 291);
-            button9.Name = "button9";
-            button9.Size = new System.Drawing.Size(75, 33);
-            button9.TabIndex = 22;
-            button9.Text = "Delete";
-            button9.UseCompatibleTextRendering = true;
-            button9.UseVisualStyleBackColor = true;
             // 
             // label19
             // 
@@ -105,9 +88,9 @@
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.Location = new System.Drawing.Point(7, 21);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(301, 20);
+            this.label19.Size = new System.Drawing.Size(235, 20);
             this.label19.TabIndex = 206;
-            this.label19.Text = "Employee Entry For Session session";
+            this.label19.Text = "Employee Entry For Session";
             // 
             // shapeContainer1
             // 
@@ -316,7 +299,7 @@
             this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button10.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button10.Location = new System.Drawing.Point(505, 291);
+            this.button10.Location = new System.Drawing.Point(496, 287);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(75, 33);
             this.button10.TabIndex = 23;
@@ -325,27 +308,13 @@
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click_1);
             // 
-            // button8
-            // 
-            this.button8.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button8.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button8.Location = new System.Drawing.Point(358, 291);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 33);
-            this.button8.TabIndex = 21;
-            this.button8.Text = "Edit";
-            this.button8.UseCompatibleTextRendering = true;
-            this.button8.UseVisualStyleBackColor = true;
-            // 
             // button7
             // 
             this.button7.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
             this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button7.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button7.Location = new System.Drawing.Point(285, 291);
+            this.button7.Location = new System.Drawing.Point(424, 287);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 33);
             this.button7.TabIndex = 20;
@@ -359,7 +328,7 @@
             this.EmployeeInfo_Insert.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.EmployeeInfo_Insert.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmployeeInfo_Insert.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.EmployeeInfo_Insert.Location = new System.Drawing.Point(214, 291);
+            this.EmployeeInfo_Insert.Location = new System.Drawing.Point(353, 287);
             this.EmployeeInfo_Insert.Name = "EmployeeInfo_Insert";
             this.EmployeeInfo_Insert.Size = new System.Drawing.Size(75, 33);
             this.EmployeeInfo_Insert.TabIndex = 19;
@@ -555,7 +524,7 @@
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(787, 86);
+            this.dateTimePicker2.Location = new System.Drawing.Point(786, 88);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(15, 20);
             this.dateTimePicker2.TabIndex = 283;
@@ -582,11 +551,31 @@
             this.ddlMaritalStatus.TabIndex = 285;
             this.ddlMaritalStatus.Text = "  Sinlge (UnMarried)";
             // 
+            // lblEmpId
+            // 
+            this.lblEmpId.AutoSize = true;
+            this.lblEmpId.Location = new System.Drawing.Point(809, 9);
+            this.lblEmpId.Name = "lblEmpId";
+            this.lblEmpId.Size = new System.Drawing.Size(0, 13);
+            this.lblEmpId.TabIndex = 286;
+            // 
+            // lblSession
+            // 
+            this.lblSession.AutoSize = true;
+            this.lblSession.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSession.Location = new System.Drawing.Point(238, 21);
+            this.lblSession.Name = "lblSession";
+            this.lblSession.Size = new System.Drawing.Size(70, 20);
+            this.lblSession.TabIndex = 287;
+            this.lblSession.Text = "session";
+            // 
             // EmployeeEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(862, 371);
+            this.Controls.Add(this.lblSession);
+            this.Controls.Add(this.lblEmpId);
             this.Controls.Add(this.ddlMaritalStatus);
             this.Controls.Add(this.Age);
             this.Controls.Add(this.dateTimePicker2);
@@ -603,8 +592,6 @@
             this.Controls.Add(this.Gender);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button10);
-            this.Controls.Add(button9);
-            this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.EmployeeInfo_Insert);
             this.Controls.Add(this.label1);
@@ -632,7 +619,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label19);
             this.Name = "EmployeeEntry";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EmployeeEntry";
+            this.Load += new System.EventHandler(this.EmployeeEntry_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -666,7 +655,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtphoneno;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button EmployeeInfo_Insert;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer3;
@@ -691,5 +679,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label Age;
         private System.Windows.Forms.ComboBox ddlMaritalStatus;
+        private System.Windows.Forms.Label lblEmpId;
+        private System.Windows.Forms.Label lblSession;
     }
 }

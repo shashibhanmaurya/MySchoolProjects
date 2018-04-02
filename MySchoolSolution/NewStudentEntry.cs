@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.IO;
+
 namespace MySchoolSolution
 {
 
@@ -126,7 +128,7 @@ namespace MySchoolSolution
                 }
                 else
                 {
-                    SqlParameter[] m = new SqlParameter[58];
+                    SqlParameter[] m = new SqlParameter[60];
                     m[0] = new SqlParameter("@Name", txtName.Text);
                     m[1] = new SqlParameter("@Stud_In_Class", txtStudyingClass.Text);
                     m[2] = new SqlParameter("@Class", ddlClass.Text);
@@ -185,26 +187,52 @@ namespace MySchoolSolution
                     m[55] = new SqlParameter("@UDF2", SqlDbType.Text);
                     m[56] = new SqlParameter("@UDF3", SqlDbType.Text);
                     m[57] = new SqlParameter("@UserName", lblUname.Text);
+
+                    //qrcode
+                    MemoryStream ms = new MemoryStream();
+                    picQR.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+                    byte[] qrCode = ms.GetBuffer();
+                    //  ms.Read(qrCode, 0, Convert.ToInt32(ms.Length));
+
+                    m[58] = new SqlParameter("@QRCode", qrCode);
+                    m[59] = new SqlParameter("@Section", ddlSection.Text);
+
+
                     m[53].Direction = ParameterDirection.Output;
+
                     if (Operation == "Update")
                     {
-                        m[53] = new SqlParameter("@StdId", Convert.ToInt32(txtAdmissionNo.Text));
+                        m[5] = new SqlParameter("@Addmission_Number", Convert.ToInt32(txtAdmissionNo.Text));
                         SqlHelper.ExecuteNonQuery(Connection.Connection_string, CommandType.StoredProcedure, "StudentInfo_Update", m);
-                        object o = m[53].Value;
-                        int admissionNo = Convert.ToInt32(o);
+                        object o = m[5].Value;                      
+                        int admissionNo = Convert.ToInt32(txtAdmissionNo.Text);
+                       // lblReceiptNo.Text = txtAdmissionNo.Text;
                         MessageBox.Show("Information update Successfull");
                         Students st = new Students();
                         st.Show();
                     }
                     else
                     {
-                        SqlHelper.ExecuteNonQuery(Connection.Connection_string, CommandType.StoredProcedure, "StudentInfo_Insert", m);
-                        object o = m[53].Value;
-                        int admissionNo = Convert.ToInt32(o);
+                        SqlHelper.ExecuteNonQuery(Connection.Connection_string, CommandType.StoredProcedure, "StudentInfo_Insert", m);                     
                         MessageBox.Show("Admission Successfull");
+                        //object os = m[0].Value;
+                        //int receiptNo = (int)os;
+                        //if (receiptNo > 0)
+                        //    lblReceiptNo.Text = receiptNo.ToString();
                         YearlyFeeEntry su = new YearlyFeeEntry();
-                        su.admissionNo = admissionNo;
+                        su.admissionNo = Convert.ToInt32(txtAdmissionNo.Text);
                         su.Show();
+                        CommonFunctions.SendSMS(txtPhone.Text, "Dear " + txtName.Text + " Welcome to Aarsha Public School! Your AdmissionNo is " + txtAdmissionNo.Text + ", RollNo is " + txtRollNo.Text + " Class is " + ddlClass.Text + " " + ddlSection.Text + ".");
+                        try
+                        {
+                            CommonFunctions.SendEmail(txtEmail.Text, "Welcome to Aarsha Public School", "Dear " + txtName.Text + "<br/><br/> Welcome to Aarsha Public School!<br/> Your AdmissionNo is " + txtAdmissionNo.Text + ", RollNo is " + txtRollNo.Text + " and Class is " + ddlClass.Text + " " + ddlSection.Text + ".");
+                        }
+                        catch
+                        {
+
+                        }
+
+                        
                         this.Hide();
 
                     }
@@ -228,7 +256,7 @@ namespace MySchoolSolution
             lblSession.Text = CommonFunctions.GetCurrentSession;
             if (Operation == "Update")
             {
-                txtAdmissionNo.Enabled = true;
+                txtAdmissionNo.ReadOnly = false;
                 if (AdmissionNo > 0)
                 {
                     txtAdmissionNo.Text = AdmissionNo.ToString();
@@ -255,6 +283,7 @@ namespace MySchoolSolution
                 }
 
                 ddlClass.DataSource = CommonFunctions.GetClasses;
+                GenerateQR();
                 //ddlClass.DisplayMember = "Classes";
                 //ddlClass.ValueMember = "Classes";
 
@@ -368,6 +397,15 @@ namespace MySchoolSolution
                             txtLastYearStatus.Text = dr["Previous_Year_Status"].ToString();
                             txtOtherInformation.Text = dr["Other_Info"].ToString();
                             TxtAdmissionDate.Text = dr["Admission_Date"].ToString();
+                            ddlSection.Text = dr["Section"].ToString();
+                            //QR code
+                            byte[] QRCode = (byte[])dr["QRCode"];
+                            MemoryStream mstream = new MemoryStream(QRCode);
+
+                            picQR.Image = Bitmap.FromStream(mstream);
+
+
+
                         }
 
                     }
@@ -417,6 +455,7 @@ namespace MySchoolSolution
         {
             NewStudentEntry ne = new NewStudentEntry();
             ne.Operation = "Update";
+            this.Close();
             ne.Show();
         }
 
@@ -427,5 +466,19 @@ namespace MySchoolSolution
                 GetStudentDetailstoUpdate();
             }
         }
+        private void GenerateQR()
+        {
+            Zen.Barcode.CodeQrBarcodeDraw qrCode = Zen.Barcode.BarcodeDrawFactory.CodeQr;
+            picQR.Image = qrCode.Draw(txtAdmissionNo.Text + "_" + lblSession.Text, 30);
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Reports.PrintAdmissionForm pr = new Reports.PrintAdmissionForm();
+            pr.access = lblReceiptNo.Text;
+            pr.Show();
+        }
     }
+
 }

@@ -16,7 +16,7 @@ namespace MySchoolSolution
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             // Application.Run(new Form1());
-             // Application.Run(new ChangePassword());
+             // Application.Run(new Employees());
            //Application.Run(new Reports.FeeReportView());
             Application.Run(new HomeMenu());
             //  Application.Run(new Reports.Reprint_Reciept());

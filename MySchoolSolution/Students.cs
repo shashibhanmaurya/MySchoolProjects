@@ -13,79 +13,90 @@ namespace MySchoolSolution
 {
     public partial class Students : Form
     {
-        public int stdId;
         public Students()
         {
             InitializeComponent();
-
-            bindgrid();
         }
-        private void bindgrid()
+
+        private void BindGridStudent()
         {
-
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalSqlServer1"].ConnectionString);
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "StudentInfo_SelectAll";
-            cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.ColumnCount = 15;
-            dataGridView1.Columns[0].Name = "RollNumber";
-            dataGridView1.Columns[0].HeaderText = "RollNumber";
-            dataGridView1.Columns[0].DataPropertyName = "RollNumber";
-            dataGridView1.Columns[1].Name = "Name";
-            dataGridView1.Columns[1].HeaderText = "Name";
-            dataGridView1.Columns[1].DataPropertyName = "Name";
-            dataGridView1.Columns[2].Name = "FatherName";
-            dataGridView1.Columns[2].HeaderText = "FatherName";
-            dataGridView1.Columns[2].DataPropertyName = "FatherName";
-            dataGridView1.Columns[3].Name = "Stud_In_Class";
-            dataGridView1.Columns[3].HeaderText = "Stud_In_Class";
-            dataGridView1.Columns[3].DataPropertyName = "Stud_In_Class";
-            dataGridView1.Columns[4].Name = "DOB";
-            dataGridView1.Columns[4].HeaderText = "DOB";
-            dataGridView1.Columns[4].DataPropertyName = "DOB";
-            dataGridView1.Columns[5].Name = "Gender";
-            dataGridView1.Columns[5].HeaderText = "Gender";
-            dataGridView1.Columns[5].DataPropertyName = "Gender";
-            dataGridView1.Columns[6].Name = "Category";
-            dataGridView1.Columns[6].HeaderText = "Category";
-            dataGridView1.Columns[6].DataPropertyName = "Category";
-            dataGridView1.Columns[7].Name = "Admission_Date";
-            dataGridView1.Columns[7].HeaderText = "Admission_Date";
-            dataGridView1.Columns[7].DataPropertyName = "Admission_Date";
-            dataGridView1.Columns[8].Name = "Address1";
-            dataGridView1.Columns[8].HeaderText = "Address1";
-            dataGridView1.Columns[8].DataPropertyName = "Address1";
-            dataGridView1.Columns[9].Name = "Address2";
-            dataGridView1.Columns[9].HeaderText = "Address2";
-            dataGridView1.Columns[9].DataPropertyName = "Address2";
-            dataGridView1.Columns[10].Name = "PhoneRes";
-            dataGridView1.Columns[10].HeaderText = "PhoneRes";
-            dataGridView1.Columns[10].DataPropertyName = "PhoneRes";
-            dataGridView1.Columns[11].Name = "Route_No";
-            dataGridView1.Columns[11].HeaderText = "Bus Route_No";
-            dataGridView1.Columns[11].DataPropertyName = "Route_No";
-            dataGridView1.Columns[12].Name = "Stopage";
-            dataGridView1.Columns[12].HeaderText = "Stopage";
-            dataGridView1.Columns[12].DataPropertyName = "Stopage";
-            dataGridView1.Columns[13].Name = "AadharCardNo";
-            dataGridView1.Columns[13].HeaderText = "AadharCardNo";
-            dataGridView1.Columns[13].DataPropertyName = "AadharCardNo";
-            dataGridView1.Columns[14].Name = "Addmission_Number";
-            dataGridView1.Columns[14].HeaderText = "Addmission_Number";
-            dataGridView1.Columns[14].DataPropertyName = "Addmission_Number";
-            dataGridView1.DataSource = dt;
-            dataGridView1.ReadOnly = true;
-            this.dataGridView1.DefaultCellStyle.BackColor = Color.Green;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.Honeydew;
-            this.dataGridView1.RowHeadersDefaultCellStyle.BackColor = Color.Green;
-            this.dataGridView1.DefaultCellStyle.Font = new Font("Times New Roman", 12);
-
+            SqlParameter[] m = new SqlParameter[1];
+            m[0] = new SqlParameter("@Session", lblSession.Text);
+            DataSet ds = SqlHelper.ExecuteDataset(Connection.Connection_string, "StudentInfo_SelectAllBySession", m);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                gvStudent.DataSource = ds.Tables[0];
+            }
         }
+        //private void bindgrid()
+        //{
+
+        //    SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalSqlServer1"].ConnectionString);
+        //    SqlCommand cmd = new SqlCommand();
+        //    cmd.Connection = con;
+        //    cmd.CommandText = "StudentInfo_SelectAll";
+        //    cmd.CommandType = CommandType.StoredProcedure;
+        //    SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //    DataTable dt = new DataTable();
+        //    da.Fill(dt);
+        //    gvStudents.AutoGenerateColumns = false;
+        //    gvStudents.ColumnCount = 16;
+        //    gvStudents.Columns[0].Name = "RollNumber";
+        //    gvStudents.Columns[0].HeaderText = "RollNumber";
+        //    gvStudents.Columns[0].DataPropertyName = "RollNumber";
+        //    gvStudents.Columns[1].Name = "Name";
+        //    gvStudents.Columns[1].HeaderText = "Name";
+        //    gvStudents.Columns[1].DataPropertyName = "Name";
+        //    gvStudents.Columns[2].Name = "FatherName";
+        //    gvStudents.Columns[2].HeaderText = "FatherName";
+        //    gvStudents.Columns[2].DataPropertyName = "FatherName";
+        //    gvStudents.Columns[3].Name = "Class";
+        //    gvStudents.Columns[3].HeaderText = "Class";
+        //    gvStudents.Columns[3].DataPropertyName = "Class";
+        //    gvStudents.Columns[4].Name = "DOB";
+        //    gvStudents.Columns[4].HeaderText = "DOB";
+        //    gvStudents.Columns[4].DataPropertyName = "DOB";
+        //    gvStudents.Columns[5].Name = "Gender";
+        //    gvStudents.Columns[5].HeaderText = "Gender";
+        //    gvStudents.Columns[5].DataPropertyName = "Gender";
+        //    gvStudents.Columns[6].Name = "Category";
+        //    gvStudents.Columns[6].HeaderText = "Category";
+        //    gvStudents.Columns[6].DataPropertyName = "Category";
+        //    gvStudents.Columns[7].Name = "Admission_Date";
+        //    gvStudents.Columns[7].HeaderText = "Admission_Date";
+        //    gvStudents.Columns[7].DataPropertyName = "Admission_Date";
+        //    gvStudents.Columns[8].Name = "Address1";
+        //    gvStudents.Columns[8].HeaderText = "Address1";
+        //    gvStudents.Columns[8].DataPropertyName = "Address1";
+        //    gvStudents.Columns[9].Name = "Address2";
+        //    gvStudents.Columns[9].HeaderText = "Address2";
+        //    gvStudents.Columns[9].DataPropertyName = "Address2";
+        //    gvStudents.Columns[10].Name = "PhoneRes";
+        //    gvStudents.Columns[10].HeaderText = "PhoneRes";
+        //    gvStudents.Columns[10].DataPropertyName = "PhoneRes";
+        //    gvStudents.Columns[11].Name = "Route_No";
+        //    gvStudents.Columns[11].HeaderText = "Bus Route_No";
+        //    gvStudents.Columns[11].DataPropertyName = "Route_No";
+        //    gvStudents.Columns[12].Name = "Stopage";
+        //    gvStudents.Columns[12].HeaderText = "Stopage";
+        //    gvStudents.Columns[12].DataPropertyName = "Stopage";
+        //    gvStudents.Columns[13].Name = "AadharCardNo";
+        //    gvStudents.Columns[13].HeaderText = "AadharCardNo";
+        //    gvStudents.Columns[13].DataPropertyName = "AadharCardNo";
+        //    gvStudents.Columns[14].Name = "Addmission_Number";
+        //    gvStudents.Columns[14].HeaderText = "Addmission_Number";
+        //    gvStudents.Columns[14].DataPropertyName = "Addmission_Number";
+        //    gvStudents.Columns[15].Name = "Section";
+        //    gvStudents.Columns[15].HeaderText = "Section";
+        //    gvStudents.Columns[15].DataPropertyName = "Section";
+        //    gvStudents.DataSource = dt;
+        //    gvStudents.ReadOnly = true;
+        //    this.gvStudents.DefaultCellStyle.BackColor = Color.Green;
+        //    this.gvStudents.AlternatingRowsDefaultCellStyle.BackColor = Color.Honeydew;
+        //    this.gvStudents.RowHeadersDefaultCellStyle.BackColor = Color.Green;
+        //    this.gvStudents.DefaultCellStyle.Font = new Font("Times New Roman", 12);
+
+        //}
 
         private void btn_Search_Click(object sender, EventArgs e)
         {
@@ -96,29 +107,28 @@ namespace MySchoolSolution
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
-            dataGridView1.DataSource = dt;
-            dataGridView1.ReadOnly = true;
+            gvStudent.DataSource = dt;
+            gvStudent.ReadOnly = true;
 
 
         }
-        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void Students_Load(object sender, EventArgs e)
+        {
+            lblSession.Text = CommonFunctions.GetCurrentSession;
+            BindGridStudent();
+        }
+
+        private void gvStudent_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                int admissionNo = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Addmission_Number"].Value);
+                int admissionNo = Convert.ToInt32(gvStudent.Rows[e.RowIndex].Cells["Addmission_Number"].Value);
                 NewStudentEntry st = new NewStudentEntry();
                 st.AdmissionNo = admissionNo;
                 st.Operation = "Update";
                 st.Show();
                 this.Close();
             }
-        }
-
-        private void Students_Load(object sender, EventArgs e)
-        {
-            lblSession.Text = CommonFunctions.GetCurrentSession;
-
-            
         }
     }
 }

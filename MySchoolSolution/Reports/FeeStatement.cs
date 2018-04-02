@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace MySchoolSolution.Reports
 {
@@ -21,10 +22,23 @@ namespace MySchoolSolution.Reports
         private void FeeStatement_Load(object sender, EventArgs e)
         {
             Reports.ReportSudentFeeStatementByClassAndSession mr = new Reports.ReportSudentFeeStatementByClassAndSession();
-            mr.SetParameterValue("@Session",Session);
-            mr.SetParameterValue("@Class", Class);
-           // mr.PrintToPrinter();
-            // mr.SetDataSource(ds1);
+            CrystalDecisions.CrystalReports.Engine.TextObject txtSession = mr.ReportDefinition.ReportObjects["txtSession"] as CrystalDecisions.CrystalReports.Engine.TextObject;
+            txtSession.Text = Session;
+
+            CrystalDecisions.CrystalReports.Engine.TextObject txtClass = mr.ReportDefinition.ReportObjects["txtClass"] as CrystalDecisions.CrystalReports.Engine.TextObject;
+            txtClass.Text = Class;
+            SqlParameter[] m = new SqlParameter[2];
+
+            m[0] = new SqlParameter("@Session", Session);
+            m[1] = new SqlParameter("@Class", Class);
+
+            DataSet ds1 = SqlHelper.ExecuteDataset(Connection.Connection_string, "Student_FeeStatementBySessionAndClass", m);
+            //mr.SetParameterValue("@Session", Session);
+            //mr.SetParameterValue("@Class", Class);
+            //// mr.PrintToPrinter();
+            //// mr.SetDataSource(ds1);
+            //SqlConnection con = Connection.Connection_string;
+            mr.SetDataSource(ds1.Tables[0]);
             mr.SetDatabaseLogon("sa", "abc123");
             rvFeeStatement.ReportSource = mr;
         }

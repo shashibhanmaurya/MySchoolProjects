@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MessagingToolkit.QRCode.Codec.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,6 +33,14 @@ namespace MySchoolSolution
             txtStudent.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
             txtStudent.AutoCompleteCustomSource = MyCollection;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Zen.Barcode.CodeQrBarcodeDraw qrCode = Zen.Barcode.BarcodeDrawFactory.CodeQr;
+            pictureBox1.Image = qrCode.Draw(txtStudent.Text, 50);
+            MessagingToolkit.QRCode.Codec.QRCodeDecoder d = new MessagingToolkit.QRCode.Codec.QRCodeDecoder();
+            textBox1.Text = d.Decode(new QRCodeBitmapImage(pictureBox1.Image as Bitmap));
         }
     }
 }

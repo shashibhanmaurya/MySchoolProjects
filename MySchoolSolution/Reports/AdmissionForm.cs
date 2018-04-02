@@ -16,14 +16,14 @@ namespace MySchoolSolution.Reports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class ReportSudentFeeStatementByClassAndSession : ReportClass {
+    public class AdmissionForm : ReportClass {
         
-        public ReportSudentFeeStatementByClassAndSession() {
+        public AdmissionForm() {
         }
         
         public override string ResourceName {
             get {
-                return "ReportSudentFeeStatementByClassAndSession.rpt";
+                return "AdmissionForm.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace MySchoolSolution.Reports {
         
         public override string FullResourceName {
             get {
-                return "MySchoolSolution.Reports.ReportSudentFeeStatementByClassAndSession.rpt";
+                return "MySchoolSolution.Reports.AdmissionForm.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace MySchoolSolution.Reports {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedReportSudentFeeStatementByClassAndSession : Component, ICachedReport {
+    public class CachedAdmissionForm : Component, ICachedReport {
         
-        public CachedReportSudentFeeStatementByClassAndSession() {
+        public CachedAdmissionForm() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace MySchoolSolution.Reports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            ReportSudentFeeStatementByClassAndSession rpt = new ReportSudentFeeStatementByClassAndSession();
+            AdmissionForm rpt = new AdmissionForm();
             rpt.Site = this.Site;
             return rpt;
         }

@@ -69,6 +69,7 @@
             this.comboClass.Size = new System.Drawing.Size(121, 21);
             this.comboClass.TabIndex = 3;
             this.comboClass.SelectedIndexChanged += new System.EventHandler(this.comboClass_SelectedIndexChanged);
+            this.comboClass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboClass_KeyPress);
             // 
             // gvStudents
             // 
@@ -123,7 +124,7 @@
             this.Controls.Add(this.gvStudents);
             this.Name = "SearchStudentForFeeDeposit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SearchStudentForFeeDeposit";
+            this.Text = "Search Student";
             this.Load += new System.EventHandler(this.SearchStudentForFeeDeposit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvStudents)).EndInit();
             this.groupBox1.ResumeLayout(false);

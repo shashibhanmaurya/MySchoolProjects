@@ -28,11 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Button button9;
-            this.lineShape3 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -49,7 +44,6 @@
             this.txtAdmissionNo = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtClass = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtAccountNo = new System.Windows.Forms.TextBox();
             this.txtTransportFeeDisc = new System.Windows.Forms.TextBox();
@@ -70,72 +64,13 @@
             this.label13 = new System.Windows.Forms.Label();
             this.txtTotalAmount = new System.Windows.Forms.RichTextBox();
             this.button10 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.lblSession = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.txtClass = new System.Windows.Forms.TextBox();
             this.lblUname = new System.Windows.Forms.Label();
-            button9 = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // button9
-            // 
-            button9.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            button9.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            button9.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            button9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            button9.Location = new System.Drawing.Point(590, 312);
-            button9.Name = "button9";
-            button9.Size = new System.Drawing.Size(75, 33);
-            button9.TabIndex = 155;
-            button9.Text = "Delete";
-            button9.UseCompatibleTextRendering = true;
-            button9.UseVisualStyleBackColor = true;
-            // 
-            // lineShape3
-            // 
-            this.lineShape3.Name = "lineShape3";
-            this.lineShape3.X1 = 17;
-            this.lineShape3.X2 = 730;
-            this.lineShape3.Y1 = 30;
-            this.lineShape3.Y2 = 30;
-            // 
-            // shapeContainer1
-            // 
-            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer1.Name = "shapeContainer1";
-            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape2,
-            this.lineShape1,
-            this.lineShape3});
-            this.shapeContainer1.Size = new System.Drawing.Size(744, 375);
-            this.shapeContainer1.TabIndex = 2;
-            this.shapeContainer1.TabStop = false;
-            // 
-            // lineShape2
-            // 
-            this.lineShape2.Name = "lineShape2";
-            this.lineShape2.X1 = 9;
-            this.lineShape2.X2 = 735;
-            this.lineShape2.Y1 = 303;
-            this.lineShape2.Y2 = 303;
-            // 
-            // lineShape1
-            // 
-            this.lineShape1.Name = "lineShape1";
-            this.lineShape1.X1 = 18;
-            this.lineShape1.X2 = 730;
-            this.lineShape1.Y1 = 69;
-            this.lineShape1.Y2 = 69;
             // 
             // label12
             // 
@@ -202,44 +137,44 @@
             this.txtTransportFee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTransportFee.Location = new System.Drawing.Point(144, 221);
             this.txtTransportFee.Name = "txtTransportFee";
-            this.txtTransportFee.ReadOnly = true;
             this.txtTransportFee.Size = new System.Drawing.Size(94, 21);
             this.txtTransportFee.TabIndex = 34;
             this.txtTransportFee.Text = "0.00";
             this.txtTransportFee.TextChanged += new System.EventHandler(this.txtTransportFee_TextChanged);
+            this.txtTransportFee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTransportFee_KeyPress);
             // 
             // txtQuarterlyFee
             // 
             this.txtQuarterlyFee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuarterlyFee.Location = new System.Drawing.Point(144, 197);
             this.txtQuarterlyFee.Name = "txtQuarterlyFee";
-            this.txtQuarterlyFee.ReadOnly = true;
             this.txtQuarterlyFee.Size = new System.Drawing.Size(94, 21);
             this.txtQuarterlyFee.TabIndex = 33;
             this.txtQuarterlyFee.Text = "0.00";
             this.txtQuarterlyFee.TextChanged += new System.EventHandler(this.txtQuarterlyFee_TextChanged);
+            this.txtQuarterlyFee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuarterlyFee_KeyPress);
             // 
             // txtTutionFee
             // 
             this.txtTutionFee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTutionFee.Location = new System.Drawing.Point(144, 173);
             this.txtTutionFee.Name = "txtTutionFee";
-            this.txtTutionFee.ReadOnly = true;
             this.txtTutionFee.Size = new System.Drawing.Size(94, 21);
             this.txtTutionFee.TabIndex = 32;
             this.txtTutionFee.Text = "0.00";
             this.txtTutionFee.TextChanged += new System.EventHandler(this.txtTutionFee_TextChanged);
+            this.txtTutionFee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTutionFee_KeyPress);
             // 
             // txtAnnualCharges
             // 
             this.txtAnnualCharges.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAnnualCharges.Location = new System.Drawing.Point(144, 149);
             this.txtAnnualCharges.Name = "txtAnnualCharges";
-            this.txtAnnualCharges.ReadOnly = true;
             this.txtAnnualCharges.Size = new System.Drawing.Size(94, 21);
             this.txtAnnualCharges.TabIndex = 31;
             this.txtAnnualCharges.Text = "0.00";
             this.txtAnnualCharges.TextChanged += new System.EventHandler(this.txtAnnualCharges_TextChanged);
+            this.txtAnnualCharges.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAnnualCharges_KeyPress);
             // 
             // txtAdmissionFee
             // 
@@ -248,22 +183,22 @@
             this.txtAdmissionFee.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.txtAdmissionFee.Location = new System.Drawing.Point(144, 125);
             this.txtAdmissionFee.Name = "txtAdmissionFee";
-            this.txtAdmissionFee.ReadOnly = true;
             this.txtAdmissionFee.Size = new System.Drawing.Size(94, 21);
             this.txtAdmissionFee.TabIndex = 30;
             this.txtAdmissionFee.Text = "0.00";
             this.txtAdmissionFee.TextChanged += new System.EventHandler(this.txtAdmissionFee_TextChanged);
+            this.txtAdmissionFee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAdmissionFee_KeyPress);
             // 
             // txtRegistrationFee
             // 
             this.txtRegistrationFee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRegistrationFee.Location = new System.Drawing.Point(144, 101);
             this.txtRegistrationFee.Name = "txtRegistrationFee";
-            this.txtRegistrationFee.ReadOnly = true;
             this.txtRegistrationFee.Size = new System.Drawing.Size(94, 21);
             this.txtRegistrationFee.TabIndex = 29;
             this.txtRegistrationFee.Text = "0.00";
             this.txtRegistrationFee.TextChanged += new System.EventHandler(this.txtRegistrationFee_TextChanged);
+            this.txtRegistrationFee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRegistrationFee_KeyPress);
             // 
             // label1
             // 
@@ -283,6 +218,7 @@
             this.txtAdmissionNo.Size = new System.Drawing.Size(85, 21);
             this.txtAdmissionNo.TabIndex = 42;
             this.txtAdmissionNo.TextChanged += new System.EventHandler(this.txtAdmissionNo_TextChanged);
+            this.txtAdmissionNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAdmissionNo_KeyPress);
             // 
             // txtName
             // 
@@ -305,14 +241,6 @@
             this.label2.TabIndex = 44;
             this.label2.Text = "Class :";
             // 
-            // txtClass
-            // 
-            this.txtClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtClass.Location = new System.Drawing.Point(445, 42);
-            this.txtClass.Name = "txtClass";
-            this.txtClass.Size = new System.Drawing.Size(94, 21);
-            this.txtClass.TabIndex = 45;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -328,6 +256,7 @@
             this.txtAccountNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAccountNo.Location = new System.Drawing.Point(605, 42);
             this.txtAccountNo.Name = "txtAccountNo";
+            this.txtAccountNo.ReadOnly = true;
             this.txtAccountNo.Size = new System.Drawing.Size(94, 21);
             this.txtAccountNo.TabIndex = 47;
             // 
@@ -340,6 +269,7 @@
             this.txtTransportFeeDisc.TabIndex = 53;
             this.txtTransportFeeDisc.Text = "0.00";
             this.txtTransportFeeDisc.TextChanged += new System.EventHandler(this.txtTransportFeeDisc_TextChanged);
+            this.txtTransportFeeDisc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTransportFeeDisc_KeyPress);
             // 
             // txtQuarterlyFeeDisc
             // 
@@ -350,6 +280,7 @@
             this.txtQuarterlyFeeDisc.TabIndex = 52;
             this.txtQuarterlyFeeDisc.Text = "0.00";
             this.txtQuarterlyFeeDisc.TextChanged += new System.EventHandler(this.txtQuarterlyFeeDisc_TextChanged);
+            this.txtQuarterlyFeeDisc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuarterlyFeeDisc_KeyPress);
             // 
             // txtTutionFeeDisc
             // 
@@ -360,6 +291,7 @@
             this.txtTutionFeeDisc.TabIndex = 51;
             this.txtTutionFeeDisc.Text = "0.00";
             this.txtTutionFeeDisc.TextChanged += new System.EventHandler(this.txtTutionFeeDisc_TextChanged);
+            this.txtTutionFeeDisc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTutionFeeDisc_KeyPress);
             // 
             // txtAnnualChargesDisc
             // 
@@ -370,6 +302,7 @@
             this.txtAnnualChargesDisc.TabIndex = 50;
             this.txtAnnualChargesDisc.Text = "0.00";
             this.txtAnnualChargesDisc.TextChanged += new System.EventHandler(this.txtAnnualChargesDisc_TextChanged);
+            this.txtAnnualChargesDisc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAnnualChargesDisc_KeyPress);
             // 
             // txtAdmissionFeeDisc
             // 
@@ -380,6 +313,7 @@
             this.txtAdmissionFeeDisc.TabIndex = 49;
             this.txtAdmissionFeeDisc.Text = "0.00";
             this.txtAdmissionFeeDisc.TextChanged += new System.EventHandler(this.txtAdmissionFeeDisc_TextChanged);
+            this.txtAdmissionFeeDisc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAdmissionFeeDisc_KeyPress);
             // 
             // txtRegistrationFeeDisc
             // 
@@ -390,6 +324,7 @@
             this.txtRegistrationFeeDisc.TabIndex = 48;
             this.txtRegistrationFeeDisc.Text = "0.00";
             this.txtRegistrationFeeDisc.TextChanged += new System.EventHandler(this.txtRegistrationFeeDisc_TextChanged);
+            this.txtRegistrationFeeDisc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRegistrationFeeDisc_KeyPress);
             // 
             // txtTransportFeeAct
             // 
@@ -526,7 +461,7 @@
             this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button10.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button10.Location = new System.Drawing.Point(664, 312);
+            this.button10.Location = new System.Drawing.Point(516, 312);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(75, 33);
             this.button10.TabIndex = 156;
@@ -534,20 +469,6 @@
             this.button10.UseCompatibleTextRendering = true;
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // button8
-            // 
-            this.button8.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button8.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button8.Location = new System.Drawing.Point(517, 312);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 33);
-            this.button8.TabIndex = 154;
-            this.button8.Text = "Edit";
-            this.button8.UseCompatibleTextRendering = true;
-            this.button8.UseVisualStyleBackColor = true;
             // 
             // button7
             // 
@@ -578,76 +499,6 @@
             this.btn_Save.UseVisualStyleBackColor = true;
             this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
-            // button5
-            // 
-            this.button5.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button5.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button5.Location = new System.Drawing.Point(223, 312);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 33);
-            this.button5.TabIndex = 151;
-            this.button5.Text = "Top";
-            this.button5.UseCompatibleTextRendering = true;
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button4.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Location = new System.Drawing.Point(295, 312);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 33);
-            this.button4.TabIndex = 150;
-            this.button4.Text = "Bottom";
-            this.button4.UseCompatibleTextRendering = true;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(150, 312);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 33);
-            this.button3.TabIndex = 149;
-            this.button3.Text = "Prev";
-            this.button3.UseCompatibleTextRendering = true;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(77, 312);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 33);
-            this.button2.TabIndex = 148;
-            this.button2.Text = "Next";
-            this.button2.UseCompatibleTextRendering = true;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(5, 312);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 33);
-            this.button1.TabIndex = 147;
-            this.button1.Text = "Add";
-            this.button1.UseCompatibleTextRendering = true;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // lblSession
             // 
             this.lblSession.AutoSize = true;
@@ -668,33 +519,40 @@
             this.label14.TabIndex = 206;
             this.label14.Text = "Fee Structure Entry For Session";
             // 
+            // txtClass
+            // 
+            this.txtClass.Enabled = false;
+            this.txtClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClass.Location = new System.Drawing.Point(448, 42);
+            this.txtClass.Name = "txtClass";
+            this.txtClass.ReadOnly = true;
+            this.txtClass.Size = new System.Drawing.Size(94, 21);
+            this.txtClass.TabIndex = 208;
+            // 
             // lblUname
             // 
             this.lblUname.AutoSize = true;
-            this.lblUname.Location = new System.Drawing.Point(723, 10);
+            this.lblUname.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUname.Location = new System.Drawing.Point(606, 261);
             this.lblUname.Name = "lblUname";
-            this.lblUname.Size = new System.Drawing.Size(0, 13);
-            this.lblUname.TabIndex = 225;
+            this.lblUname.Size = new System.Drawing.Size(67, 18);
+            this.lblUname.TabIndex = 209;
+            this.lblUname.Text = "User Name";
             this.lblUname.Visible = false;
             // 
             // YearlyFeeEntry
             // 
+            this.AcceptButton = this.btn_Save;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(744, 375);
             this.Controls.Add(this.lblUname);
+            this.Controls.Add(this.txtClass);
             this.Controls.Add(this.lblSession);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.button10);
-            this.Controls.Add(button9);
-            this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.btn_Save);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtTotalAmount);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label9);
@@ -714,7 +572,6 @@
             this.Controls.Add(this.txtRegistrationFeeDisc);
             this.Controls.Add(this.txtAccountNo);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtClass);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtAdmissionNo);
@@ -731,7 +588,6 @@
             this.Controls.Add(this.txtAnnualCharges);
             this.Controls.Add(this.txtAdmissionFee);
             this.Controls.Add(this.txtRegistrationFee);
-            this.Controls.Add(this.shapeContainer1);
             this.Name = "YearlyFeeEntry";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "YearlyFeeEntry";
@@ -742,10 +598,6 @@
         }
 
         #endregion
-
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape3;
-        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
@@ -762,7 +614,6 @@
         private System.Windows.Forms.TextBox txtAdmissionNo;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtClass;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtAccountNo;
         private System.Windows.Forms.TextBox txtTransportFeeDisc;
@@ -783,17 +634,11 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.RichTextBox txtTotalAmount;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button btn_Save;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;
         private System.Windows.Forms.Label lblSession;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtClass;
         private System.Windows.Forms.Label lblUname;
     }
 }

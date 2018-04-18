@@ -35,9 +35,9 @@
             this.lblSession = new System.Windows.Forms.Label();
             this.ddlCurrentClass = new System.Windows.Forms.ComboBox();
             this.grpPromotedClass = new System.Windows.Forms.GroupBox();
+            this.lblPromotedSession = new System.Windows.Forms.Label();
             this.ddlPromotingClass = new System.Windows.Forms.ComboBox();
             this.btnDemote = new System.Windows.Forms.Button();
-            this.lblPromotedSession = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnBounced = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
@@ -136,6 +136,15 @@
             this.grpPromotedClass.TabStop = false;
             this.grpPromotedClass.Text = "Promoting Class";
             // 
+            // lblPromotedSession
+            // 
+            this.lblPromotedSession.AutoSize = true;
+            this.lblPromotedSession.Location = new System.Drawing.Point(203, 20);
+            this.lblPromotedSession.Name = "lblPromotedSession";
+            this.lblPromotedSession.Size = new System.Drawing.Size(56, 17);
+            this.lblPromotedSession.TabIndex = 4;
+            this.lblPromotedSession.Text = "session";
+            // 
             // ddlPromotingClass
             // 
             this.ddlPromotingClass.BackColor = System.Drawing.Color.White;
@@ -167,15 +176,6 @@
             this.btnDemote.Text = "<<";
             this.btnDemote.UseVisualStyleBackColor = false;
             this.btnDemote.Click += new System.EventHandler(this.btnDemote_Click);
-            // 
-            // lblPromotedSession
-            // 
-            this.lblPromotedSession.AutoSize = true;
-            this.lblPromotedSession.Location = new System.Drawing.Point(203, 20);
-            this.lblPromotedSession.Name = "lblPromotedSession";
-            this.lblPromotedSession.Size = new System.Drawing.Size(56, 17);
-            this.lblPromotedSession.TabIndex = 4;
-            this.lblPromotedSession.Text = "session";
             // 
             // groupBox1
             // 
@@ -223,6 +223,7 @@
             // 
             // StudentPromotion
             // 
+            this.AcceptButton = this.btn_Save;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(879, 614);

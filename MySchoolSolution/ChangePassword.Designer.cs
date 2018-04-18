@@ -66,17 +66,17 @@
             this.txtNewPassword.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtNewPassword.Location = new System.Drawing.Point(210, 86);
             this.txtNewPassword.Name = "txtNewPassword";
-            this.txtNewPassword.PasswordChar = 'X';
             this.txtNewPassword.Size = new System.Drawing.Size(171, 20);
             this.txtNewPassword.TabIndex = 3;
+            this.txtNewPassword.UseSystemPasswordChar = true;
             // 
             // txtOldPassword
             // 
             this.txtOldPassword.Location = new System.Drawing.Point(210, 53);
             this.txtOldPassword.Name = "txtOldPassword";
-            this.txtOldPassword.PasswordChar = 'X';
             this.txtOldPassword.Size = new System.Drawing.Size(171, 20);
             this.txtOldPassword.TabIndex = 2;
+            this.txtOldPassword.UseSystemPasswordChar = true;
             // 
             // btn_Save
             // 
@@ -127,9 +127,9 @@
             this.txtConfirmPassword.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtConfirmPassword.Location = new System.Drawing.Point(210, 119);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
-            this.txtConfirmPassword.PasswordChar = 'X';
             this.txtConfirmPassword.Size = new System.Drawing.Size(171, 20);
             this.txtConfirmPassword.TabIndex = 4;
+            this.txtConfirmPassword.UseSystemPasswordChar = true;
             // 
             // button1
             // 
@@ -148,6 +148,7 @@
             // 
             // ChangePassword
             // 
+            this.AcceptButton = this.btn_Save;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(520, 219);

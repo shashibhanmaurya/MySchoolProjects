@@ -34,9 +34,9 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblSession = new System.Windows.Forms.Label();
             this.btnBounced = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
+            this.lblSession = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gvAttendance)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -105,17 +105,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Action";
             // 
-            // lblSession
-            // 
-            this.lblSession.AutoSize = true;
-            this.lblSession.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSession.Location = new System.Drawing.Point(553, 24);
-            this.lblSession.Name = "lblSession";
-            this.lblSession.Size = new System.Drawing.Size(49, 13);
-            this.lblSession.TabIndex = 224;
-            this.lblSession.Text = "session";
-            this.lblSession.Visible = false;
-            // 
             // btnBounced
             // 
             this.btnBounced.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
@@ -146,8 +135,20 @@
             this.btn_Save.UseVisualStyleBackColor = true;
             this.btn_Save.Click += new System.EventHandler(this.btn_Present_Click);
             // 
+            // lblSession
+            // 
+            this.lblSession.AutoSize = true;
+            this.lblSession.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSession.Location = new System.Drawing.Point(553, 24);
+            this.lblSession.Name = "lblSession";
+            this.lblSession.Size = new System.Drawing.Size(49, 13);
+            this.lblSession.TabIndex = 224;
+            this.lblSession.Text = "session";
+            this.lblSession.Visible = false;
+            // 
             // Attendance
             // 
+            this.AcceptButton = this.btn_Save;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(807, 504);

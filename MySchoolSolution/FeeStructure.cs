@@ -13,7 +13,9 @@ namespace MySchoolSolution
 {
     public partial class Fee_Structure : Form
     {
+        public int Fee_Id { get; set; }
         public string NewClass { get; set; }
+        public string Operation { get; set; }
         public Fee_Structure()
         {
             InitializeComponent();
@@ -39,12 +41,21 @@ namespace MySchoolSolution
                 {
                     MessageBox.Show("Please Enter Tution Fee!");
                 }
-                else if (GetClassForNewEntry() == true)
+                else if (GetClassForNewEntry() == true && Operation != "Update")
                 {
                     MessageBox.Show("The Fee structure is already saved for this class and session !");
                 }
                 else
                 {
+                    if (Operation == "Update")
+                    {
+                        SqlConnection con = new SqlConnection(Connection.Connection_string.ConnectionString);
+                        SqlCommand cmd = new SqlCommand("delete tbl_ClasswiseAnnualFeeStructure WHERE Class='" + ddlClass.Text + "' AND SessionYear='" + lblSession.Text + "'");
+                        cmd.Connection = con;
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                    }
 
                     SqlParameter[] m = new SqlParameter[23];
                     m[0] = new SqlParameter("@FeeId", SqlDbType.Int);
@@ -70,14 +81,16 @@ namespace MySchoolSolution
                     m[20] = new SqlParameter("@UDF2", SqlDbType.Text);
                     m[21] = new SqlParameter("@UDF3", SqlDbType.Text);
                     m[22] = new SqlParameter("@UserName", lblUname.Text);
-                    GetClassForNewEntry();
+
                     SqlHelper.ExecuteNonQuery(Connection.Connection_string, CommandType.StoredProcedure, "ClasswiseAnnualFeeStructure_Insert", m);
-                    MessageBox.Show("Fee Structure Saved Successfully");
+                    CommonFunctions.ShowMessage("Fee Structure Saved Successfully");
+
+
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                CommonFunctions.ShowError(ex.Message);
             }
         }
 
@@ -86,11 +99,7 @@ namespace MySchoolSolution
             this.Close();
         }
 
-        private void Fee_Structure_Load(object sender, EventArgs e)
-        {
-            //GetClassForNewEntry();
-            //ddlClass.SelectedItem = NewClass.ToString();
-        }
+
         private bool GetClassForNewEntry()
         {
             SqlParameter[] m = new SqlParameter[2];
@@ -107,7 +116,39 @@ namespace MySchoolSolution
 
         private void ddlClass_SelectedIndexChanged(object sender, EventArgs e)
         {
+            getdataOnLoad();
+        }
+        private void getdataOnLoad()
+        {
+            if (Operation == "Update")
+            {
+                SqlParameter[] m = new SqlParameter[2];
+                m[0] = new SqlParameter("@Session", lblSession.Text);
+                m[1] = new SqlParameter("@Class", ddlClass.Text);
 
+                SqlDataReader dr = SqlHelper.ExecuteReader(Connection.Connection_string, "ClasswiseAnnualFeeStructure_SelectAllByClassAndSession", m);
+                while (dr.Read())
+                {
+                    txtRegistrationFee.Text = dr["RegistrationFee"].ToString();
+                    txtAnnualDevFee.Text = dr["AnnualCharge"].ToString();
+                    txtTutionFee.Text = dr["TutionFee"].ToString();
+                    txtChildFund.Text = dr["ChildFund"].ToString();
+                    txtMisc.Text = dr["Misc"].ToString();
+                    txtComputerFee.Text = dr["ComputerFee"].ToString();
+                    txtExamFee.Text = dr["ExamFee"].ToString();
+                    txtLateFee.Text = dr["LateFee"].ToString();
+                    txtSecurityDeposite.Text = dr["SecurityDeposite"].ToString();
+                    txtAssignmentFee.Text = dr["TransportFee"].ToString();
+                    txtScienceFee.Text = dr["ScienceFee"].ToString();
+                    txtSportsFee.Text = dr["SportsFee"].ToString();
+                    txtLibraryFee.Text = dr["LibraryFee"].ToString();
+                    txtReportCardFee.Text = dr["ReportCardFee"].ToString();
+                }
+            }
+        }
+        private void Fee_Structure_Load(object sender, EventArgs e)
+        {
+            getdataOnLoad();
         }
     }
 }

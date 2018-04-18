@@ -13,14 +13,14 @@ namespace MySchoolSolution
 {
     public partial class HomeMenu : Form
     {
-       
+
         public HomeMenu()
         {
             InitializeComponent();
-            
-           
+
+
         }
-      
+
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NewStudentEntry pr = new NewStudentEntry();
@@ -51,24 +51,12 @@ namespace MySchoolSolution
 
         private void addToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Fee_Structure fs = new Fee_Structure();
-            string userName = lblUserName.Text.Replace("Welcome ", "");
-            Control[] ctrl = fs.Controls.Find("lblUname", true);
-            Label lblUname = (Label)ctrl.FirstOrDefault();
-            lblUname.Text = userName;
 
-            fs.Show();
         }
 
         private void addToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            YearlyFeeEntry ne = new YearlyFeeEntry();
-            string userName = lblUserName.Text.Replace("Welcome ", "");
-            Control[] ctrl = ne.Controls.Find("lblUname", true);
-            Label lblUname = (Label)ctrl.FirstOrDefault();
-            lblUname.Text = userName;
 
-            ne.Show(); ;
         }
 
         private void feeStructureListToolStripMenuItem_Click(object sender, EventArgs e)
@@ -91,9 +79,9 @@ namespace MySchoolSolution
 
         private void HomeMenu_Load(object sender, EventArgs e)
         {
-            
+
             lblSession.Text = CommonFunctions.GetCurrentSession;
-            
+
             Login l = new Login();
             DialogResult dr = l.ShowDialog();
             if (dr == DialogResult.OK)
@@ -116,7 +104,7 @@ namespace MySchoolSolution
 
                 //}
                 CommonFunctions.UserName = l.username;
-                CommonFunctions.SendSMS("919811579129","User "+ l.username + " logged in at "+DateTime.Now.ToString());
+                CommonFunctions.SendSMS(CommonFunctions.adminMobile, "User " + l.username + " logged in at " + DateTime.Now.ToString());
                 l.Dispose();
             }
 
@@ -124,7 +112,9 @@ namespace MySchoolSolution
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            CommonFunctions.SaveBackup();
+            Application.Exit();
+
         }
 
         private void addToolStripMenuItem4_Click(object sender, EventArgs e)
@@ -268,8 +258,8 @@ namespace MySchoolSolution
         private void ChangePasswordMenuItem_Click(object sender, EventArgs e)
         {
             ChangePassword pr = new ChangePassword();
-           string userName = lblUserName.Text.Replace("Welcome ","");
-            Control[] ctrl = pr.Controls.Find("txtUserName",true);
+            string userName = lblUserName.Text.Replace("Welcome ", "");
+            Control[] ctrl = pr.Controls.Find("txtUserName", true);
             TextBox txtUserName = (TextBox)ctrl.FirstOrDefault();
             txtUserName.Text = userName;
 
@@ -278,7 +268,7 @@ namespace MySchoolSolution
 
         private void PendingChequeMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -347,6 +337,72 @@ namespace MySchoolSolution
         {
             HomeWork hw = new HomeWork();
             hw.Show();
+        }
+
+        private void HomeMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            CommonFunctions.SaveBackup();
+        }
+
+        private void modifyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Users us = new Users();
+            us.Operation = "Update";
+            us.Show();
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            Fee_Structure fs = new Fee_Structure();
+            string userName = lblUserName.Text.Replace("Welcome ", "");
+            Control[] ctrl = fs.Controls.Find("lblUname", true);
+            Label lblUname = (Label)ctrl.FirstOrDefault();
+            lblUname.Text = userName;
+
+            fs.Show();
+        }
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            Fee_Structure fs = new Fee_Structure();
+            string userName = lblUserName.Text.Replace("Welcome ", "");
+            Control[] ctrl = fs.Controls.Find("lblUname", true);
+            Label lblUname = (Label)ctrl.FirstOrDefault();
+            lblUname.Text = userName;
+            fs.Operation = "Update";
+            fs.Show();
+        }
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            YearlyFeeEntry ne = new YearlyFeeEntry();
+            string userName = lblUserName.Text.Replace("Welcome ", "");
+            Control[] ctrl = ne.Controls.Find("lblUname", true);
+            Label lblUname = (Label)ctrl.FirstOrDefault();
+            lblUname.Text = userName;
+
+            ne.Show(); ;
+        }
+
+        private void toolStripMenuItem11_Click(object sender, EventArgs e)
+        {
+            SearchStudentForFeeDeposit ss = new SearchStudentForFeeDeposit();
+            ss.Show();
+        }
+
+        private void toolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+            YearlyFeeEntry fs = new YearlyFeeEntry();
+            string userName = lblUserName.Text.Replace("Welcome ", "");
+            Control[] ctrl = fs.Controls.Find("lblUname", true);
+            Label lblUname = (Label)ctrl.FirstOrDefault();
+            lblUname.Text = userName;
+            fs.Operation = "Update";
+            fs.Show();
+        }
+
+        private void toolStripMenuItem12_Click(object sender, EventArgs e)
+        {
+            CollectionAndExpances ce = new CollectionAndExpances();
+            ce.Show();
         }
     }
 }

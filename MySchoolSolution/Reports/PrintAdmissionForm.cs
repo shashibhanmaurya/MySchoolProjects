@@ -16,25 +16,16 @@ namespace MySchoolSolution.Reports
         {
             InitializeComponent();
         }
-        private string temp;
-        public string access
-        {
-            get
-            {
-                return temp;
-            }
-            set
-            {
-                temp = value;
-            }
-        }
+        
+        public int AdmissionNo { get; set; }
+        public string Session { get; set; }
         private void PrintAdmissionForm_Load(object sender, EventArgs e)
         {
-            SqlParameter[] m = new SqlParameter[1];
+            SqlParameter[] m = new SqlParameter[2];
 
-            m[0] = new SqlParameter("@ReceiptNO", Convert.ToInt32(temp));
-
-            DataSet ds1 = SqlHelper.ExecuteDataset(Connection.Connection_string, "SelectOneAdmissionFormForStudent", m);
+            m[0] = new SqlParameter("@Addmission_Number", AdmissionNo);
+            m[1] = new SqlParameter("@Session", Session);
+            DataSet ds1 = SqlHelper.ExecuteDataset(Connection.Connection_string, "StudentInfo_SelectOneBySession", m);
             Reports.AdmissionForm mr = new Reports.AdmissionForm();
             // mr.SetParameterValue("@ReceiptNo", Convert.ToInt32(temp));
             mr.SetDataSource(ds1.Tables[0]);

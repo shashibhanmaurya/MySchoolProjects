@@ -43,11 +43,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.ddlClass = new System.Windows.Forms.ComboBox();
             this.txtSession = new System.Windows.Forms.TextBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -75,6 +72,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lblUname = new System.Windows.Forms.Label();
+            this.lblFeeID = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label3
@@ -93,6 +91,7 @@
             this.txtRegistrationFee.Name = "txtRegistrationFee";
             this.txtRegistrationFee.Size = new System.Drawing.Size(127, 20);
             this.txtRegistrationFee.TabIndex = 1;
+            this.txtRegistrationFee.Text = "0";
             // 
             // txtAdmissionFee
             // 
@@ -100,6 +99,7 @@
             this.txtAdmissionFee.Name = "txtAdmissionFee";
             this.txtAdmissionFee.Size = new System.Drawing.Size(127, 20);
             this.txtAdmissionFee.TabIndex = 2;
+            this.txtAdmissionFee.Text = "0";
             // 
             // txtAnnualDevFee
             // 
@@ -107,6 +107,7 @@
             this.txtAnnualDevFee.Name = "txtAnnualDevFee";
             this.txtAnnualDevFee.Size = new System.Drawing.Size(127, 20);
             this.txtAnnualDevFee.TabIndex = 3;
+            this.txtAnnualDevFee.Text = "0";
             // 
             // txtTutionFee
             // 
@@ -114,6 +115,7 @@
             this.txtTutionFee.Name = "txtTutionFee";
             this.txtTutionFee.Size = new System.Drawing.Size(127, 20);
             this.txtTutionFee.TabIndex = 4;
+            this.txtTutionFee.Text = "0";
             // 
             // txtChildFund
             // 
@@ -121,6 +123,7 @@
             this.txtChildFund.Name = "txtChildFund";
             this.txtChildFund.Size = new System.Drawing.Size(127, 20);
             this.txtChildFund.TabIndex = 5;
+            this.txtChildFund.Text = "0";
             // 
             // txtMisc
             // 
@@ -128,6 +131,7 @@
             this.txtMisc.Name = "txtMisc";
             this.txtMisc.Size = new System.Drawing.Size(127, 20);
             this.txtMisc.TabIndex = 6;
+            this.txtMisc.Text = "0";
             // 
             // label4
             // 
@@ -204,7 +208,7 @@
             this.button10.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
             this.button10.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button10.Location = new System.Drawing.Point(450, 270);
+            this.button10.Location = new System.Drawing.Point(301, 270);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(75, 33);
             this.button10.TabIndex = 52;
@@ -212,32 +216,6 @@
             this.button10.UseCompatibleTextRendering = true;
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // button9
-            // 
-            this.button9.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            this.button9.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button9.Location = new System.Drawing.Point(376, 270);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 33);
-            this.button9.TabIndex = 51;
-            this.button9.Text = "Delete";
-            this.button9.UseCompatibleTextRendering = true;
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            this.button8.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button8.Location = new System.Drawing.Point(303, 270);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 33);
-            this.button8.TabIndex = 50;
-            this.button8.Text = "Edit";
-            this.button8.UseCompatibleTextRendering = true;
-            this.button8.UseVisualStyleBackColor = true;
             // 
             // button7
             // 
@@ -265,19 +243,6 @@
             this.btnSave.UseCompatibleTextRendering = true;
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            this.button1.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(83, 270);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 33);
-            this.button1.TabIndex = 43;
-            this.button1.Text = "Add";
-            this.button1.UseCompatibleTextRendering = true;
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // ddlClass
             // 
@@ -329,6 +294,7 @@
             this.txtReportCardFee.Name = "txtReportCardFee";
             this.txtReportCardFee.Size = new System.Drawing.Size(127, 20);
             this.txtReportCardFee.TabIndex = 15;
+            this.txtReportCardFee.Text = "0";
             // 
             // label20
             // 
@@ -386,9 +352,9 @@
             this.label15.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(326, 112);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(101, 18);
+            this.label15.Size = new System.Drawing.Size(86, 18);
             this.label15.TabIndex = 66;
-            this.label15.Text = "Assignment Fee :";
+            this.label15.Text = "Transport Fee";
             // 
             // label14
             // 
@@ -416,6 +382,7 @@
             this.txtLibraryFee.Name = "txtLibraryFee";
             this.txtLibraryFee.Size = new System.Drawing.Size(127, 20);
             this.txtLibraryFee.TabIndex = 14;
+            this.txtLibraryFee.Text = "0";
             // 
             // txtSportsFee
             // 
@@ -423,6 +390,7 @@
             this.txtSportsFee.Name = "txtSportsFee";
             this.txtSportsFee.Size = new System.Drawing.Size(127, 20);
             this.txtSportsFee.TabIndex = 13;
+            this.txtSportsFee.Text = "0";
             // 
             // txtScienceFee
             // 
@@ -430,6 +398,7 @@
             this.txtScienceFee.Name = "txtScienceFee";
             this.txtScienceFee.Size = new System.Drawing.Size(127, 20);
             this.txtScienceFee.TabIndex = 12;
+            this.txtScienceFee.Text = "0";
             // 
             // txtAssignmentFee
             // 
@@ -437,6 +406,7 @@
             this.txtAssignmentFee.Name = "txtAssignmentFee";
             this.txtAssignmentFee.Size = new System.Drawing.Size(127, 20);
             this.txtAssignmentFee.TabIndex = 11;
+            this.txtAssignmentFee.Text = "0";
             // 
             // txtSecurityDeposite
             // 
@@ -444,6 +414,7 @@
             this.txtSecurityDeposite.Name = "txtSecurityDeposite";
             this.txtSecurityDeposite.Size = new System.Drawing.Size(127, 20);
             this.txtSecurityDeposite.TabIndex = 10;
+            this.txtSecurityDeposite.Text = "0";
             // 
             // txtLateFee
             // 
@@ -451,6 +422,7 @@
             this.txtLateFee.Name = "txtLateFee";
             this.txtLateFee.Size = new System.Drawing.Size(127, 20);
             this.txtLateFee.TabIndex = 9;
+            this.txtLateFee.Text = "0";
             // 
             // label13
             // 
@@ -468,6 +440,7 @@
             this.txtComputerFee.Name = "txtComputerFee";
             this.txtComputerFee.Size = new System.Drawing.Size(127, 20);
             this.txtComputerFee.TabIndex = 7;
+            this.txtComputerFee.Text = "0";
             // 
             // label8
             // 
@@ -485,6 +458,7 @@
             this.txtExamFee.Name = "txtExamFee";
             this.txtExamFee.Size = new System.Drawing.Size(127, 20);
             this.txtExamFee.TabIndex = 8;
+            this.txtExamFee.Text = "0";
             // 
             // lblSession
             // 
@@ -524,11 +498,21 @@
             this.lblUname.TabIndex = 225;
             this.lblUname.Visible = false;
             // 
+            // lblFeeID
+            // 
+            this.lblFeeID.AutoSize = true;
+            this.lblFeeID.Location = new System.Drawing.Point(612, 14);
+            this.lblFeeID.Name = "lblFeeID";
+            this.lblFeeID.Size = new System.Drawing.Size(0, 13);
+            this.lblFeeID.TabIndex = 226;
+            this.lblFeeID.Visible = false;
+            // 
             // Fee_Structure
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(657, 328);
+            this.Controls.Add(this.lblFeeID);
             this.Controls.Add(this.lblUname);
             this.Controls.Add(this.lblSession);
             this.Controls.Add(this.label1);
@@ -556,11 +540,8 @@
             this.Controls.Add(this.txtSession);
             this.Controls.Add(this.ddlClass);
             this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -599,11 +580,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.ComboBox ddlClass;
         private System.Windows.Forms.TextBox txtSession;
@@ -632,5 +610,6 @@
         private System.Windows.Forms.Label label1;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private System.Windows.Forms.Label lblUname;
+        private System.Windows.Forms.Label lblFeeID;
     }
 }

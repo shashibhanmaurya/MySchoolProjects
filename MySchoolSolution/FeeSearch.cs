@@ -76,8 +76,9 @@ namespace MySchoolSolution
             while (dr.Read())
             {
                 MyCollection.Add(dr.GetString(0));
+                txtStudent.AutoCompleteCustomSource = MyCollection;
             }
-            txtStudent.AutoCompleteCustomSource = MyCollection;
+           
 
 
         }
@@ -217,6 +218,36 @@ namespace MySchoolSolution
                 fv.purpose = "Fee Collection for: " + Name + " of class  " + cls + "";
                 fv.Show();
                 this.Hide();
+            }
+        }
+
+        private void gvSearchResult_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+            }
+
+        private void gvSearchResult_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if ( e.RowIndex >= 0)
+            {
+                lblReceipt.Text = this.gvSearchResult.Rows[e.RowIndex].Cells[0].Value.ToString();
+            }
+        }
+
+        private void btnPrintReceipt_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+           
+            Reports.PrintReceipt pr = new Reports.PrintReceipt();
+            pr.access = lblReceipt.Text;
+            pr.Show();
+            }
+            catch (Exception ex)
+            {
+
+                CommonFunctions.ShowError("Please select a record and try again !"+ex.Message);
             }
         }
     }

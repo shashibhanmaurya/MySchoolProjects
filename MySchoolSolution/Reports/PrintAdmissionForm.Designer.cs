@@ -50,6 +50,7 @@
             this.Controls.Add(this.reportViewer);
             this.Name = "PrintAdmissionForm";
             this.Text = "PrintAdmissionForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.PrintAdmissionForm_Load);
             this.ResumeLayout(false);
 

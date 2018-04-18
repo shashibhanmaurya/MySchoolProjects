@@ -25,7 +25,12 @@ namespace MySchoolSolution
            
             m[0] = new SqlParameter("@Session", CommonFunctions.GetCurrentSession);
             DataSet ds = SqlHelper.ExecuteDataset(Connection.Connection_string, "ClasswiseAnnualFeeStructure_SelectAllBySession", m);
-            dataGridView1.DataSource = ds;
+            dataGridView1.DataSource = ds.Tables[0];
+        }
+
+        private void FeeStructureList_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

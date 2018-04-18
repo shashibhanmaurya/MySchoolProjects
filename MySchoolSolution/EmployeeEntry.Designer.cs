@@ -299,7 +299,7 @@
             this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button10.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button10.Location = new System.Drawing.Point(496, 287);
+            this.button10.Location = new System.Drawing.Point(497, 287);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(75, 33);
             this.button10.TabIndex = 23;
@@ -314,7 +314,7 @@
             this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button7.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button7.Location = new System.Drawing.Point(424, 287);
+            this.button7.Location = new System.Drawing.Point(426, 287);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 33);
             this.button7.TabIndex = 20;
@@ -571,6 +571,7 @@
             // 
             // EmployeeEntry
             // 
+            this.AcceptButton = this.EmployeeInfo_Insert;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(862, 371);

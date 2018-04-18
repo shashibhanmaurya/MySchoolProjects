@@ -69,9 +69,9 @@
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(167, 113);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = 'X';
             this.txtPassword.Size = new System.Drawing.Size(168, 23);
             this.txtPassword.TabIndex = 4;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // btn_Login
             // 
@@ -108,6 +108,7 @@
             this.AcceptButton = this.btn_Login;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(433, 262);
             this.ControlBox = false;
             this.Controls.Add(this.btnExit);

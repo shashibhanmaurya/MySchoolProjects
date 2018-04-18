@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Button button9;
-            this.lineShape3 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewStudentEntry));
             this.label10 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -144,14 +142,8 @@
             this.txtOtherInformation = new System.Windows.Forms.RichTextBox();
             this.label52 = new System.Windows.Forms.Label();
             this.button10 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.ddlClass = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
             this.lblSession = new System.Windows.Forms.Label();
@@ -172,47 +164,15 @@
             this.picQR = new System.Windows.Forms.PictureBox();
             this.ddlSection = new System.Windows.Forms.ComboBox();
             this.lblReceiptNo = new System.Windows.Forms.Label();
-            button9 = new System.Windows.Forms.Button();
+            this.pictureStudent = new System.Windows.Forms.PictureBox();
+            this.btnOpenCamera = new System.Windows.Forms.Button();
+            this.btnGenQR = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picQR)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureStudent)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button9
-            // 
-            button9.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            button9.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            button9.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            button9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            button9.Location = new System.Drawing.Point(681, 497);
-            button9.Name = "button9";
-            button9.Size = new System.Drawing.Size(75, 33);
-            button9.TabIndex = 145;
-            button9.Text = "Delete";
-            button9.UseCompatibleTextRendering = true;
-            button9.UseVisualStyleBackColor = true;
-            // 
-            // lineShape3
-            // 
-            this.lineShape3.Name = "lineShape3";
-            this.lineShape3.X1 = 15;
-            this.lineShape3.X2 = 920;
-            this.lineShape3.Y1 = 32;
-            this.lineShape3.Y2 = 32;
-            // 
-            // shapeContainer1
-            // 
-            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer1.Name = "shapeContainer1";
-            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape3});
-            this.shapeContainer1.Size = new System.Drawing.Size(1100, 544);
-            this.shapeContainer1.TabIndex = 2;
-            this.shapeContainer1.TabStop = false;
             // 
             // label10
             // 
@@ -270,7 +230,7 @@
             this.txtName.Location = new System.Drawing.Point(143, 62);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(217, 20);
-            this.txtName.TabIndex = 29;
+            this.txtName.TabIndex = 0;
             // 
             // label3
             // 
@@ -1195,7 +1155,7 @@
             this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button10.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button10.Location = new System.Drawing.Point(755, 497);
+            this.button10.Location = new System.Drawing.Point(608, 497);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(75, 33);
             this.button10.TabIndex = 146;
@@ -1203,21 +1163,6 @@
             this.button10.UseCompatibleTextRendering = true;
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // button8
-            // 
-            this.button8.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button8.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button8.Location = new System.Drawing.Point(608, 497);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 33);
-            this.button8.TabIndex = 144;
-            this.button8.Text = "Edit";
-            this.button8.UseCompatibleTextRendering = true;
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
@@ -1240,7 +1185,7 @@
             this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button6.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button6.Location = new System.Drawing.Point(464, 497);
+            this.button6.Location = new System.Drawing.Point(461, 497);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 33);
             this.button6.TabIndex = 142;
@@ -1248,76 +1193,6 @@
             this.button6.UseCompatibleTextRendering = true;
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // button5
-            // 
-            this.button5.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button5.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button5.Location = new System.Drawing.Point(314, 497);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 33);
-            this.button5.TabIndex = 141;
-            this.button5.Text = "Top";
-            this.button5.UseCompatibleTextRendering = true;
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button4.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Location = new System.Drawing.Point(386, 497);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 33);
-            this.button4.TabIndex = 140;
-            this.button4.Text = "Bottom";
-            this.button4.UseCompatibleTextRendering = true;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(241, 497);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 33);
-            this.button3.TabIndex = 139;
-            this.button3.Text = "Prev";
-            this.button3.UseCompatibleTextRendering = true;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(168, 497);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 33);
-            this.button2.TabIndex = 138;
-            this.button2.Text = "Next";
-            this.button2.UseCompatibleTextRendering = true;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(96, 497);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 33);
-            this.button1.TabIndex = 137;
-            this.button1.Text = "Add";
-            this.button1.UseCompatibleTextRendering = true;
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // ddlClass
             // 
@@ -1491,9 +1366,9 @@
             // 
             // picQR
             // 
-            this.picQR.Location = new System.Drawing.Point(810, 9);
+            this.picQR.Location = new System.Drawing.Point(940, 224);
             this.picQR.Name = "picQR";
-            this.picQR.Size = new System.Drawing.Size(278, 211);
+            this.picQR.Size = new System.Drawing.Size(193, 195);
             this.picQR.TabIndex = 221;
             this.picQR.TabStop = false;
             // 
@@ -1518,12 +1393,57 @@
             this.lblReceiptNo.Size = new System.Drawing.Size(0, 18);
             this.lblReceiptNo.TabIndex = 223;
             // 
+            // pictureStudent
+            // 
+            this.pictureStudent.Image = ((System.Drawing.Image)(resources.GetObject("pictureStudent.Image")));
+            this.pictureStudent.Location = new System.Drawing.Point(940, 6);
+            this.pictureStudent.Name = "pictureStudent";
+            this.pictureStudent.Size = new System.Drawing.Size(194, 180);
+            this.pictureStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureStudent.TabIndex = 224;
+            this.pictureStudent.TabStop = false;
+            this.pictureStudent.Click += new System.EventHandler(this.pictureStudent_Click);
+            // 
+            // btnOpenCamera
+            // 
+            this.btnOpenCamera.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
+            this.btnOpenCamera.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnOpenCamera.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpenCamera.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnOpenCamera.Location = new System.Drawing.Point(940, 185);
+            this.btnOpenCamera.Name = "btnOpenCamera";
+            this.btnOpenCamera.Size = new System.Drawing.Size(193, 33);
+            this.btnOpenCamera.TabIndex = 225;
+            this.btnOpenCamera.Text = "Open Camera";
+            this.btnOpenCamera.UseCompatibleTextRendering = true;
+            this.btnOpenCamera.UseVisualStyleBackColor = true;
+            this.btnOpenCamera.Click += new System.EventHandler(this.btnOpenCamera_Click);
+            // 
+            // btnGenQR
+            // 
+            this.btnGenQR.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
+            this.btnGenQR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnGenQR.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenQR.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnGenQR.Location = new System.Drawing.Point(940, 428);
+            this.btnGenQR.Name = "btnGenQR";
+            this.btnGenQR.Size = new System.Drawing.Size(193, 33);
+            this.btnGenQR.TabIndex = 226;
+            this.btnGenQR.Text = "Generate QR";
+            this.btnGenQR.UseCompatibleTextRendering = true;
+            this.btnGenQR.UseVisualStyleBackColor = true;
+            this.btnGenQR.Click += new System.EventHandler(this.btnGenQR_Click);
+            // 
             // NewStudentEntry
             // 
+            this.AcceptButton = this.button6;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1100, 544);
+            this.ClientSize = new System.Drawing.Size(1141, 544);
+            this.Controls.Add(this.btnGenQR);
+            this.Controls.Add(this.btnOpenCamera);
+            this.Controls.Add(this.pictureStudent);
             this.Controls.Add(this.lblReceiptNo);
             this.Controls.Add(this.ddlSection);
             this.Controls.Add(this.picQR);
@@ -1544,15 +1464,8 @@
             this.Controls.Add(this.label19);
             this.Controls.Add(this.ddlClass);
             this.Controls.Add(this.button10);
-            this.Controls.Add(button9);
-            this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label52);
             this.Controls.Add(this.txtOtherInformation);
             this.Controls.Add(this.label43);
@@ -1657,10 +1570,9 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.shapeContainer1);
             this.Name = "NewStudentEntry";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "New Admission";
+            this.Text = "Student";
             this.Load += new System.EventHandler(this.NewStudentEntry_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -1668,15 +1580,13 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picQR)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureStudent)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape3;
-        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -1789,14 +1699,8 @@
         private System.Windows.Forms.RichTextBox txtOtherInformation;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox ddlClass;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label lblSession;
@@ -1817,5 +1721,8 @@
         private System.Windows.Forms.PictureBox picQR;
         private System.Windows.Forms.ComboBox ddlSection;
         private System.Windows.Forms.Label lblReceiptNo;
+        private System.Windows.Forms.PictureBox pictureStudent;
+        private System.Windows.Forms.Button btnOpenCamera;
+        private System.Windows.Forms.Button btnGenQR;
     }
 }

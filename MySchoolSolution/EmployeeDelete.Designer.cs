@@ -31,10 +31,10 @@
             this.gvEmployee = new System.Windows.Forms.DataGridView();
             this.Select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblSession = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.btn_Delete = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblSession = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gvEmployee)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -70,26 +70,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Action";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(33, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(153, 17);
-            this.label1.TabIndex = 233;
-            this.label1.Text = "Students | Session :";
-            // 
-            // lblSession
-            // 
-            this.lblSession.AutoSize = true;
-            this.lblSession.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSession.Location = new System.Drawing.Point(186, 10);
-            this.lblSession.Name = "lblSession";
-            this.lblSession.Size = new System.Drawing.Size(63, 17);
-            this.lblSession.TabIndex = 232;
-            this.lblSession.Text = "session";
-            // 
             // btnExit
             // 
             this.btnExit.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
@@ -119,8 +99,29 @@
             this.btn_Delete.UseVisualStyleBackColor = true;
             this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(33, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(153, 17);
+            this.label1.TabIndex = 233;
+            this.label1.Text = "Students | Session :";
+            // 
+            // lblSession
+            // 
+            this.lblSession.AutoSize = true;
+            this.lblSession.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSession.Location = new System.Drawing.Point(186, 10);
+            this.lblSession.Name = "lblSession";
+            this.lblSession.Size = new System.Drawing.Size(63, 17);
+            this.lblSession.TabIndex = 232;
+            this.lblSession.Text = "session";
+            // 
             // EmployeeDelete
             // 
+            this.AcceptButton = this.btn_Delete;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1023, 485);

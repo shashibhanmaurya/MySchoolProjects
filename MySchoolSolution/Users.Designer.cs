@@ -37,12 +37,15 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMobile = new System.Windows.Forms.TextBox();
+            this.ddlUsers = new System.Windows.Forms.ComboBox();
+            this.btn_Exit = new System.Windows.Forms.Button();
+            this.lblSelectUser = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gvMenu)).BeginInit();
             this.SuspendLayout();
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(258, 47);
+            this.txtUserName.Location = new System.Drawing.Point(222, 42);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(216, 20);
             this.txtUserName.TabIndex = 0;
@@ -50,11 +53,11 @@
             // userLabel
             // 
             this.userLabel.AutoSize = true;
-            this.userLabel.Location = new System.Drawing.Point(165, 49);
+            this.userLabel.Location = new System.Drawing.Point(147, 45);
             this.userLabel.Name = "userLabel";
-            this.userLabel.Size = new System.Drawing.Size(60, 13);
+            this.userLabel.Size = new System.Drawing.Size(66, 13);
             this.userLabel.TabIndex = 1;
-            this.userLabel.Text = "User Name";
+            this.userLabel.Text = "User Name :";
             // 
             // User_Insert
             // 
@@ -62,10 +65,10 @@
             this.User_Insert.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.User_Insert.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.User_Insert.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.User_Insert.Location = new System.Drawing.Point(298, 405);
+            this.User_Insert.Location = new System.Drawing.Point(229, 378);
             this.User_Insert.Name = "User_Insert";
-            this.User_Insert.Size = new System.Drawing.Size(143, 33);
-            this.User_Insert.TabIndex = 153;
+            this.User_Insert.Size = new System.Drawing.Size(94, 33);
+            this.User_Insert.TabIndex = 3;
             this.User_Insert.Text = "Save";
             this.User_Insert.UseCompatibleTextRendering = true;
             this.User_Insert.UseVisualStyleBackColor = true;
@@ -79,9 +82,9 @@
             this.gvMenu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvMenu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Select});
-            this.gvMenu.Location = new System.Drawing.Point(233, 137);
+            this.gvMenu.Location = new System.Drawing.Point(150, 135);
             this.gvMenu.Name = "gvMenu";
-            this.gvMenu.Size = new System.Drawing.Size(262, 221);
+            this.gvMenu.Size = new System.Drawing.Size(288, 221);
             this.gvMenu.TabIndex = 154;
             // 
             // Select
@@ -92,40 +95,79 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(165, 75);
+            this.label1.Location = new System.Drawing.Point(147, 71);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 13);
+            this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 156;
-            this.label1.Text = "Email";
+            this.label1.Text = "Email :";
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(258, 73);
+            this.txtEmail.Location = new System.Drawing.Point(222, 68);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(216, 20);
-            this.txtEmail.TabIndex = 155;
+            this.txtEmail.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(165, 101);
+            this.label2.Location = new System.Drawing.Point(147, 99);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 158;
-            this.label2.Text = "Mobile";
+            this.label2.Text = "Mobile :";
             // 
             // txtMobile
             // 
-            this.txtMobile.Location = new System.Drawing.Point(258, 101);
+            this.txtMobile.Location = new System.Drawing.Point(222, 96);
             this.txtMobile.Name = "txtMobile";
             this.txtMobile.Size = new System.Drawing.Size(216, 20);
-            this.txtMobile.TabIndex = 157;
+            this.txtMobile.TabIndex = 2;
+            // 
+            // ddlUsers
+            // 
+            this.ddlUsers.FormattingEnabled = true;
+            this.ddlUsers.Location = new System.Drawing.Point(222, 15);
+            this.ddlUsers.Name = "ddlUsers";
+            this.ddlUsers.Size = new System.Drawing.Size(216, 21);
+            this.ddlUsers.TabIndex = 159;
+            this.ddlUsers.Visible = false;
+            this.ddlUsers.SelectedIndexChanged += new System.EventHandler(this.ddlUsers_SelectedIndexChanged);
+            // 
+            // btn_Exit
+            // 
+            this.btn_Exit.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
+            this.btn_Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Exit.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Exit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Exit.Location = new System.Drawing.Point(329, 378);
+            this.btn_Exit.Name = "btn_Exit";
+            this.btn_Exit.Size = new System.Drawing.Size(97, 33);
+            this.btn_Exit.TabIndex = 160;
+            this.btn_Exit.Text = "Exit";
+            this.btn_Exit.UseCompatibleTextRendering = true;
+            this.btn_Exit.UseVisualStyleBackColor = true;
+            this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
+            // 
+            // lblSelectUser
+            // 
+            this.lblSelectUser.AutoSize = true;
+            this.lblSelectUser.Location = new System.Drawing.Point(147, 18);
+            this.lblSelectUser.Name = "lblSelectUser";
+            this.lblSelectUser.Size = new System.Drawing.Size(68, 13);
+            this.lblSelectUser.TabIndex = 161;
+            this.lblSelectUser.Text = "Select User :";
+            this.lblSelectUser.Visible = false;
             // 
             // Users
             // 
+            this.AcceptButton = this.User_Insert;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(833, 511);
+            this.ClientSize = new System.Drawing.Size(618, 441);
+            this.Controls.Add(this.lblSelectUser);
+            this.Controls.Add(this.btn_Exit);
+            this.Controls.Add(this.ddlUsers);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtMobile);
             this.Controls.Add(this.label1);
@@ -154,5 +196,8 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtMobile;
+        private System.Windows.Forms.ComboBox ddlUsers;
+        private System.Windows.Forms.Button btn_Exit;
+        private System.Windows.Forms.Label lblSelectUser;
     }
 }

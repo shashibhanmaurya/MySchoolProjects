@@ -66,5 +66,10 @@ namespace MySchoolSolution
         {
 
         }
+
+        private void comboClass_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }

@@ -6,6 +6,8 @@ using System.Net;
 using System.Net.Mail;
 using System.Net.Configuration;
 using System.ComponentModel;
+using System.Text.RegularExpressions;
+using System.IO;
 
 namespace MySchoolSolution
 {
@@ -17,11 +19,71 @@ namespace MySchoolSolution
         public static string UserName { get; set; }
         public static string AdminEmailAddress = "info@aarshapublicschool.com";
         public static string ccEmailAddress = "vatssusheel@gmail.com";
+        public static string adminMobile = "919811579129";
         public CommonFunctions()
         {
             //
             // TODO: Add constructor logic here
             //
+
+        }
+        public static void SaveBackup()
+        {
+            try
+            {
+
+            string date = DateTime.Now.ToLongDateString();
+            String time = DateTime.Now.ToShortTimeString();
+            char[] t = { ':' };
+            string str = "";
+            string[] s = time.Split(t);
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                str = str + s[i] + ",";
+            }
+            String FolderName = "Backup/" + date + " " + str + "SchoolManagement.bak";
+
+            DirectoryInfo dri = Directory.CreateDirectory("D:/Backup");
+            if (dri.Exists)
+            {
+                Connection obj = new Connection();
+                SqlConnection con = Connection.Connection_string;
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "BACKUP DATABASE [SchoolManagement] TO  DISK = N'D:/" + FolderName + "' WITH NOFORMAT, NOINIT,  NAME = N'Aarsha-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
+                cmd.Connection = con;
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                //MessageBox.Show("Your backup has been taken on Location D:/" + FolderName + "");
+            }
+            else
+            {
+                DirectoryInfo dri1 = Directory.CreateDirectory("E:/Backup");
+                Connection obj = new Connection();
+                SqlConnection con = Connection.Connection_string;
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "BACKUP DATABASE [SchoolManagement] TO  DISK = N'E:/" + FolderName + "' WITH NOFORMAT, NOINIT,  NAME = N'Aarsha-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
+                cmd.Connection = con;
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+               // MessageBox.Show("Your backup has been taken on Location E:/" + FolderName + "");
+            }
+
+            }
+            catch (Exception ex)
+            {
+
+                ShowError(ex.Message+" backup failed!");
+            }
+        }
+        public static bool NumericValidate(string value)
+        {
+            Regex regex = new Regex("^[0-9]*$");
+            if (!regex.IsMatch(value))
+                return false;
+            return true;
 
         }
         public static void SendSMS(string mobile, string message)
@@ -31,9 +93,13 @@ namespace MySchoolSolution
 
 
                 WebClient webClient = new WebClient();
-                string baseURL = "https://platform.clickatell.com/messages/http/send?apiKey=gG8EJQz8SOGfguUQtj4vKA==&to=919953624768&content=" + message + "";
+                //  curl "https://platform.clickatell.com/messages/http/send?apiKey=tQviGfziTJqq1ty9hjm2-Q==&to=919953624768&content=Test+message+text"
+
+                string baseURL = "https://platform.clickatell.com/messages/http/send?apiKey=gG8EJQz8SOGfguUQtj4vKA==&to=919811579129&content=" + message + "";
+                string baseURL1 = "https://platform.clickatell.com/messages/http/send?apiKey=tQviGfziTJqq1ty9hjm2-Q==&to=919811579129&content=" + message + "";
                 webClient.OpenRead(baseURL);
-            }
+                webClient.OpenRead(baseURL);
+                }
             catch
             {
                 CommonFunctions.ShowError("SMS could not be send!");

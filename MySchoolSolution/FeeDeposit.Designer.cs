@@ -94,6 +94,9 @@
             this.txtBankName = new System.Windows.Forms.TextBox();
             this.lblUname = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtExaminationFee = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gvPaidMonths)).BeginInit();
             this.grpChequeDetail.SuspendLayout();
             this.SuspendLayout();
@@ -102,7 +105,7 @@
             // 
             this.txtTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalAmount.ForeColor = System.Drawing.Color.Blue;
-            this.txtTotalAmount.Location = new System.Drawing.Point(644, 284);
+            this.txtTotalAmount.Location = new System.Drawing.Point(644, 302);
             this.txtTotalAmount.Name = "txtTotalAmount";
             this.txtTotalAmount.ReadOnly = true;
             this.txtTotalAmount.Size = new System.Drawing.Size(125, 27);
@@ -113,7 +116,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Trebuchet MS", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(526, 287);
+            this.label13.Location = new System.Drawing.Point(526, 305);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(115, 20);
             this.label13.TabIndex = 192;
@@ -432,8 +435,9 @@
             this.txtAdmissionNo.Location = new System.Drawing.Point(104, 49);
             this.txtAdmissionNo.Name = "txtAdmissionNo";
             this.txtAdmissionNo.Size = new System.Drawing.Size(85, 21);
-            this.txtAdmissionNo.TabIndex = 171;
-            this.txtAdmissionNo.TextChanged += new System.EventHandler(this.txtAdmissionNo_TextChanged);
+            this.txtAdmissionNo.TabIndex = 0;
+            this.txtAdmissionNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAdmissionNo_KeyPress);
+            this.txtAdmissionNo.Leave += new System.EventHandler(this.txtAdmissionNo_Leave);
             // 
             // label1
             // 
@@ -519,7 +523,7 @@
             // 
             this.txtPreviousBal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPreviousBal.ForeColor = System.Drawing.Color.Blue;
-            this.txtPreviousBal.Location = new System.Drawing.Point(152, 285);
+            this.txtPreviousBal.Location = new System.Drawing.Point(152, 303);
             this.txtPreviousBal.Name = "txtPreviousBal";
             this.txtPreviousBal.ReadOnly = true;
             this.txtPreviousBal.Size = new System.Drawing.Size(111, 27);
@@ -530,7 +534,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Trebuchet MS", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(9, 287);
+            this.label15.Location = new System.Drawing.Point(9, 305);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(140, 20);
             this.label15.TabIndex = 207;
@@ -540,18 +544,19 @@
             // 
             this.txtMisc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMisc.ForeColor = System.Drawing.Color.Blue;
-            this.txtMisc.Location = new System.Drawing.Point(414, 286);
+            this.txtMisc.Location = new System.Drawing.Point(414, 304);
             this.txtMisc.Name = "txtMisc";
             this.txtMisc.Size = new System.Drawing.Size(111, 27);
-            this.txtMisc.TabIndex = 210;
+            this.txtMisc.TabIndex = 1;
             this.txtMisc.Text = "0.00";
             this.txtMisc.TextChanged += new System.EventHandler(this.txtMisc_TextChanged);
+            this.txtMisc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMisc_KeyPress);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Trebuchet MS", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(265, 289);
+            this.label16.Location = new System.Drawing.Point(265, 307);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(147, 20);
             this.label16.TabIndex = 209;
@@ -561,7 +566,7 @@
             // 
             this.txtBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBalance.ForeColor = System.Drawing.Color.Blue;
-            this.txtBalance.Location = new System.Drawing.Point(414, 322);
+            this.txtBalance.Location = new System.Drawing.Point(414, 340);
             this.txtBalance.Name = "txtBalance";
             this.txtBalance.ReadOnly = true;
             this.txtBalance.Size = new System.Drawing.Size(111, 27);
@@ -572,7 +577,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Trebuchet MS", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(265, 325);
+            this.label17.Location = new System.Drawing.Point(265, 343);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(75, 20);
             this.label17.TabIndex = 215;
@@ -582,18 +587,19 @@
             // 
             this.txtPaidAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPaidAmount.ForeColor = System.Drawing.Color.Blue;
-            this.txtPaidAmount.Location = new System.Drawing.Point(150, 322);
+            this.txtPaidAmount.Location = new System.Drawing.Point(150, 340);
             this.txtPaidAmount.Name = "txtPaidAmount";
             this.txtPaidAmount.Size = new System.Drawing.Size(113, 27);
-            this.txtPaidAmount.TabIndex = 214;
+            this.txtPaidAmount.TabIndex = 2;
             this.txtPaidAmount.Text = "0.00";
             this.txtPaidAmount.TextChanged += new System.EventHandler(this.txtPaidAmount_TextChanged);
+            this.txtPaidAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPaidAmount_KeyPress);
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Trebuchet MS", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(9, 325);
+            this.label18.Location = new System.Drawing.Point(9, 343);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(110, 20);
             this.label18.TabIndex = 213;
@@ -603,7 +609,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Trebuchet MS", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(528, 325);
+            this.label19.Location = new System.Drawing.Point(528, 343);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(122, 20);
             this.label19.TabIndex = 211;
@@ -619,21 +625,23 @@
             "Paytm",
             "Credit / Debit Card",
             "Bank Transfer"});
-            this.ddlPaymentType.Location = new System.Drawing.Point(645, 325);
+            this.ddlPaymentType.Location = new System.Drawing.Point(645, 343);
             this.ddlPaymentType.Name = "ddlPaymentType";
             this.ddlPaymentType.Size = new System.Drawing.Size(125, 21);
-            this.ddlPaymentType.TabIndex = 217;
+            this.ddlPaymentType.TabIndex = 3;
             this.ddlPaymentType.Text = "Cash";
             this.ddlPaymentType.SelectedIndexChanged += new System.EventHandler(this.ddlPaymentType_SelectedIndexChanged);
+            this.ddlPaymentType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ddlPaymentType_KeyPress);
             // 
             // lblReceiptNo
             // 
             this.lblReceiptNo.AutoSize = true;
             this.lblReceiptNo.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReceiptNo.Location = new System.Drawing.Point(15, 351);
+            this.lblReceiptNo.Location = new System.Drawing.Point(147, 382);
             this.lblReceiptNo.Name = "lblReceiptNo";
-            this.lblReceiptNo.Size = new System.Drawing.Size(0, 18);
+            this.lblReceiptNo.Size = new System.Drawing.Size(176, 18);
             this.lblReceiptNo.TabIndex = 218;
+            this.lblReceiptNo.Text = "Click Save for Receipt Number";
             // 
             // txtSiblingNo
             // 
@@ -680,7 +688,7 @@
             this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button10.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button10.Location = new System.Drawing.Point(338, 400);
+            this.button10.Location = new System.Drawing.Point(338, 418);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(75, 33);
             this.button10.TabIndex = 203;
@@ -693,9 +701,10 @@
             // 
             this.buttonPrint.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
             this.buttonPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonPrint.Enabled = false;
             this.buttonPrint.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPrint.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonPrint.Location = new System.Drawing.Point(265, 400);
+            this.buttonPrint.Location = new System.Drawing.Point(265, 418);
             this.buttonPrint.Name = "buttonPrint";
             this.buttonPrint.Size = new System.Drawing.Size(75, 33);
             this.buttonPrint.TabIndex = 200;
@@ -710,7 +719,7 @@
             this.btn_Save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Save.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Save.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Save.Location = new System.Drawing.Point(191, 400);
+            this.btn_Save.Location = new System.Drawing.Point(191, 418);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(75, 33);
             this.btn_Save.TabIndex = 199;
@@ -734,7 +743,7 @@
             this.grpChequeDetail.Controls.Add(this.ChqNumber);
             this.grpChequeDetail.Controls.Add(this.txtBankName);
             this.grpChequeDetail.Controls.Add(this.txtChequeNumber);
-            this.grpChequeDetail.Location = new System.Drawing.Point(490, 355);
+            this.grpChequeDetail.Location = new System.Drawing.Point(490, 373);
             this.grpChequeDetail.Name = "grpChequeDetail";
             this.grpChequeDetail.Size = new System.Drawing.Size(291, 124);
             this.grpChequeDetail.TabIndex = 223;
@@ -807,11 +816,45 @@
             this.shapeContainer1.TabIndex = 2;
             this.shapeContainer1.TabStop = false;
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(15, 276);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(67, 18);
+            this.label20.TabIndex = 226;
+            this.label20.Text = "Exam Fee :";
+            // 
+            // txtExaminationFee
+            // 
+            this.txtExaminationFee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtExaminationFee.Location = new System.Drawing.Point(144, 273);
+            this.txtExaminationFee.Name = "txtExaminationFee";
+            this.txtExaminationFee.Size = new System.Drawing.Size(94, 21);
+            this.txtExaminationFee.TabIndex = 225;
+            this.txtExaminationFee.Text = "0.00";
+            this.txtExaminationFee.TextChanged += new System.EventHandler(this.txtExaminationFee_TextChanged);
+            this.txtExaminationFee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtExaminationFee_KeyPress);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(10, 382);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(106, 18);
+            this.label22.TabIndex = 227;
+            this.label22.Text = "Receipt Number :";
+            // 
             // FeeDeposit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 495);
+            this.ClientSize = new System.Drawing.Size(802, 511);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.txtExaminationFee);
             this.Controls.Add(this.lblUname);
             this.Controls.Add(this.grpChequeDetail);
             this.Controls.Add(this.txtSiblingNo);
@@ -950,5 +993,8 @@
         private System.Windows.Forms.DateTimePicker dtChequeDate;
         private System.Windows.Forms.Label lblUname;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txtExaminationFee;
+        private System.Windows.Forms.Label label22;
     }
 }

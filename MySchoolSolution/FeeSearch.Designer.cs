@@ -60,6 +60,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtStudent = new System.Windows.Forms.TextBox();
             this.StudentwiseFeePrint = new System.Windows.Forms.Button();
+            this.btnPrintReceipt = new System.Windows.Forms.Button();
+            this.lblReceipt = new System.Windows.Forms.Label();
             this.grpBetweenDates.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvSearchResult)).BeginInit();
             this.groupSessionAndClass.SuspendLayout();
@@ -162,6 +164,8 @@
             this.gvSearchResult.ReadOnly = true;
             this.gvSearchResult.Size = new System.Drawing.Size(851, 259);
             this.gvSearchResult.TabIndex = 5;
+            this.gvSearchResult.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvSearchResult_CellClick);
+            this.gvSearchResult.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvSearchResult_CellContentClick);
             // 
             // groupSessionAndClass
             // 
@@ -454,11 +458,37 @@
             this.StudentwiseFeePrint.UseVisualStyleBackColor = true;
             this.StudentwiseFeePrint.Click += new System.EventHandler(this.StudentwiseFeePrint_Click);
             // 
+            // btnPrintReceipt
+            // 
+            this.btnPrintReceipt.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
+            this.btnPrintReceipt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPrintReceipt.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintReceipt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnPrintReceipt.Location = new System.Drawing.Point(328, 507);
+            this.btnPrintReceipt.Name = "btnPrintReceipt";
+            this.btnPrintReceipt.Size = new System.Drawing.Size(110, 33);
+            this.btnPrintReceipt.TabIndex = 157;
+            this.btnPrintReceipt.Text = "Print Receipt";
+            this.btnPrintReceipt.UseCompatibleTextRendering = true;
+            this.btnPrintReceipt.UseVisualStyleBackColor = true;
+            this.btnPrintReceipt.Click += new System.EventHandler(this.btnPrintReceipt_Click);
+            // 
+            // lblReceipt
+            // 
+            this.lblReceipt.AutoSize = true;
+            this.lblReceipt.Location = new System.Drawing.Point(233, 517);
+            this.lblReceipt.Name = "lblReceipt";
+            this.lblReceipt.Size = new System.Drawing.Size(84, 13);
+            this.lblReceipt.TabIndex = 158;
+            this.lblReceipt.Text = "Receipt Number";
+            // 
             // FeeSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(875, 498);
+            this.ClientSize = new System.Drawing.Size(874, 552);
+            this.Controls.Add(this.lblReceipt);
+            this.Controls.Add(this.btnPrintReceipt);
             this.Controls.Add(this.groupSelectAll);
             this.Controls.Add(this.GrpStudentWiseFee);
             this.Controls.Add(this.GrpFeeStatementByClass);
@@ -485,6 +515,7 @@
             this.GrpStudentWiseFee.ResumeLayout(false);
             this.GrpStudentWiseFee.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -521,5 +552,7 @@
         private System.Windows.Forms.TextBox txtStudent;
         private System.Windows.Forms.Button StudentwiseFeePrint;
         private System.Windows.Forms.Button btnStudentwiseSearch;
+        private System.Windows.Forms.Button btnPrintReceipt;
+        private System.Windows.Forms.Label lblReceipt;
     }
 }

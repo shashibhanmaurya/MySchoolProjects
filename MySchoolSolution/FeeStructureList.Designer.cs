@@ -48,6 +48,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "FeeStructureList";
             this.Text = "FeeStructureList";
+            this.Load += new System.EventHandler(this.FeeStructureList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

@@ -100,15 +100,15 @@ namespace MySchoolSolution
 
         private void btn_Search_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalSqlServer1"].ConnectionString);
-            SqlCommand cmd = new SqlCommand("select Addmission_Number,RollNumber, Name,FatherName,Stud_In_Class,DOB,Gender,Category,Admission_Date,Address1,Address2,PhoneRes, Route_No,Stopage,AadharCardNo from tbl_StudentInfo  WHERE Name LIKE '%' + @Name + '%'");
-            cmd.Parameters.AddWithValue("@Name", txtSearch.Text.Trim());
-            cmd.Connection = con;
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            gvStudent.DataSource = dt;
-            gvStudent.ReadOnly = true;
+            //SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalSqlServer1"].ConnectionString);
+            //SqlCommand cmd = new SqlCommand("select Addmission_Number,RollNumber, Name,FatherName,Stud_In_Class,DOB,Gender,Category,Admission_Date,Address1,Address2,PhoneRes, Route_No,Stopage,AadharCardNo from tbl_StudentInfo  WHERE Name LIKE '%' + @Name + '%'");
+            //cmd.Parameters.AddWithValue("@Name", txtSearch.Text.Trim());
+            //cmd.Connection = con;
+            //SqlDataAdapter da = new SqlDataAdapter(cmd);
+            //DataTable dt = new DataTable();
+            //da.Fill(dt);
+            //gvStudent.DataSource = dt;
+            //gvStudent.ReadOnly = true;
 
 
         }
@@ -129,6 +129,19 @@ namespace MySchoolSolution
                 st.Show();
                 this.Close();
             }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalSqlServer1"].ConnectionString);
+            SqlCommand cmd = new SqlCommand("select Addmission_Number,RollNumber, Name,FatherName,Stud_In_Class,DOB,Gender,Category,Admission_Date,Address1,Address2,PhoneRes, Route_No,Stopage,AadharCardNo from tbl_StudentInfo  WHERE Name LIKE '%' + @Name + '%'");
+            cmd.Parameters.AddWithValue("@Name", txtSearch.Text.Trim());
+            cmd.Connection = con;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            gvStudent.DataSource = dt;
+            gvStudent.ReadOnly = true;
         }
     }
 }

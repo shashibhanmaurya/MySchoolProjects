@@ -21,14 +21,26 @@ namespace MySchoolSolution.Reports
 
         private void FeeReportView_Load(object sender, EventArgs e)
         {
-            
-            Reports.FeeReport mr = new Reports.FeeReport();
+            if (purpose.Contains("Fee Collection for date"))
+            {
+                Reports.DailyFeeReport mr = new Reports.DailyFeeReport();
+                CrystalDecisions.CrystalReports.Engine.TextObject Purpose = mr.ReportDefinition.ReportObjects["Purpose"] as CrystalDecisions.CrystalReports.Engine.TextObject;
+                Purpose.Text = purpose;
+                mr.SetDataSource(dataSet.Tables[0]);
+                mr.SetDatabaseLogon("sa", "abc123");
+                crystalReportViewer1.ReportSource = mr;
+            }
+            else
+            {
+                Reports.FeeReport mr = new Reports.FeeReport();
+                CrystalDecisions.CrystalReports.Engine.TextObject Purpose = mr.ReportDefinition.ReportObjects["Purpose"] as CrystalDecisions.CrystalReports.Engine.TextObject;
+                Purpose.Text = purpose;
+                mr.SetDataSource(dataSet.Tables[0]);
+                mr.SetDatabaseLogon("sa", "abc123");
+                crystalReportViewer1.ReportSource = mr;
+            }                 
 
-            CrystalDecisions.CrystalReports.Engine.TextObject Purpose = mr.ReportDefinition.ReportObjects["Purpose"] as CrystalDecisions.CrystalReports.Engine.TextObject;
-            Purpose.Text = purpose;
-            mr.SetDataSource(dataSet.Tables[0]);
-            mr.SetDatabaseLogon("sa", "abc123");
-            crystalReportViewer1.ReportSource = mr;
+           
         }
     }
 }

@@ -121,7 +121,14 @@ namespace MySchoolSolution
                        else CommonFunctions.ShowWarning(lstPromotedStudent.Items[i].ToString().Split('_')[1]+" is already promoted");
                     }
                     if (updated)
-                        CommonFunctions.ShowMessage("Students Promoted successfully");
+                    {
+                        
+                        CommonFunctions.ShowMessage("Student(s) Promoted successfully");
+                        this.Close();
+                        StudentPromotion sp = new StudentPromotion();
+                        sp.Show();
+                    }
+                        
                     
                 }
                 catch (Exception ex)
@@ -135,7 +142,7 @@ namespace MySchoolSolution
         {
             while (dr.Read())
             {
-                SqlParameter[] m = new SqlParameter[60];
+                SqlParameter[] m = new SqlParameter[61];
                 m[0] = new SqlParameter("@Name", dr["Name"].ToString());
                 m[1] = new SqlParameter("@Stud_In_Class", dr["Class"].ToString());
                 m[2] = new SqlParameter("@Class",ddlPromotingClass.Text);
@@ -188,15 +195,46 @@ namespace MySchoolSolution
                 m[49] = new SqlParameter("@Previous_year_Att", dr["Previous_year_Att"].ToString());
                 m[50] = new SqlParameter("@Previous_Year_Status", dr["Previous_Year_Status"].ToString());
                 m[51] = new SqlParameter("@Other_Info", dr["Other_Info"].ToString());
-                m[52] = new SqlParameter("@DOB", Convert.ToDateTime(dr["DOB"].ToString()));
+                m[52] = new SqlParameter("@DOB", Convert.ToDateTime(dr["DOB"]));
                 m[53] = new SqlParameter("@StdId", SqlDbType.Int);
                 m[54] = new SqlParameter("@UDF1", dr["UDF1"].ToString());
                 m[55] = new SqlParameter("@UDF2", dr["UDF2"].ToString());
                 m[56] = new SqlParameter("@UDF3", dr["UDF3"].ToString());
                 m[57] = new SqlParameter("@UserName", CommonFunctions.UserName);
-                byte[] QRCode = (byte[])dr["QRCode"];
-                m[58] = new SqlParameter("@QRCode", QRCode);
+                var nullValue = DBNull.Value;
+                //QR code
+                byte[] QRCode = null;
+                if (dr["QRCode"] != DBNull.Value)
+                {
+                    QRCode = (byte[])dr["QRCode"];
+                    m[58] = new SqlParameter("@QRCode", QRCode);
+                }
+                else
+                {
+                    m[58] = new SqlParameter("@QRCode", nullValue);
+                }
+               
+
+                
+                
                 m[59] = new SqlParameter("@Section", dr["Section"].ToString());
+
+                byte[] studentPhoto = null;
+                //Student Photo
+                if (dr["StudentPhoto"] != DBNull.Value)
+                {
+                    studentPhoto = (byte[])dr["StudentPhoto"];
+                    m[60] = new SqlParameter("@StudentPhoto", studentPhoto);
+                }
+                else
+                {
+                    m[60] = new SqlParameter("@StudentPhoto", nullValue);
+                    m[60].SqlDbType = SqlDbType.Image;
+                }
+
+                
+               
+
                 SqlHelper.ExecuteNonQuery(Connection.Connection_string, CommandType.StoredProcedure, "StudentInfo_Insert", m);
 
             }

@@ -39,6 +39,7 @@
             this.reportViewer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reportViewer.Location = new System.Drawing.Point(0, 0);
             this.reportViewer.Name = "reportViewer";
+            this.reportViewer.ShowGroupTreeButton = false;
             this.reportViewer.Size = new System.Drawing.Size(284, 262);
             this.reportViewer.TabIndex = 0;
             // 

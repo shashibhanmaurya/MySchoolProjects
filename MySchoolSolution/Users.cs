@@ -57,7 +57,7 @@ namespace MySchoolSolution
                     m[3] = new SqlParameter("@Email", txtEmail.Text);
                     m[4] = new SqlParameter("@Mobile", txtMobile.Text);
                     m[5] = new SqlParameter("@MenuAccess", sbMenu);
-                    m[6] = new SqlParameter("@CreateDate", DateTime.Now.ToString());
+                    m[6] = new SqlParameter("@CreateDate", DateTime.Now);
                     if (Operation == "Update")
                     {
                         SqlHelper.ExecuteNonQuery(Connection.Connection_string, CommandType.StoredProcedure, "User_Insert", m);
@@ -78,6 +78,28 @@ namespace MySchoolSolution
             }
         }
 
+        public DataTable GetSubMenu(ToolStripItemCollection dropDownItems, DataTable list)
+        {
+            foreach (object obj in dropDownItems)
+            //for each object.
+            {
+                ToolStripMenuItem subMenu = obj as ToolStripMenuItem;
+                //Try cast to ToolStripMenuItem as it could be toolstrip separator as well.
+
+                if (subMenu != null)
+                //if we get the desired object type.
+                {
+                    list.Rows.Add(subMenu.Text, subMenu.Name);
+                    if (subMenu.HasDropDownItems) // if subMenu has children
+                    {
+                        GetSubMenu(subMenu.DropDownItems,list); // Call recursive Method.
+                    }
+                    
+                }
+            }
+            return list;
+        
+    }
         private void Users_Load(object sender, EventArgs e)
         {
 
@@ -92,10 +114,14 @@ namespace MySchoolSolution
             foreach (ToolStripMenuItem toolItem in menuStrip1.Items)
             {
                 tableMenu.Rows.Add(toolItem.Text, toolItem.Name);
+                if(toolItem.HasDropDownItems)
+                {
+                    GetSubMenu( toolItem.DropDownItems, tableMenu);
+                }
                 //string name = toolItem.Name;
                 //allItems.Add(toolItem);
                 //add sub items
-                //allItems.AddRange(GetItems(toolItem));
+               // allItems.AddRange(GetItems(toolItem));
             }
             gvMenu.DataSource = tableMenu;
             if (Operation == "Update")
@@ -103,6 +129,7 @@ namespace MySchoolSolution
                 ddlUsers.Visible = true;
                 lblSelectUser.Visible = true;
                 BindUsers();
+                btnDelete.Visible = true;
             }
 
         }
@@ -181,6 +208,38 @@ namespace MySchoolSolution
         private void ddlUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
             GetUserDetails();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+           
+            DialogResult res = MessageBox.Show("Are you sure you want to Delete", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (res == DialogResult.OK)
+            {
+                SqlParameter[] m = new SqlParameter[1];
+
+                m[0] = new SqlParameter("@UserName", ddlUsers.Text);
+                SqlHelper.ExecuteNonQuery(Connection.Connection_string, "User_Delete", m);
+                Users us = new Users();
+                us.Operation = "Update";
+                us.Show();
+                this.Hide();
+            }
+            if (res == DialogResult.Cancel)
+            {
+                MessageBox.Show("You have clicked Cancel Button");
+                 
+            }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Something is not right please make sure you have select a correct user!"+ex.Message);
+            }
         }
     }
 }

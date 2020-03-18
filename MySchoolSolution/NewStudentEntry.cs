@@ -121,11 +121,11 @@ namespace MySchoolSolution
                 {
                     MessageBox.Show("Please select  Category ");
                 }
-                else if (GetSiblingNumber() == true && Operation != "Update")
-                {
-                    MessageBox.Show("Two siblings already added!");
-                    txtSibling.Text = string.Empty;
-                }
+                //else if (GetSiblingNumber() == true && Operation != "Update")
+                //{
+                //    MessageBox.Show("Two siblings already added!");
+                //    txtSibling.Text = string.Empty;
+                //}
                 else
                 {
                     SqlParameter[] m = new SqlParameter[61];
@@ -175,7 +175,7 @@ namespace MySchoolSolution
                     m[43] = new SqlParameter("@Stream_11", txtStream11.Text);
                     m[44] = new SqlParameter("@Free_Edu", txtFreeEducation.Text);
                     m[45] = new SqlParameter("@Trade_Skill", txtTradeSkill.Text);
-                    m[46] = new SqlParameter("@DisAdvantages", txtDisadvantage.Text);
+                    m[46] = new SqlParameter("@DisAdvantages", txtDisadvantage.Text); 
                     m[47] = new SqlParameter("@MotherToung", txtMothertongue.Text);
                     m[48] = new SqlParameter("@Medium_of_Instruction", txtMediumFoInfra.Text);
                     m[49] = new SqlParameter("@Previous_year_Att", txtPreviousYearAttendance.Text);
@@ -238,10 +238,7 @@ namespace MySchoolSolution
                         {
 
                         }
-
-
                         this.Hide();
-
                     }
 
                 }

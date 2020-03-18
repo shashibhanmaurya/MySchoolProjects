@@ -15,6 +15,8 @@ namespace MySchoolSolution
 {
     public partial class FeeDeposit : Form
     {
+        //Stationary charges will not be part of fees total, 
+        //it will be different calculation all togather
         public int AdmissionNo { get; set; }
         public bool NewAdmission { get; set; }
         public FeeDeposit()
@@ -43,6 +45,7 @@ namespace MySchoolSolution
             {
                 if (txtAdmissionNo.Text != string.Empty)
                 {
+                    LoadMonths();
 
                     SqlParameter[] m = new SqlParameter[2];
 
@@ -112,8 +115,8 @@ namespace MySchoolSolution
                         txtAdmissionFee.Text = dr["AddmissionFee"].ToString();
                         txtAnnualCharges.Text = dr["AnnualCharges"].ToString();
                         txtTutionFee.Text = (Convert.ToDouble(dr["TutionFee"])).ToString();
-                        txtQuarterlyFee.Text = dr["QuaterlyFee"].ToString();
-                        txtTransportFee.Text = dr["TransportFee"].ToString();
+                        txtQuarterlyFee.Text = string.IsNullOrEmpty(dr["QuaterlyFee"].ToString()) ? "0" : dr["QuaterlyFee"].ToString();
+                        txtTransportFee.Text = string.IsNullOrEmpty(dr["TransportFee"].ToString()) ? "0" : dr["TransportFee"].ToString();
 
                         txtRegistrationFeeDisc.Text = dr["RegistrationFee_Disc"].ToString();
                         txtAdmissionFeeDisc.Text = dr["AddmissionFee_Disc"].ToString();
@@ -167,6 +170,7 @@ namespace MySchoolSolution
                         txtAnnualChargesAct.Text = "0"; ;
                         txtQuarterlyFeeAct.Text = "0"; ;
                         txtPreviousBal.Text = "0";
+                        txtDiscountOnTotal.Text = "0.00";
                         CommonFunctions.ShowError("Please enter a Valid Admission number !");
                         txtAdmissionNo.Focus();
                     }
@@ -193,6 +197,7 @@ namespace MySchoolSolution
                     txtAnnualChargesAct.Text = "0"; ;
                     txtQuarterlyFeeAct.Text = "0"; ;
                     txtPreviousBal.Text = "0";
+                    txtDiscountOnTotal.Text = "0.00";
                 }
             }
             catch (Exception ex)
@@ -216,6 +221,7 @@ namespace MySchoolSolution
                 txtAnnualChargesAct.Text = "0"; ;
                 txtQuarterlyFeeAct.Text = "0"; ;
                 txtPreviousBal.Text = "0";
+                txtDiscountOnTotal.Text = "0.00";
                 MessageBox.Show(ex.Message);
                 txtAdmissionNo.Focus();
             }
@@ -242,17 +248,11 @@ namespace MySchoolSolution
             txtTotalAmount.Text = (Convert.ToDouble(txtRegistrationFeeAct.Text) + Convert.ToDouble(txtAdmissionFeeAct.Text) + Convert.ToDouble(txtAnnualChargesAct.Text)
                 + Convert.ToDouble(txtTransportFeeAct.Text) + Convert.ToDouble(txtQuarterlyFeeAct.Text) + Convert.ToDouble(txtTutionFeeAct.Text) + Convert.ToDouble(txtMisc.Text) + Convert.ToDouble(txtPreviousBal.Text) + Convert.ToDouble(txtExaminationFee.Text)).ToString();
 
-
-            txtBalance.Text = (Convert.ToDouble(txtTotalAmount.Text) - Convert.ToDouble(txtPaidAmount.Text)).ToString();
+            // txtTotalAmount.Text = (Convert.ToDouble(txtTotalAmount.Text)).ToString();
+            txtBalance.Text = (Convert.ToDouble(txtTotalAmount.Text) - Convert.ToDouble(txtPaidAmount.Text) - Convert.ToDouble(txtDiscountOnTotal.Text)).ToString();
         }
-        private void FeeDeposit_Load(object sender, EventArgs e)
+        private void LoadMonths()
         {
-            //txtAdmissionNo.Focus();
-
-            lblSession.Text = CommonFunctions.GetCurrentSession;
-            DateTime dt = new DateTime();
-
-
             Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             AppSettingsSection appSettings = configuration.AppSettings;
             string _iSTR = appSettings.Settings["Months"].Value;
@@ -267,8 +267,15 @@ namespace MySchoolSolution
             {
                 table.Rows.Add(Months[i]);
             }
-
+            gvPaidMonths.DataSource = null;
             gvPaidMonths.DataSource = table;
+        }
+        private void FeeDeposit_Load(object sender, EventArgs e)
+        {
+            //txtAdmissionNo.Focus();
+
+            lblSession.Text = CommonFunctions.GetCurrentSession;
+            LoadMonths();
             if (AdmissionNo > 0)
             {
                 txtAdmissionNo.Text = AdmissionNo.ToString();
@@ -277,7 +284,7 @@ namespace MySchoolSolution
             }
 
             LoadBanksForCheque();
-           
+
         }
 
 
@@ -285,6 +292,10 @@ namespace MySchoolSolution
         {
             if (txtMisc.Text != string.Empty)
             {
+                CalculateTotal();
+            }
+            else {
+                txtMisc.Text = "0.00";
                 CalculateTotal();
             }
 
@@ -350,7 +361,7 @@ namespace MySchoolSolution
 
                 if (!string.IsNullOrEmpty(txtPaidAmount.Text) && Convert.ToDouble(txtPaidAmount.Text) > 0)
                 {
-                    SqlParameter[] m = new SqlParameter[42];
+                    SqlParameter[] m = new SqlParameter[43];
                     m[0] = new SqlParameter("@FeeId", SqlDbType.Int);
                     m[1] = new SqlParameter("@RegistrationFee", txtRegistrationFee.Text);
                     m[2] = new SqlParameter("@AddmissionFee", txtAdmissionFee.Text);
@@ -375,7 +386,7 @@ namespace MySchoolSolution
                     m[21] = new SqlParameter("@Class", txtClass.Text);
                     m[22] = new SqlParameter("@Acc_Number", txtAccountNo.Text);
                     m[23] = new SqlParameter("@TotalAmount", txtTotalAmount.Text);
-                    m[24] = new SqlParameter("@UDF1", SqlDbType.Text);
+                    m[24] = new SqlParameter("@UDF1", txtNote.Text);
                     m[25] = new SqlParameter("@UDF2", SqlDbType.Text);
                     m[26] = new SqlParameter("@UDF3", SqlDbType.Text);
                     m[27] = new SqlParameter("@Session", lblSession.Text);
@@ -394,6 +405,7 @@ namespace MySchoolSolution
                     m[39] = new SqlParameter("@UserName", lblUname.Text);
                     m[40] = new SqlParameter("@ExamFee", txtExaminationFee.Text);
                     m[41] = new SqlParameter("@PreviousBalance", txtPreviousBal.Text);
+                    m[42] = new SqlParameter("@Discount", txtDiscountOnTotal.Text);
                     if (ddlPaymentType.Text == "Cheque")
                     {
                         if (txtChequeNumber.Text == "")
@@ -420,6 +432,7 @@ namespace MySchoolSolution
                             MessageBox.Show("Fee Deposited Successfully");
                             AdmissionNo = 0;
                             btn_Save.Enabled = false;
+                            buttonPrint.Enabled = true;
                         }
                     }
                     else
@@ -436,6 +449,19 @@ namespace MySchoolSolution
                         btn_Save.Enabled = false;
                         buttonPrint.Enabled = true;
                     }
+                    StringBuilder sb = new StringBuilder();
+                    sb.Append("Thank you for Paying Amount of Rs. " + txtPaidAmount.Text + " of total amount " + txtTotalAmount.Text + " on date " + DateTime.Now.ToShortDateString() + ".");
+                    sb.AppendLine(" Your due amount is Rs. " + txtBalance.Text + ".");
+                    double Discount = Convert.ToDouble(txtDiscountOnTotal.Text);
+                    if (Discount > 0)
+                    {
+                        sb.AppendLine(" You have got discount of Rs. " + txtDiscountOnTotal.Text + ".");
+                    }
+                    if (lblReceiptNo.Text != string.Empty)
+                    {
+                        CommonFunctions.SendSMS(txtMobileNo.Text, sb.ToString());
+                    }
+
                 }
                 else
                 {
@@ -521,6 +547,10 @@ namespace MySchoolSolution
             {
                 CalculateTotal();
             }
+            else {
+                txtExaminationFee.Text = "0.00";
+                CalculateTotal();
+            }
         }
 
         private void txtPaidAmount_KeyPress(object sender, KeyPressEventArgs e)
@@ -561,6 +591,7 @@ namespace MySchoolSolution
                             txtClass.Text = dr["Class"].ToString();
                             txtAccountNo.Text = txtAdmissionNo.Text;
                             txtSiblingNo.Text = dr["SiblingSchool"].ToString();
+                            txtMobileNo.Text = dr["PhoneRes"].ToString();
                             CheckSibling();
                         }
 
@@ -591,6 +622,7 @@ namespace MySchoolSolution
                     txtAnnualChargesAct.Text = "0"; ;
                     txtQuarterlyFeeAct.Text = "0"; ;
                     txtPreviousBal.Text = "0";
+                    txtDiscountOnTotal.Text = "0.00";
                     MessageBox.Show(ex.Message);
                 }
             }
@@ -636,7 +668,28 @@ namespace MySchoolSolution
 
         private void ddlPaymentType_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled=true;
+            e.Handled = true;
+        }
+
+
+        private void txtStationaryCharge_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(Char.IsDigit(e.KeyChar) || (e.KeyChar == (char)Keys.Back)))
+                e.Handled = true;
+        }
+
+
+
+        private void txtDiscountOnTotal_TextChanged(object sender, EventArgs e)
+        {
+            if (txtDiscountOnTotal.Text != string.Empty)
+            {
+                CalculateTotal();
+            }
+            else {
+                txtDiscountOnTotal.Text = "0.00";
+                CalculateTotal();
+            }
         }
     }
 }

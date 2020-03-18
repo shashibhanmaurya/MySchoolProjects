@@ -39,6 +39,7 @@
             this.rvFeeStatement.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rvFeeStatement.Location = new System.Drawing.Point(0, 0);
             this.rvFeeStatement.Name = "rvFeeStatement";
+            this.rvFeeStatement.ShowGroupTreeButton = false;
             this.rvFeeStatement.Size = new System.Drawing.Size(284, 262);
             this.rvFeeStatement.TabIndex = 0;
             // 

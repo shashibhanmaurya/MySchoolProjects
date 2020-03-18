@@ -97,6 +97,11 @@
             this.label20 = new System.Windows.Forms.Label();
             this.txtExaminationFee = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
+            this.txtNote = new System.Windows.Forms.RichTextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.txtMobileNo = new System.Windows.Forms.TextBox();
+            this.txtDiscountOnTotal = new System.Windows.Forms.RichTextBox();
+            this.label25 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gvPaidMonths)).BeginInit();
             this.grpChequeDetail.SuspendLayout();
             this.SuspendLayout();
@@ -105,7 +110,8 @@
             // 
             this.txtTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalAmount.ForeColor = System.Drawing.Color.Blue;
-            this.txtTotalAmount.Location = new System.Drawing.Point(644, 302);
+            this.txtTotalAmount.Location = new System.Drawing.Point(644, 334);
+            this.txtTotalAmount.Multiline = false;
             this.txtTotalAmount.Name = "txtTotalAmount";
             this.txtTotalAmount.ReadOnly = true;
             this.txtTotalAmount.Size = new System.Drawing.Size(125, 27);
@@ -116,9 +122,9 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Trebuchet MS", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(526, 305);
+            this.label13.Location = new System.Drawing.Point(526, 337);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(115, 20);
+            this.label13.Size = new System.Drawing.Size(112, 20);
             this.label13.TabIndex = 192;
             this.label13.Text = "Total Amount :";
             // 
@@ -128,7 +134,7 @@
             this.label9.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(384, 105);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(100, 18);
+            this.label9.Size = new System.Drawing.Size(99, 18);
             this.label9.TabIndex = 191;
             this.label9.Text = "Actual Amount :";
             // 
@@ -138,7 +144,7 @@
             this.label8.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(262, 105);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(113, 18);
+            this.label8.Size = new System.Drawing.Size(112, 18);
             this.label8.TabIndex = 190;
             this.label8.Text = "Discount Amount :";
             // 
@@ -148,7 +154,7 @@
             this.label4.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(141, 105);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(117, 18);
+            this.label4.Size = new System.Drawing.Size(116, 18);
             this.label4.TabIndex = 189;
             this.label4.Text = "Structure Amount :";
             // 
@@ -290,7 +296,7 @@
             this.label7.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(15, 249);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(94, 18);
+            this.label7.Size = new System.Drawing.Size(93, 18);
             this.label7.TabIndex = 166;
             this.label7.Text = "Transport Fee :";
             // 
@@ -300,7 +306,7 @@
             this.label6.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(15, 201);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 18);
+            this.label6.Size = new System.Drawing.Size(74, 18);
             this.label6.TabIndex = 165;
             this.label6.Text = "Tution Fee :";
             // 
@@ -487,7 +493,7 @@
             this.label14.Font = new System.Drawing.Font("Trebuchet MS", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(12, 9);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(257, 27);
+            this.label14.Size = new System.Drawing.Size(255, 27);
             this.label14.TabIndex = 204;
             this.label14.Text = "Fee Deposit For Session";
             // 
@@ -523,7 +529,7 @@
             // 
             this.txtPreviousBal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPreviousBal.ForeColor = System.Drawing.Color.Blue;
-            this.txtPreviousBal.Location = new System.Drawing.Point(152, 303);
+            this.txtPreviousBal.Location = new System.Drawing.Point(152, 335);
             this.txtPreviousBal.Name = "txtPreviousBal";
             this.txtPreviousBal.ReadOnly = true;
             this.txtPreviousBal.Size = new System.Drawing.Size(111, 27);
@@ -534,7 +540,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Trebuchet MS", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(9, 305);
+            this.label15.Location = new System.Drawing.Point(9, 337);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(140, 20);
             this.label15.TabIndex = 207;
@@ -544,7 +550,8 @@
             // 
             this.txtMisc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMisc.ForeColor = System.Drawing.Color.Blue;
-            this.txtMisc.Location = new System.Drawing.Point(414, 304);
+            this.txtMisc.Location = new System.Drawing.Point(414, 336);
+            this.txtMisc.Multiline = false;
             this.txtMisc.Name = "txtMisc";
             this.txtMisc.Size = new System.Drawing.Size(111, 27);
             this.txtMisc.TabIndex = 1;
@@ -556,9 +563,9 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Trebuchet MS", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(265, 307);
+            this.label16.Location = new System.Drawing.Point(265, 339);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(147, 20);
+            this.label16.Size = new System.Drawing.Size(146, 20);
             this.label16.TabIndex = 209;
             this.label16.Text = "Fine/Misc Amount :";
             // 
@@ -566,10 +573,11 @@
             // 
             this.txtBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBalance.ForeColor = System.Drawing.Color.Blue;
-            this.txtBalance.Location = new System.Drawing.Point(414, 340);
+            this.txtBalance.Location = new System.Drawing.Point(644, 373);
+            this.txtBalance.Multiline = false;
             this.txtBalance.Name = "txtBalance";
             this.txtBalance.ReadOnly = true;
-            this.txtBalance.Size = new System.Drawing.Size(111, 27);
+            this.txtBalance.Size = new System.Drawing.Size(124, 27);
             this.txtBalance.TabIndex = 216;
             this.txtBalance.Text = "0.00";
             // 
@@ -577,7 +585,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Trebuchet MS", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(265, 343);
+            this.label17.Location = new System.Drawing.Point(528, 376);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(75, 20);
             this.label17.TabIndex = 215;
@@ -587,7 +595,8 @@
             // 
             this.txtPaidAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPaidAmount.ForeColor = System.Drawing.Color.Blue;
-            this.txtPaidAmount.Location = new System.Drawing.Point(150, 340);
+            this.txtPaidAmount.Location = new System.Drawing.Point(413, 373);
+            this.txtPaidAmount.Multiline = false;
             this.txtPaidAmount.Name = "txtPaidAmount";
             this.txtPaidAmount.Size = new System.Drawing.Size(113, 27);
             this.txtPaidAmount.TabIndex = 2;
@@ -599,9 +608,9 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Trebuchet MS", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(9, 343);
+            this.label18.Location = new System.Drawing.Point(272, 376);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(110, 20);
+            this.label18.Size = new System.Drawing.Size(108, 20);
             this.label18.TabIndex = 213;
             this.label18.Text = "Paid Amount :";
             // 
@@ -609,9 +618,9 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Trebuchet MS", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(528, 343);
+            this.label19.Location = new System.Drawing.Point(528, 421);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(122, 20);
+            this.label19.Size = new System.Drawing.Size(120, 20);
             this.label19.TabIndex = 211;
             this.label19.Text = "Payment Type :";
             // 
@@ -625,7 +634,7 @@
             "Paytm",
             "Credit / Debit Card",
             "Bank Transfer"});
-            this.ddlPaymentType.Location = new System.Drawing.Point(645, 343);
+            this.ddlPaymentType.Location = new System.Drawing.Point(645, 421);
             this.ddlPaymentType.Name = "ddlPaymentType";
             this.ddlPaymentType.Size = new System.Drawing.Size(125, 21);
             this.ddlPaymentType.TabIndex = 3;
@@ -637,7 +646,7 @@
             // 
             this.lblReceiptNo.AutoSize = true;
             this.lblReceiptNo.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReceiptNo.Location = new System.Drawing.Point(147, 382);
+            this.lblReceiptNo.Location = new System.Drawing.Point(147, 425);
             this.lblReceiptNo.Name = "lblReceiptNo";
             this.lblReceiptNo.Size = new System.Drawing.Size(176, 18);
             this.lblReceiptNo.TabIndex = 218;
@@ -645,7 +654,7 @@
             // 
             // txtSiblingNo
             // 
-            this.txtSiblingNo.Location = new System.Drawing.Point(690, 9);
+            this.txtSiblingNo.Location = new System.Drawing.Point(681, 9);
             this.txtSiblingNo.Name = "txtSiblingNo";
             this.txtSiblingNo.Size = new System.Drawing.Size(100, 20);
             this.txtSiblingNo.TabIndex = 221;
@@ -688,7 +697,7 @@
             this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button10.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button10.Location = new System.Drawing.Point(338, 418);
+            this.button10.Location = new System.Drawing.Point(338, 520);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(75, 33);
             this.button10.TabIndex = 203;
@@ -704,7 +713,7 @@
             this.buttonPrint.Enabled = false;
             this.buttonPrint.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPrint.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonPrint.Location = new System.Drawing.Point(265, 418);
+            this.buttonPrint.Location = new System.Drawing.Point(265, 520);
             this.buttonPrint.Name = "buttonPrint";
             this.buttonPrint.Size = new System.Drawing.Size(75, 33);
             this.buttonPrint.TabIndex = 200;
@@ -719,7 +728,7 @@
             this.btn_Save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Save.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Save.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Save.Location = new System.Drawing.Point(191, 418);
+            this.btn_Save.Location = new System.Drawing.Point(191, 520);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(75, 33);
             this.btn_Save.TabIndex = 199;
@@ -743,7 +752,7 @@
             this.grpChequeDetail.Controls.Add(this.ChqNumber);
             this.grpChequeDetail.Controls.Add(this.txtBankName);
             this.grpChequeDetail.Controls.Add(this.txtChequeNumber);
-            this.grpChequeDetail.Location = new System.Drawing.Point(490, 373);
+            this.grpChequeDetail.Location = new System.Drawing.Point(490, 450);
             this.grpChequeDetail.Name = "grpChequeDetail";
             this.grpChequeDetail.Size = new System.Drawing.Size(291, 124);
             this.grpChequeDetail.TabIndex = 223;
@@ -841,17 +850,72 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(10, 382);
+            this.label22.Location = new System.Drawing.Point(10, 425);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(106, 18);
             this.label22.TabIndex = 227;
             this.label22.Text = "Receipt Number :";
             // 
+            // txtNote
+            // 
+            this.txtNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNote.ForeColor = System.Drawing.Color.Black;
+            this.txtNote.Location = new System.Drawing.Point(150, 446);
+            this.txtNote.Name = "txtNote";
+            this.txtNote.Size = new System.Drawing.Size(333, 27);
+            this.txtNote.TabIndex = 228;
+            this.txtNote.Text = "";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Trebuchet MS", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(9, 449);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(53, 20);
+            this.label24.TabIndex = 229;
+            this.label24.Text = "Note :";
+            // 
+            // txtMobileNo
+            // 
+            this.txtMobileNo.Location = new System.Drawing.Point(575, 9);
+            this.txtMobileNo.Name = "txtMobileNo";
+            this.txtMobileNo.Size = new System.Drawing.Size(100, 20);
+            this.txtMobileNo.TabIndex = 230;
+            this.txtMobileNo.Visible = false;
+            // 
+            // txtDiscountOnTotal
+            // 
+            this.txtDiscountOnTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiscountOnTotal.ForeColor = System.Drawing.Color.Blue;
+            this.txtDiscountOnTotal.Location = new System.Drawing.Point(152, 376);
+            this.txtDiscountOnTotal.Multiline = false;
+            this.txtDiscountOnTotal.Name = "txtDiscountOnTotal";
+            this.txtDiscountOnTotal.Size = new System.Drawing.Size(111, 27);
+            this.txtDiscountOnTotal.TabIndex = 231;
+            this.txtDiscountOnTotal.Text = "0.00";
+            this.txtDiscountOnTotal.TextChanged += new System.EventHandler(this.txtDiscountOnTotal_TextChanged);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Trebuchet MS", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(63, 379);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(75, 20);
+            this.label25.TabIndex = 232;
+            this.label25.Text = "Discount:";
+            // 
             // FeeDeposit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 511);
+            this.ClientSize = new System.Drawing.Size(901, 575);
+            this.Controls.Add(this.txtDiscountOnTotal);
+            this.Controls.Add(this.label25);
+            this.Controls.Add(this.txtMobileNo);
+            this.Controls.Add(this.txtNote);
+            this.Controls.Add(this.label24);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.txtExaminationFee);
@@ -996,5 +1060,10 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox txtExaminationFee;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.RichTextBox txtNote;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox txtMobileNo;
+        private System.Windows.Forms.RichTextBox txtDiscountOnTotal;
+        private System.Windows.Forms.Label label25;
     }
 }

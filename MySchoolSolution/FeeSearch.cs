@@ -60,6 +60,7 @@ namespace MySchoolSolution
             else if (SearchFor == "Statement")
             {
                 comboClassForStatement.DataSource = CommonFunctions.GetClasses;
+                btnPrintReceipt.Visible = false;
             }
 
             else if (SearchFor == "StudentWiseSearch")
@@ -75,10 +76,19 @@ namespace MySchoolSolution
             AutoCompleteStringCollection MyCollection = new AutoCompleteStringCollection();
             while (dr.Read())
             {
-                MyCollection.Add(dr.GetString(0));
-                txtStudent.AutoCompleteCustomSource = MyCollection;
+                try
+                {
+                    MyCollection.Add(dr.GetString(0));
+                    
+                }
+                catch
+                {
+
+                    
+                }
+               
             }
-           
+            txtStudent.AutoCompleteCustomSource = MyCollection;
 
 
         }
@@ -137,13 +147,14 @@ namespace MySchoolSolution
             ds = SqlHelper.ExecuteDataset(Connection.Connection_string, "DailyFeeCollection", m);
             Reports.FeeReportView fv = new Reports.FeeReportView();
             fv.dataSet = ds;
-            fv.purpose = "Fee Collection for " + Convert.ToDateTime(DateTime.Now).ToShortDateString() + "";
+            fv.purpose = "Fee Collection for date: " + Convert.ToDateTime(DateTime.Now).ToShortDateString() + "";
             fv.Show();
             this.Hide();
         }
 
         private void PrintOverAll_Click(object sender, EventArgs e)
         {
+            ds = SqlHelper.ExecuteDataset(Connection.Connection_string, "SelectAllMonthlyFee");
             Reports.FeeReportView fv = new Reports.FeeReportView();
             fv.dataSet = ds;
             fv.purpose = "Overall fee collection";

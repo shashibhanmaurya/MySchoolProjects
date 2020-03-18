@@ -70,13 +70,14 @@
             this.label14 = new System.Windows.Forms.Label();
             this.txtClass = new System.Windows.Forms.TextBox();
             this.lblUname = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(15, 200);
+            this.label12.Location = new System.Drawing.Point(15, 226);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(93, 18);
             this.label12.TabIndex = 40;
@@ -86,7 +87,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(15, 152);
+            this.label11.Location = new System.Drawing.Point(15, 178);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(100, 18);
             this.label11.TabIndex = 39;
@@ -96,7 +97,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(15, 104);
+            this.label10.Location = new System.Drawing.Point(15, 130);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(106, 18);
             this.label10.TabIndex = 38;
@@ -106,9 +107,9 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(15, 224);
+            this.label7.Location = new System.Drawing.Point(15, 250);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(94, 18);
+            this.label7.Size = new System.Drawing.Size(93, 18);
             this.label7.TabIndex = 37;
             this.label7.Text = "Transport Fee :";
             // 
@@ -116,9 +117,9 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(15, 176);
+            this.label6.Location = new System.Drawing.Point(15, 202);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 18);
+            this.label6.Size = new System.Drawing.Size(74, 18);
             this.label6.TabIndex = 36;
             this.label6.Text = "Tution Fee :";
             // 
@@ -126,7 +127,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(15, 128);
+            this.label5.Location = new System.Drawing.Point(15, 154);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(93, 18);
             this.label5.TabIndex = 35;
@@ -135,7 +136,7 @@
             // txtTransportFee
             // 
             this.txtTransportFee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTransportFee.Location = new System.Drawing.Point(144, 221);
+            this.txtTransportFee.Location = new System.Drawing.Point(144, 247);
             this.txtTransportFee.Name = "txtTransportFee";
             this.txtTransportFee.Size = new System.Drawing.Size(94, 21);
             this.txtTransportFee.TabIndex = 34;
@@ -146,7 +147,7 @@
             // txtQuarterlyFee
             // 
             this.txtQuarterlyFee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuarterlyFee.Location = new System.Drawing.Point(144, 197);
+            this.txtQuarterlyFee.Location = new System.Drawing.Point(144, 223);
             this.txtQuarterlyFee.Name = "txtQuarterlyFee";
             this.txtQuarterlyFee.Size = new System.Drawing.Size(94, 21);
             this.txtQuarterlyFee.TabIndex = 33;
@@ -157,7 +158,7 @@
             // txtTutionFee
             // 
             this.txtTutionFee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTutionFee.Location = new System.Drawing.Point(144, 173);
+            this.txtTutionFee.Location = new System.Drawing.Point(144, 199);
             this.txtTutionFee.Name = "txtTutionFee";
             this.txtTutionFee.Size = new System.Drawing.Size(94, 21);
             this.txtTutionFee.TabIndex = 32;
@@ -168,7 +169,7 @@
             // txtAnnualCharges
             // 
             this.txtAnnualCharges.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAnnualCharges.Location = new System.Drawing.Point(144, 149);
+            this.txtAnnualCharges.Location = new System.Drawing.Point(144, 175);
             this.txtAnnualCharges.Name = "txtAnnualCharges";
             this.txtAnnualCharges.Size = new System.Drawing.Size(94, 21);
             this.txtAnnualCharges.TabIndex = 31;
@@ -181,7 +182,7 @@
             this.txtAdmissionFee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAdmissionFee.HideSelection = false;
             this.txtAdmissionFee.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtAdmissionFee.Location = new System.Drawing.Point(144, 125);
+            this.txtAdmissionFee.Location = new System.Drawing.Point(144, 151);
             this.txtAdmissionFee.Name = "txtAdmissionFee";
             this.txtAdmissionFee.Size = new System.Drawing.Size(94, 21);
             this.txtAdmissionFee.TabIndex = 30;
@@ -192,7 +193,7 @@
             // txtRegistrationFee
             // 
             this.txtRegistrationFee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRegistrationFee.Location = new System.Drawing.Point(144, 101);
+            this.txtRegistrationFee.Location = new System.Drawing.Point(144, 127);
             this.txtRegistrationFee.Name = "txtRegistrationFee";
             this.txtRegistrationFee.Size = new System.Drawing.Size(94, 21);
             this.txtRegistrationFee.TabIndex = 29;
@@ -263,7 +264,7 @@
             // txtTransportFeeDisc
             // 
             this.txtTransportFeeDisc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTransportFeeDisc.Location = new System.Drawing.Point(265, 221);
+            this.txtTransportFeeDisc.Location = new System.Drawing.Point(265, 247);
             this.txtTransportFeeDisc.Name = "txtTransportFeeDisc";
             this.txtTransportFeeDisc.Size = new System.Drawing.Size(94, 21);
             this.txtTransportFeeDisc.TabIndex = 53;
@@ -274,7 +275,7 @@
             // txtQuarterlyFeeDisc
             // 
             this.txtQuarterlyFeeDisc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuarterlyFeeDisc.Location = new System.Drawing.Point(265, 197);
+            this.txtQuarterlyFeeDisc.Location = new System.Drawing.Point(265, 223);
             this.txtQuarterlyFeeDisc.Name = "txtQuarterlyFeeDisc";
             this.txtQuarterlyFeeDisc.Size = new System.Drawing.Size(94, 21);
             this.txtQuarterlyFeeDisc.TabIndex = 52;
@@ -285,7 +286,7 @@
             // txtTutionFeeDisc
             // 
             this.txtTutionFeeDisc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTutionFeeDisc.Location = new System.Drawing.Point(265, 173);
+            this.txtTutionFeeDisc.Location = new System.Drawing.Point(265, 199);
             this.txtTutionFeeDisc.Name = "txtTutionFeeDisc";
             this.txtTutionFeeDisc.Size = new System.Drawing.Size(94, 21);
             this.txtTutionFeeDisc.TabIndex = 51;
@@ -296,7 +297,7 @@
             // txtAnnualChargesDisc
             // 
             this.txtAnnualChargesDisc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAnnualChargesDisc.Location = new System.Drawing.Point(265, 149);
+            this.txtAnnualChargesDisc.Location = new System.Drawing.Point(265, 175);
             this.txtAnnualChargesDisc.Name = "txtAnnualChargesDisc";
             this.txtAnnualChargesDisc.Size = new System.Drawing.Size(94, 21);
             this.txtAnnualChargesDisc.TabIndex = 50;
@@ -307,7 +308,7 @@
             // txtAdmissionFeeDisc
             // 
             this.txtAdmissionFeeDisc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAdmissionFeeDisc.Location = new System.Drawing.Point(265, 125);
+            this.txtAdmissionFeeDisc.Location = new System.Drawing.Point(265, 151);
             this.txtAdmissionFeeDisc.Name = "txtAdmissionFeeDisc";
             this.txtAdmissionFeeDisc.Size = new System.Drawing.Size(94, 21);
             this.txtAdmissionFeeDisc.TabIndex = 49;
@@ -318,7 +319,7 @@
             // txtRegistrationFeeDisc
             // 
             this.txtRegistrationFeeDisc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRegistrationFeeDisc.Location = new System.Drawing.Point(265, 101);
+            this.txtRegistrationFeeDisc.Location = new System.Drawing.Point(265, 127);
             this.txtRegistrationFeeDisc.Name = "txtRegistrationFeeDisc";
             this.txtRegistrationFeeDisc.Size = new System.Drawing.Size(94, 21);
             this.txtRegistrationFeeDisc.TabIndex = 48;
@@ -331,7 +332,7 @@
             this.txtTransportFeeAct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.txtTransportFeeAct.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTransportFeeAct.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtTransportFeeAct.Location = new System.Drawing.Point(387, 221);
+            this.txtTransportFeeAct.Location = new System.Drawing.Point(387, 247);
             this.txtTransportFeeAct.Name = "txtTransportFeeAct";
             this.txtTransportFeeAct.ReadOnly = true;
             this.txtTransportFeeAct.Size = new System.Drawing.Size(111, 21);
@@ -344,7 +345,7 @@
             this.txtQuarterlyFeeAct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.txtQuarterlyFeeAct.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuarterlyFeeAct.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtQuarterlyFeeAct.Location = new System.Drawing.Point(387, 197);
+            this.txtQuarterlyFeeAct.Location = new System.Drawing.Point(387, 223);
             this.txtQuarterlyFeeAct.Name = "txtQuarterlyFeeAct";
             this.txtQuarterlyFeeAct.ReadOnly = true;
             this.txtQuarterlyFeeAct.Size = new System.Drawing.Size(111, 21);
@@ -357,7 +358,7 @@
             this.txtTutionFeeAct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.txtTutionFeeAct.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTutionFeeAct.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtTutionFeeAct.Location = new System.Drawing.Point(387, 173);
+            this.txtTutionFeeAct.Location = new System.Drawing.Point(387, 199);
             this.txtTutionFeeAct.Name = "txtTutionFeeAct";
             this.txtTutionFeeAct.ReadOnly = true;
             this.txtTutionFeeAct.Size = new System.Drawing.Size(111, 21);
@@ -370,7 +371,7 @@
             this.txtAnnualChargesAct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.txtAnnualChargesAct.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAnnualChargesAct.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtAnnualChargesAct.Location = new System.Drawing.Point(387, 149);
+            this.txtAnnualChargesAct.Location = new System.Drawing.Point(387, 175);
             this.txtAnnualChargesAct.Name = "txtAnnualChargesAct";
             this.txtAnnualChargesAct.ReadOnly = true;
             this.txtAnnualChargesAct.Size = new System.Drawing.Size(111, 21);
@@ -383,7 +384,7 @@
             this.txtAdmissionFeeAct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.txtAdmissionFeeAct.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAdmissionFeeAct.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtAdmissionFeeAct.Location = new System.Drawing.Point(387, 125);
+            this.txtAdmissionFeeAct.Location = new System.Drawing.Point(387, 151);
             this.txtAdmissionFeeAct.Name = "txtAdmissionFeeAct";
             this.txtAdmissionFeeAct.ReadOnly = true;
             this.txtAdmissionFeeAct.Size = new System.Drawing.Size(111, 21);
@@ -396,7 +397,7 @@
             this.txtRegistrationFeeAct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.txtRegistrationFeeAct.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRegistrationFeeAct.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtRegistrationFeeAct.Location = new System.Drawing.Point(387, 101);
+            this.txtRegistrationFeeAct.Location = new System.Drawing.Point(387, 127);
             this.txtRegistrationFeeAct.Name = "txtRegistrationFeeAct";
             this.txtRegistrationFeeAct.ReadOnly = true;
             this.txtRegistrationFeeAct.Size = new System.Drawing.Size(111, 21);
@@ -408,9 +409,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(141, 80);
+            this.label4.Location = new System.Drawing.Point(141, 106);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(117, 18);
+            this.label4.Size = new System.Drawing.Size(116, 18);
             this.label4.TabIndex = 60;
             this.label4.Text = "Structure Amount :";
             // 
@@ -418,9 +419,9 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(262, 80);
+            this.label8.Location = new System.Drawing.Point(262, 106);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(113, 18);
+            this.label8.Size = new System.Drawing.Size(112, 18);
             this.label8.TabIndex = 61;
             this.label8.Text = "Discount Amount :";
             // 
@@ -428,9 +429,9 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(384, 80);
+            this.label9.Location = new System.Drawing.Point(384, 106);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(100, 18);
+            this.label9.Size = new System.Drawing.Size(99, 18);
             this.label9.TabIndex = 62;
             this.label9.Text = "Actual Amount :";
             // 
@@ -438,9 +439,9 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Trebuchet MS", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(272, 261);
+            this.label13.Location = new System.Drawing.Point(272, 287);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(115, 20);
+            this.label13.Size = new System.Drawing.Size(112, 20);
             this.label13.TabIndex = 63;
             this.label13.Text = "Total Amount :";
             // 
@@ -448,7 +449,7 @@
             // 
             this.txtTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalAmount.ForeColor = System.Drawing.Color.Blue;
-            this.txtTotalAmount.Location = new System.Drawing.Point(387, 259);
+            this.txtTotalAmount.Location = new System.Drawing.Point(387, 285);
             this.txtTotalAmount.Name = "txtTotalAmount";
             this.txtTotalAmount.ReadOnly = true;
             this.txtTotalAmount.Size = new System.Drawing.Size(111, 27);
@@ -461,7 +462,7 @@
             this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button10.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button10.Location = new System.Drawing.Point(516, 312);
+            this.button10.Location = new System.Drawing.Point(516, 338);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(75, 33);
             this.button10.TabIndex = 156;
@@ -476,7 +477,7 @@
             this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button7.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button7.Location = new System.Drawing.Point(444, 312);
+            this.button7.Location = new System.Drawing.Point(444, 338);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 33);
             this.button7.TabIndex = 153;
@@ -490,7 +491,7 @@
             this.btn_Save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Save.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Save.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Save.Location = new System.Drawing.Point(370, 312);
+            this.btn_Save.Location = new System.Drawing.Point(370, 338);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(75, 33);
             this.btn_Save.TabIndex = 152;
@@ -515,7 +516,7 @@
             this.label14.Font = new System.Drawing.Font("Trebuchet MS", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(13, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(340, 27);
+            this.label14.Size = new System.Drawing.Size(338, 27);
             this.label14.TabIndex = 206;
             this.label14.Text = "Fee Structure Entry For Session";
             // 
@@ -533,19 +534,35 @@
             // 
             this.lblUname.AutoSize = true;
             this.lblUname.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUname.Location = new System.Drawing.Point(606, 261);
+            this.lblUname.Location = new System.Drawing.Point(606, 287);
             this.lblUname.Name = "lblUname";
             this.lblUname.Size = new System.Drawing.Size(67, 18);
             this.lblUname.TabIndex = 209;
             this.lblUname.Text = "User Name";
             this.lblUname.Visible = false;
             // 
+            // btnSearch
+            // 
+            this.btnSearch.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
+            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSearch.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSearch.Location = new System.Drawing.Point(103, 69);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(86, 24);
+            this.btnSearch.TabIndex = 220;
+            this.btnSearch.Text = "Search?";
+            this.btnSearch.UseCompatibleTextRendering = true;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // YearlyFeeEntry
             // 
             this.AcceptButton = this.btn_Save;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 375);
+            this.ClientSize = new System.Drawing.Size(774, 431);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.lblUname);
             this.Controls.Add(this.txtClass);
             this.Controls.Add(this.lblSession);
@@ -640,5 +657,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtClass;
         private System.Windows.Forms.Label lblUname;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

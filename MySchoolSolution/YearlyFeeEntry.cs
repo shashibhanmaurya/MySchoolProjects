@@ -657,7 +657,12 @@ namespace MySchoolSolution
                 e.Handled = true;
         }
 
-
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            SearchStudentForYearlyFeeStructure ss = new SearchStudentForYearlyFeeStructure();
+            ss.Show();
+            this.Close();
+        }
     }
 }
 

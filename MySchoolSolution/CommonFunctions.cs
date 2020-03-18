@@ -8,6 +8,7 @@ using System.Net.Configuration;
 using System.ComponentModel;
 using System.Text.RegularExpressions;
 using System.IO;
+using System.Diagnostics;
 
 namespace MySchoolSolution
 {
@@ -19,7 +20,7 @@ namespace MySchoolSolution
         public static string UserName { get; set; }
         public static string AdminEmailAddress = "info@aarshapublicschool.com";
         public static string ccEmailAddress = "vatssusheel@gmail.com";
-        public static string adminMobile = "919811579129";
+        public static string adminMobile = "9811579129";//9811579129"9953624768";
         public CommonFunctions()
         {
             //
@@ -32,50 +33,56 @@ namespace MySchoolSolution
             try
             {
 
-            string date = DateTime.Now.ToLongDateString();
-            String time = DateTime.Now.ToShortTimeString();
-            char[] t = { ':' };
-            string str = "";
-            string[] s = time.Split(t);
+                string date = DateTime.Now.ToLongDateString();
+                String time = DateTime.Now.ToShortTimeString();
+                char[] t = { ':' };
+                string str = "";
+                string[] s = time.Split(t);
 
-            for (int i = 0; i < s.Length; i++)
-            {
-                str = str + s[i] + ",";
-            }
-            String FolderName = "Backup/" + date + " " + str + "SchoolManagement.bak";
+                for (int i = 0; i < s.Length; i++)
+                {
+                    str = str + s[i] + ",";
+                }
+                String BackupFileName = "Backup/" + date + " " + str + "SchoolManagement.bak";
 
-            DirectoryInfo dri = Directory.CreateDirectory("D:/Backup");
-            if (dri.Exists)
-            {
-                Connection obj = new Connection();
-                SqlConnection con = Connection.Connection_string;
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "BACKUP DATABASE [SchoolManagement] TO  DISK = N'D:/" + FolderName + "' WITH NOFORMAT, NOINIT,  NAME = N'Aarsha-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
-                cmd.Connection = con;
-                con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
-                //MessageBox.Show("Your backup has been taken on Location D:/" + FolderName + "");
-            }
-            else
-            {
-                DirectoryInfo dri1 = Directory.CreateDirectory("E:/Backup");
-                Connection obj = new Connection();
-                SqlConnection con = Connection.Connection_string;
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "BACKUP DATABASE [SchoolManagement] TO  DISK = N'E:/" + FolderName + "' WITH NOFORMAT, NOINIT,  NAME = N'Aarsha-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
-                cmd.Connection = con;
-                con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
-               // MessageBox.Show("Your backup has been taken on Location E:/" + FolderName + "");
-            }
+                DirectoryInfo dri = Directory.CreateDirectory("D:/Backup");
+                if (dri.Exists)
+                {
+                    Process p = new Process();
+                    p.StartInfo.FileName = "D:\\Backup\\Bakup.cmd";
+                    p.StartInfo.UseShellExecute = false;
+                   // p.CloseMainWindow();
+                    p.Start();
+                    //Connection obj = new Connection();
+                    //SqlConnection con = Connection.Connection_string;
+                    //SqlCommand cmd = new SqlCommand();
+                    //cmd.CommandText = "BACKUP DATABASE [SchoolManagement] TO  DISK = N'D:/" + BackupFileName + "' WITH NOFORMAT, NOINIT,  NAME = N'Aarsha-Full Database Backup', SKIP, NOREWIND, NOUNLOAD";
+                    //cmd.Connection = con;
+                    //cmd.CommandTimeout = 200;
+                    //con.Open();
+                    //cmd.ExecuteNonQuery();
+                    //con.Close();
+                    //MessageBox.Show("Your backup has been taken on Location D:/" + FolderName + "");
+                }
+                else
+                {
+                    DirectoryInfo dri1 = Directory.CreateDirectory("E:/Backup");
+                    Connection obj = new Connection();
+                    SqlConnection con = Connection.Connection_string;
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.CommandText = "BACKUP DATABASE [SchoolManagement] TO  DISK = N'E:/" + BackupFileName + "' WITH NOFORMAT, NOINIT,  NAME = N'Aarsha-Full Database Backup', SKIP, NOREWIND, NOUNLOAD";
+                    cmd.Connection = con;
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    // MessageBox.Show("Your backup has been taken on Location E:/" + FolderName + "");
+                }
 
             }
             catch (Exception ex)
             {
 
-                ShowError(ex.Message+" backup failed!");
+                ShowError(ex.Message + " backup failed!");
             }
         }
         public static bool NumericValidate(string value)
@@ -90,16 +97,18 @@ namespace MySchoolSolution
         {
             try
             {
+                if (mobile.Length == 10 || mobile.Length == 11)
+                {
 
+                    WebClient webClient = new WebClient();
+                    //  curl "https://platform.clickatell.com/messages/http/send?apiKey=tQviGfziTJqq1ty9hjm2-Q==&to=919953624768&content=Test+message+text"
 
-                WebClient webClient = new WebClient();
-                //  curl "https://platform.clickatell.com/messages/http/send?apiKey=tQviGfziTJqq1ty9hjm2-Q==&to=919953624768&content=Test+message+text"
-
-                string baseURL = "https://platform.clickatell.com/messages/http/send?apiKey=gG8EJQz8SOGfguUQtj4vKA==&to=919811579129&content=" + message + "";
-                string baseURL1 = "https://platform.clickatell.com/messages/http/send?apiKey=tQviGfziTJqq1ty9hjm2-Q==&to=919811579129&content=" + message + "";
-                webClient.OpenRead(baseURL);
-                webClient.OpenRead(baseURL);
+                    string baseURL = "http://trans.csswebworld.com/api/web2sms.php?workingkey=A024ceb8b778ae5214b47f6ad7f0b8efe&sender=AARSHA&to=" + mobile + "&message=" + message + "";
+                    //string baseURL1 = "https://platform.clickatell.com/messages/http/send?apiKey=tQviGfziTJqq1ty9hjm2-Q==&to=919811579129&content=" + message + "";
+                    webClient.OpenRead(baseURL);
+                    // webClient.OpenRead(baseURL);
                 }
+            }
             catch
             {
                 CommonFunctions.ShowError("SMS could not be send!");

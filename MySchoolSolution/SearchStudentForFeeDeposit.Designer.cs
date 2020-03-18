@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtStudentName = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnPrint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gvStudents)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -115,11 +116,27 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             // 
+            // btnPrint
+            // 
+            this.btnPrint.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
+            this.btnPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPrint.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnPrint.Location = new System.Drawing.Point(543, 100);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(75, 33);
+            this.btnPrint.TabIndex = 144;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseCompatibleTextRendering = true;
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // SearchStudentForFeeDeposit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(716, 495);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gvStudents);
             this.Name = "SearchStudentForFeeDeposit";
@@ -142,5 +159,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtStudentName;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnPrint;
     }
 }

@@ -39,6 +39,7 @@
             this.ProfitLossView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProfitLossView.Location = new System.Drawing.Point(0, 0);
             this.ProfitLossView.Name = "ProfitLossView";
+            this.ProfitLossView.ShowGroupTreeButton = false;
             this.ProfitLossView.Size = new System.Drawing.Size(284, 262);
             this.ProfitLossView.TabIndex = 0;
             // 

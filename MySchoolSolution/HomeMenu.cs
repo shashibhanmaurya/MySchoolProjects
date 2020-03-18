@@ -76,7 +76,29 @@ namespace MySchoolSolution
             EmployeeEntry ne = new EmployeeEntry();
             ne.Show();
         }
+        public void EnableSubMenu(ToolStripItemCollection dropDownItems, string[] allowedMenuItems)
+        {
+            foreach (object obj in dropDownItems)
+            //for each object.
+            {
+                ToolStripMenuItem subMenu = obj as ToolStripMenuItem;
+                //Try cast to ToolStripMenuItem as it could be toolstrip separator as well.
 
+                if (subMenu != null && allowedMenuItems.Contains(subMenu.Name))
+                //if we get the desired object type.
+                {
+
+                    subMenu.Enabled = true;
+                    if (subMenu.HasDropDownItems) // if subMenu has children
+                    {
+                        EnableSubMenu(subMenu.DropDownItems, allowedMenuItems); // Call recursive Method.
+                    }
+
+                }
+            }
+
+
+        }
         private void HomeMenu_Load(object sender, EventArgs e)
         {
 
@@ -91,7 +113,19 @@ namespace MySchoolSolution
                 string[] allowedMenuItems = AllowedMenu.Split(',');
                 foreach (string allowedMenuItem in allowedMenuItems)
                 {
-                    menuStrip1.Items[allowedMenuItem].Enabled = true; ;
+                    if (menuStrip1.Items[allowedMenuItem] != null)
+                    {
+                        menuStrip1.Items[allowedMenuItem].Enabled = true;
+                        foreach (ToolStripMenuItem toolItem in menuStrip1.Items)
+                        {
+                            if (toolItem.HasDropDownItems)
+                            {
+                                EnableSubMenu(toolItem.DropDownItems, allowedMenuItems);
+                            }
+                        }
+                    }
+
+
                 }
 
                 //foreach (ToolStripMenuItem toolItem in menuStrip1.Items)
@@ -113,6 +147,36 @@ namespace MySchoolSolution
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CommonFunctions.SaveBackup();
+            string session = CommonFunctions.GetCurrentSession;
+            SqlConnection con = new SqlConnection(Connection.Connection_string.ConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "select SUM(PaidAmount) as TotalCollection from tbl_Student_MonthlyFeeDeposit where Session='" + session + "'and convert(DATE,CreateDate)='"+DateTime.Now.Date+"' ";
+            cmd.Connection = con;
+            con.Open();
+            string total = string.IsNullOrEmpty(Convert.ToString(cmd.ExecuteScalar())) ? "0" : Convert.ToString(cmd.ExecuteScalar());
+
+
+            cmd.CommandText = "select SUM(PaidAmount) as TotalCollection from tbl_Student_MonthlyFeeDeposit where Session='" + session + "'and PaymentType='Cash' and convert(DATE,CreateDate)='" + DateTime.Now.Date + "' ";
+            string cash = string.IsNullOrEmpty(Convert.ToString(cmd.ExecuteScalar())) ? "0" : Convert.ToString(cmd.ExecuteScalar());
+
+
+            cmd.CommandText = "select SUM(PaidAmount) as TotalCollection from tbl_Student_MonthlyFeeDeposit where Session='" + session + "'and PaymentType='Cheque' and convert(DATE,CreateDate)='" + DateTime.Now.Date + "' ";
+            string cheque = string.IsNullOrEmpty(Convert.ToString(cmd.ExecuteScalar())) ? "0" : Convert.ToString(cmd.ExecuteScalar());
+
+
+            cmd.CommandText = "select SUM(PaidAmount) as TotalCollection from tbl_Student_MonthlyFeeDeposit where Session='" + session + "'and PaymentType='Paytm' and convert(DATE,CreateDate)='" + DateTime.Now.Date + "' ";
+            string paytm = string.IsNullOrEmpty(Convert.ToString(cmd.ExecuteScalar())) ? "0" : Convert.ToString(cmd.ExecuteScalar());
+
+
+            cmd.CommandText = "select SUM(PaidAmount) as TotalCollection from tbl_Student_MonthlyFeeDeposit where Session='" + session + "'and PaymentType='Credit / Debit Card' and convert(DATE,CreateDate)='" + DateTime.Now.Date + "' ";
+            string card = string.IsNullOrEmpty(Convert.ToString(cmd.ExecuteScalar())) ? "0" : Convert.ToString(cmd.ExecuteScalar());
+
+
+            cmd.CommandText = "select SUM(PaidAmount) as TotalCollection from tbl_Student_MonthlyFeeDeposit where Session='" + session + "'and PaymentType='Bank Transfer' and convert(DATE,CreateDate)='" + DateTime.Now.Date + "' ";
+            string bankTransfer = string.IsNullOrEmpty(Convert.ToString(cmd.ExecuteScalar())) ? "0" : Convert.ToString(cmd.ExecuteScalar());
+            con.Close();
+            CommonFunctions.SendSMS(CommonFunctions.adminMobile, "User " + lblUserName.Text.Replace("Welcome ", "") + " logged out at " + DateTime.Now.ToString() + ", Total Collection: " + total + ", Cash: " + cash + ", Cheque: " + cheque + ", PayTM: " + paytm + ", Card: " + card + ", Bank Transfer: " + bankTransfer + "");
+
             Application.Exit();
 
         }
@@ -341,7 +405,7 @@ namespace MySchoolSolution
 
         private void HomeMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            CommonFunctions.SaveBackup();
+           // CommonFunctions.SaveBackup();
         }
 
         private void modifyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -403,6 +467,44 @@ namespace MySchoolSolution
         {
             CollectionAndExpances ce = new CollectionAndExpances();
             ce.Show();
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FeeDeposit fd = new FeeDeposit();
+            fd.Show();
+        }
+
+        private void editToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            FeeEdit fe = new FeeEdit();
+            fe.Show();
+        }
+
+        private void feeReportWithDueAmountToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FeeStatementByMonthAndClassForASession fs = new FeeStatementByMonthAndClassForASession();
+            fs.Show();
+        }
+
+        private void tutionFeeCertificateMenuItem_Click(object sender, EventArgs e)
+        {
+            Certificates ss = new Certificates();
+            Control[] ctrl = ss.Controls.Find("GrpCertificate", true);
+            GroupBox GrpCertificate = ctrl.FirstOrDefault() as GroupBox;
+            GrpCertificate.Text="Fee Certificate";
+           // ss.SearchFor = "Statement";
+            ss.Show();
+        }
+
+        private void birthCertificateMenuItem_Click(object sender, EventArgs e)
+        {
+            Certificates ss = new Certificates();
+            Control[] ctrl = ss.Controls.Find("GrpCertificate", true);
+            GroupBox GrpCertificate = ctrl.FirstOrDefault() as GroupBox;
+            GrpCertificate.Text = "Birth Certificate";
+            // ss.SearchFor = "Statement";
+            ss.Show();
         }
     }
 }

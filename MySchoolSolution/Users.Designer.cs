@@ -40,6 +40,7 @@
             this.ddlUsers = new System.Windows.Forms.ComboBox();
             this.btn_Exit = new System.Windows.Forms.Button();
             this.lblSelectUser = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gvMenu)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,7 +66,7 @@
             this.User_Insert.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.User_Insert.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.User_Insert.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.User_Insert.Location = new System.Drawing.Point(229, 378);
+            this.User_Insert.Location = new System.Drawing.Point(145, 378);
             this.User_Insert.Name = "User_Insert";
             this.User_Insert.Size = new System.Drawing.Size(94, 33);
             this.User_Insert.TabIndex = 3;
@@ -140,7 +141,7 @@
             this.btn_Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Exit.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Exit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Exit.Location = new System.Drawing.Point(329, 378);
+            this.btn_Exit.Location = new System.Drawing.Point(245, 378);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(97, 33);
             this.btn_Exit.TabIndex = 160;
@@ -159,12 +160,29 @@
             this.lblSelectUser.Text = "Select User :";
             this.lblSelectUser.Visible = false;
             // 
+            // btnDelete
+            // 
+            this.btnDelete.BackgroundImage = global::MySchoolSolution.Properties.Resources.patient_midbg2;
+            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDelete.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDelete.Location = new System.Drawing.Point(348, 378);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(94, 33);
+            this.btnDelete.TabIndex = 162;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseCompatibleTextRendering = true;
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // Users
             // 
             this.AcceptButton = this.User_Insert;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(618, 441);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.lblSelectUser);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.ddlUsers);
@@ -199,5 +217,6 @@
         private System.Windows.Forms.ComboBox ddlUsers;
         private System.Windows.Forms.Button btn_Exit;
         private System.Windows.Forms.Label lblSelectUser;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

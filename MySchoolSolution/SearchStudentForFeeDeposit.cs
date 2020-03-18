@@ -12,6 +12,7 @@ namespace MySchoolSolution
 {
     public partial class SearchStudentForFeeDeposit : Form
     {
+        DataSet ds = new DataSet();
         public SearchStudentForFeeDeposit()
         {
             InitializeComponent();
@@ -70,6 +71,19 @@ namespace MySchoolSolution
         private void comboClass_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            SqlParameter[] m = new SqlParameter[2];
+            m[0] = new SqlParameter("@Class", comboClass.Text);
+            m[1] = new SqlParameter("@Session", lblSession.Text);
+            DataSet ds = SqlHelper.ExecuteDataset(Connection.Connection_string, "StudentInfo_SearchForClass", m);
+            
+            Reports.ClassWiseView st = new Reports.ClassWiseView();
+            st.dataSet = ds;
+            st.Show();
+            this.Hide();
         }
     }
 }

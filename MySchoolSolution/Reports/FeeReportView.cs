@@ -29,6 +29,7 @@ namespace MySchoolSolution.Reports
                 mr.SetDataSource(dataSet.Tables[0]);
                 mr.SetDatabaseLogon("sa", "abc123");
                 crystalReportViewer1.ReportSource = mr;
+               // crystalReportViewer1.PrintReport();
             }
             else
             {

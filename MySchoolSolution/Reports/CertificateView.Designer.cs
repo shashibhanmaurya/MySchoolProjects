@@ -39,17 +39,17 @@
             this.CertificateViewer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CertificateViewer.Location = new System.Drawing.Point(0, 0);
             this.CertificateViewer.Name = "CertificateViewer";
-            this.CertificateViewer.ShowGroupTreeButton = false;
             this.CertificateViewer.Size = new System.Drawing.Size(284, 261);
             this.CertificateViewer.TabIndex = 0;
+            this.CertificateViewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
-            // Certificate
+            // CertificateView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.CertificateViewer);
-            this.Name = "Certificate";
+            this.Name = "CertificateView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Certificate";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

@@ -104,7 +104,7 @@ namespace MySchoolSolution
                     multiplier = 0;
                 }
                 int admNo = Convert.ToInt32(dr["Addmission_Number"]);
-                if (admNo == 102)
+                if (admNo == 577)
                 {
                 }
                 double MiscAmt = 0.0;

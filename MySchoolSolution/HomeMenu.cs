@@ -493,7 +493,7 @@ namespace MySchoolSolution
             Control[] ctrl = ss.Controls.Find("GrpCertificate", true);
             GroupBox GrpCertificate = ctrl.FirstOrDefault() as GroupBox;
             GrpCertificate.Text="Fee Certificate";
-           // ss.SearchFor = "Statement";
+          
             ss.Show();
         }
 
@@ -503,7 +503,7 @@ namespace MySchoolSolution
             Control[] ctrl = ss.Controls.Find("GrpCertificate", true);
             GroupBox GrpCertificate = ctrl.FirstOrDefault() as GroupBox;
             GrpCertificate.Text = "Birth Certificate";
-            // ss.SearchFor = "Statement";
+           
             ss.Show();
         }
     }

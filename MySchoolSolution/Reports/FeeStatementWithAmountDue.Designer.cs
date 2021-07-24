@@ -42,6 +42,7 @@
             this.rvFeeStatement.ShowGroupTreeButton = false;
             this.rvFeeStatement.Size = new System.Drawing.Size(284, 261);
             this.rvFeeStatement.TabIndex = 1;
+            this.rvFeeStatement.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
             // FeeStatementWithAmountDue
             // 

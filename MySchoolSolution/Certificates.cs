@@ -85,7 +85,17 @@ namespace MySchoolSolution
 
             if (GrpCertificate.Text == "Birth Certificate")
             {
+                SqlParameter[] m = new SqlParameter[2];
+                m[0] = new SqlParameter("@AdmissionNo", admissionNo);
+                m[1] = new SqlParameter("@Session", lblSession.Text);
 
+                ds = SqlHelper.ExecuteDataset(Connection.Connection_string, "SelectBirthCertificate", m);
+
+                Reports.CertificateView cv = new Reports.CertificateView();
+                cv.purpose = "BirthCertificate";
+                cv.dataSet = ds;
+                cv.Show();
+                this.Hide();
             }
         }
     }

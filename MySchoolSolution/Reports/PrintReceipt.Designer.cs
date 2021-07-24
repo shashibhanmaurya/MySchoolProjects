@@ -39,9 +39,9 @@
             this.PrintView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PrintView.Location = new System.Drawing.Point(0, 0);
             this.PrintView.Name = "PrintView";
-            this.PrintView.ShowGroupTreeButton = false;
             this.PrintView.Size = new System.Drawing.Size(284, 262);
             this.PrintView.TabIndex = 0;
+            this.PrintView.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
             // PrintReceipt
             // 
